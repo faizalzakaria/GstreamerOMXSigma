@@ -1,0 +1,187 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>filesrc</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.68.1">
+<link rel="start" href="index.html" title="GStreamer Core Plugins 0.10 Plugins Reference Manual">
+<link rel="up" href="ch01.html" title="gstreamer Elements">
+<link rel="prev" href="gstreamer-plugins-fdsrc.html" title="fdsrc">
+<link rel="next" href="gstreamer-plugins-filesink.html" title="filesink">
+<meta name="generator" content="GTK-Doc V1.4 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="gstreamer Elements">
+<link rel="chapter" href="ch02.html" title="gstreamer Plugins">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="gstreamer-plugins-fdsrc.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GStreamer Core Plugins 0.10 Plugins Reference Manual</th>
+<td><a accesskey="n" href="gstreamer-plugins-filesink.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" lang="en">
+<a name="gstreamer-plugins-filesrc"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">filesrc</span></h2>
+<p>filesrc &#8212; read from arbitrary point in a file</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<a name="GstFileSrc"></a><pre class="synopsis">
+
+
+
+            <a href="gstreamer-plugins-filesrc.html#GstFileSrc-struct">GstFileSrc</a>;
+
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2884992"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="/usr/share/gtk-doc/html/gstreamer/GstObject.html"
+>GstObject</a>
+         +----<a
+href="/usr/share/gtk-doc/html/gstreamer/GstElement.html"
+>GstElement</a>
+               +----<a
+href="/usr/share/gtk-doc/html/gstreamer/GstBaseSrc.html"
+>GstBaseSrc</a>
+                     +----GstFileSrc
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2875527"></a><h2>Implemented Interfaces</h2>
+<p>
+GstFileSrc implements
+ <a
+href="/usr/share/gtk-doc/html/gstreamer/gstreamer-GstUriHandler.html#GstURIHandler"
+>GstURIHandler</a>.</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2875544"></a><h2>Properties</h2>
+<pre class="synopsis">
+
+  "<a href="gstreamer-plugins-filesrc.html#GstFileSrc--fd">fd</a>"                   <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                  : Read
+  "<a href="gstreamer-plugins-filesrc.html#GstFileSrc--location">location</a>"             <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray"
+>gchararray</a>            : Read / Write
+  "<a href="gstreamer-plugins-filesrc.html#GstFileSrc--mmapsize">mmapsize</a>"             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write
+  "<a href="gstreamer-plugins-filesrc.html#GstFileSrc--touch">touch</a>"                <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2875604"></a><h2>Description</h2>
+<p>
+Read data from a file in the local file system. The implementation is using
+mmap(2) to read chunks from the file in an efficient way.</p>
+<div class="refsect2" lang="en">
+<a name="id2875620"></a><h3>Element Information</h3>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term">plugin</span></td>
+<td>
+          <a href="gstreamer-plugins-plugin-coreelements.html#plugin-coreelements">coreelements</a>
+        </td>
+</tr>
+<tr>
+<td>
+<span class="term">author</span></td>
+<td>Erik Walthinsen &lt;omega@cse.ogi.edu&gt;</td>
+</tr>
+<tr>
+<td>
+<span class="term">class</span></td>
+<td>Source/File</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2904248"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2904254"></a><h3>
+<a name="GstFileSrc-struct"></a>GstFileSrc</h3>
+<a class="indexterm" name="id2904264"></a><pre class="programlisting">typedef struct _GstFileSrc GstFileSrc;</pre>
+<p>
+Opaque <a href="gstreamer-plugins-filesrc.html#GstFileSrc"><span class="type">GstFileSrc</span></a> structure.</p>
+<p>
+
+</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2904292"></a><h2>Properties</h2>
+<div class="refsect2" lang="en">
+<a name="id2904298"></a><h3>
+<a name="GstFileSrc--fd"></a>The "<code class="literal">fd</code>" property</h3>
+<pre class="programlisting">  "fd"                   <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                  : Read</pre>
+<p>File-descriptor for the file being mmap()d.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2904335"></a><h3>
+<a name="GstFileSrc--location"></a>The "<code class="literal">location</code>" property</h3>
+<pre class="programlisting">  "location"             <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray"
+>gchararray</a>            : Read / Write</pre>
+<p>Location of the file to read.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2895020"></a><h3>
+<a name="GstFileSrc--mmapsize"></a>The "<code class="literal">mmapsize</code>" property</h3>
+<pre class="programlisting">  "mmapsize"             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write</pre>
+<p>Size in bytes of mmap()d regions.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2895049"></a><h3>
+<a name="GstFileSrc--touch"></a>The "<code class="literal">touch</code>" property</h3>
+<pre class="programlisting">  "touch"                <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>Touch data to force disk read.</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2895084"></a><h2>See Also</h2>
+<a href="gstreamer-plugins-filesrc.html#GstFileSrc"><span class="type">GstFileSrc</span></a>
+</div>
+</div>
+<table class="navigation" width="100%" summary="Navigation footer" cellpadding="2" cellspacing="0"><tr valign="middle">
+<td align="left"><a accesskey="p" href="gstreamer-plugins-fdsrc.html"><b>&lt;&lt;&#160;fdsrc</b></a></td>
+<td align="right"><a accesskey="n" href="gstreamer-plugins-filesink.html"><b>filesink&#160;&gt;&gt;</b></a></td>
+</tr></table>
+</body>
+</html>

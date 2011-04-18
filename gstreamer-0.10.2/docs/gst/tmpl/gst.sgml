@@ -1,0 +1,73 @@
+<!-- ##### SECTION Title ##### -->
+Gst
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### FUNCTION gst_init ##### -->
+<para>
+
+</para>
+
+@argc: 
+@argv: 
+
+
+<!-- ##### FUNCTION gst_init_check ##### -->
+<para>
+
+</para>
+
+@argc: 
+@argv: 
+@err: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gst_init_get_option_group ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION gst_deinit ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION gst_version ##### -->
+<para>
+
+</para>
+
+@major: 
+@minor: 
+@micro: 
+@nano: 
+
+
+<!-- ##### FUNCTION gst_version_string ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+

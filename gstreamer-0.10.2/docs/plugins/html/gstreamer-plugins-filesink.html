@@ -1,0 +1,147 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>filesink</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.68.1">
+<link rel="start" href="index.html" title="GStreamer Core Plugins 0.10 Plugins Reference Manual">
+<link rel="up" href="ch01.html" title="gstreamer Elements">
+<link rel="prev" href="gstreamer-plugins-filesrc.html" title="filesrc">
+<link rel="next" href="gstreamer-plugins-identity.html" title="identity">
+<meta name="generator" content="GTK-Doc V1.4 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="gstreamer Elements">
+<link rel="chapter" href="ch02.html" title="gstreamer Plugins">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="gstreamer-plugins-filesrc.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GStreamer Core Plugins 0.10 Plugins Reference Manual</th>
+<td><a accesskey="n" href="gstreamer-plugins-identity.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" lang="en">
+<a name="gstreamer-plugins-filesink"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">filesink</span></h2>
+<p>filesink &#8212; write stream to a file</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<a name="GstFileSink"></a><pre class="synopsis">
+
+
+
+            <a href="gstreamer-plugins-filesink.html#GstFileSink-struct">GstFileSink</a>;
+
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2903219"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="/usr/share/gtk-doc/html/gstreamer/GstObject.html"
+>GstObject</a>
+         +----<a
+href="/usr/share/gtk-doc/html/gstreamer/GstElement.html"
+>GstElement</a>
+               +----<a
+href="/usr/share/gtk-doc/html/gstreamer/GstBaseSink.html"
+>GstBaseSink</a>
+                     +----GstFileSink
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2876540"></a><h2>Implemented Interfaces</h2>
+<p>
+GstFileSink implements
+ <a
+href="/usr/share/gtk-doc/html/gstreamer/gstreamer-GstUriHandler.html#GstURIHandler"
+>GstURIHandler</a>.</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2876557"></a><h2>Properties</h2>
+<pre class="synopsis">
+
+  "<a href="gstreamer-plugins-filesink.html#GstFileSink--location">location</a>"             <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray"
+>gchararray</a>            : Read / Write
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2876583"></a><h2>Description</h2>
+<p>
+Write incoming data to a file in the local file system.</p>
+<div class="refsect2" lang="en">
+<a name="id2876597"></a><h3>Element Information</h3>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term">plugin</span></td>
+<td>
+          <a href="gstreamer-plugins-plugin-coreelements.html#plugin-coreelements">coreelements</a>
+        </td>
+</tr>
+<tr>
+<td>
+<span class="term">author</span></td>
+<td>Thomas &lt;thomas@apestaart.org&gt;</td>
+</tr>
+<tr>
+<td>
+<span class="term">class</span></td>
+<td>Sink/File</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2891258"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2891264"></a><h3>
+<a name="GstFileSink-struct"></a>GstFileSink</h3>
+<a class="indexterm" name="id2891275"></a><pre class="programlisting">typedef struct _GstFileSink GstFileSink;</pre>
+<p>
+Opaque <a href="gstreamer-plugins-filesink.html#GstFileSink"><span class="type">GstFileSink</span></a> structure.</p>
+<p>
+
+</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2891302"></a><h2>Properties</h2>
+<div class="refsect2" lang="en">
+<a name="id2891308"></a><h3>
+<a name="GstFileSink--location"></a>The "<code class="literal">location</code>" property</h3>
+<pre class="programlisting">  "location"             <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray"
+>gchararray</a>            : Read / Write</pre>
+<p>Location of the file to write.</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2867031"></a><h2>See Also</h2>
+<a href="gstreamer-plugins-filesrc.html#GstFileSrc"><span class="type">GstFileSrc</span></a>
+</div>
+</div>
+<table class="navigation" width="100%" summary="Navigation footer" cellpadding="2" cellspacing="0"><tr valign="middle">
+<td align="left"><a accesskey="p" href="gstreamer-plugins-filesrc.html"><b>&lt;&lt;&#160;filesrc</b></a></td>
+<td align="right"><a accesskey="n" href="gstreamer-plugins-identity.html"><b>identity&#160;&gt;&gt;</b></a></td>
+</tr></table>
+</body>
+</html>

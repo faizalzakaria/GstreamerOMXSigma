@@ -1,0 +1,1861 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>GstClock</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.68.1">
+<link rel="start" href="index.html" title="GStreamer 0.10 Core Reference Manual">
+<link rel="up" href="libgstreamer.html" title="GStreamer Core Library">
+<link rel="prev" href="gstreamer-GstChildProxy.html" title="GstChildProxy">
+<link rel="next" href="gstreamer-gstconfig.html" title="gstconfig">
+<meta name="generator" content="GTK-Doc V1.4 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="gstreamer.html" title="GStreamer Overview">
+<link rel="chapter" href="libgstreamer.html" title="GStreamer Core Library">
+<link rel="chapter" href="gstreamer-support.html" title="GStreamer Core Support">
+<link rel="chapter" href="gstreamer-hierarchy.html" title="Object Hierarchy">
+<link rel="index" href="api-index.html" title="Index">
+<link rel="index" href="ix02.html" title="Index of deprecated symbols">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="gstreamer-GstChildProxy.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libgstreamer.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GStreamer 0.10 Core Reference Manual</th>
+<td><a accesskey="n" href="gstreamer-gstconfig.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" lang="en">
+<a name="GstClock"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">GstClock</span></h2>
+<p>GstClock &#8212; Abstract class for global clocks</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gst/gst.h&gt;
+
+
+            <a href="GstClock.html#GstClock-struct">GstClock</a>;
+typedef     <a href="GstClock.html#GstClockTime">GstClockTime</a>;
+typedef     <a href="GstClock.html#GstClockTimeDiff">GstClockTimeDiff</a>;
+typedef     <a href="GstClock.html#GstClockID">GstClockID</a>;
+#define     <a href="GstClock.html#GST-CLOCK-TIME-NONE:CAPS">GST_CLOCK_TIME_NONE</a>
+#define     <a href="GstClock.html#GST-CLOCK-TIME-IS-VALID:CAPS">GST_CLOCK_TIME_IS_VALID</a>         (time)
+#define     <a href="GstClock.html#GST-SECOND:CAPS">GST_SECOND</a>
+#define     <a href="GstClock.html#GST-MSECOND:CAPS">GST_MSECOND</a>
+#define     <a href="GstClock.html#GST-USECOND:CAPS">GST_USECOND</a>
+#define     <a href="GstClock.html#GST-NSECOND:CAPS">GST_NSECOND</a>
+#define     <a href="GstClock.html#GST-CLOCK-DIFF:CAPS">GST_CLOCK_DIFF</a>                  (s, e)
+#define     <a href="GstClock.html#GST-TIMEVAL-TO-TIME:CAPS">GST_TIMEVAL_TO_TIME</a>             (tv)
+#define     <a href="GstClock.html#GST-TIME-TO-TIMEVAL:CAPS">GST_TIME_TO_TIMEVAL</a>             (t,tv)
+#define     <a href="GstClock.html#GST-TIMESPEC-TO-TIME:CAPS">GST_TIMESPEC_TO_TIME</a>            (ts)
+#define     <a href="GstClock.html#GST-TIME-TO-TIMESPEC:CAPS">GST_TIME_TO_TIMESPEC</a>            (t,ts)
+#define     <a href="GstClock.html#GST-CLOCK-ENTRY-TRACE-NAME:CAPS">GST_CLOCK_ENTRY_TRACE_NAME</a>
+            <a href="GstClock.html#GstClockEntry">GstClockEntry</a>;
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    (<a href="GstClock.html#GstClockCallback">*GstClockCallback</a>)             (<a href="GstClock.html" title="GstClock">GstClock</a> *clock,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> time,
+                                             <a href="GstClock.html#GstClockID">GstClockID</a> id,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+enum        <a href="GstClock.html#GstClockEntryType">GstClockEntryType</a>;
+#define     <a href="GstClock.html#GST-CLOCK-ENTRY:CAPS">GST_CLOCK_ENTRY</a>                 (entry)
+#define     <a href="GstClock.html#GST-CLOCK-ENTRY-CLOCK:CAPS">GST_CLOCK_ENTRY_CLOCK</a>           (entry)
+#define     <a href="GstClock.html#GST-CLOCK-ENTRY-TYPE:CAPS">GST_CLOCK_ENTRY_TYPE</a>            (entry)
+#define     <a href="GstClock.html#GST-CLOCK-ENTRY-TIME:CAPS">GST_CLOCK_ENTRY_TIME</a>            (entry)
+#define     <a href="GstClock.html#GST-CLOCK-ENTRY-INTERVAL:CAPS">GST_CLOCK_ENTRY_INTERVAL</a>        (entry)
+#define     <a href="GstClock.html#GST-CLOCK-ENTRY-STATUS:CAPS">GST_CLOCK_ENTRY_STATUS</a>          (entry)
+enum        <a href="GstClock.html#GstClockReturn">GstClockReturn</a>;
+enum        <a href="GstClock.html#GstClockFlags">GstClockFlags</a>;
+#define     <a href="GstClock.html#GST-CLOCK-FLAGS:CAPS">GST_CLOCK_FLAGS</a>                 (clock)
+#define     <a href="GstClock.html#GST-CLOCK-BROADCAST:CAPS">GST_CLOCK_BROADCAST</a>             (clock)
+#define     <a href="GstClock.html#GST-CLOCK-COND:CAPS">GST_CLOCK_COND</a>                  (clock)
+#define     <a href="GstClock.html#GST-CLOCK-TIMED-WAIT:CAPS">GST_CLOCK_TIMED_WAIT</a>            (clock,tv)
+#define     <a href="GstClock.html#GST-CLOCK-WAIT:CAPS">GST_CLOCK_WAIT</a>                  (clock)
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    <a href="GstClock.html#gst-clock-add-observation">gst_clock_add_observation</a>       (<a href="GstClock.html" title="GstClock">GstClock</a> *clock,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> slave,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> master,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gdouble"
+>gdouble</a> *r_squared);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    <a href="GstClock.html#gst-clock-set-master">gst_clock_set_master</a>            (<a href="GstClock.html" title="GstClock">GstClock</a> *clock,
+                                             <a href="GstClock.html" title="GstClock">GstClock</a> *master);
+<a href="GstClock.html" title="GstClock">GstClock</a>*   <a href="GstClock.html#gst-clock-get-master">gst_clock_get_master</a>            (<a href="GstClock.html" title="GstClock">GstClock</a> *clock);
+<a href="GstClock.html#GstClockTime">GstClockTime</a> <a href="GstClock.html#gst-clock-set-resolution">gst_clock_set_resolution</a>       (<a href="GstClock.html" title="GstClock">GstClock</a> *clock,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> resolution);
+<a href="GstClock.html#GstClockTime">GstClockTime</a> <a href="GstClock.html#gst-clock-get-resolution">gst_clock_get_resolution</a>       (<a href="GstClock.html" title="GstClock">GstClock</a> *clock);
+<a href="GstClock.html#GstClockTime">GstClockTime</a> <a href="GstClock.html#gst-clock-get-time">gst_clock_get_time</a>             (<a href="GstClock.html" title="GstClock">GstClock</a> *clock);
+<a href="GstClock.html#GstClockID">GstClockID</a>  <a href="GstClock.html#gst-clock-new-single-shot-id">gst_clock_new_single_shot_id</a>    (<a href="GstClock.html" title="GstClock">GstClock</a> *clock,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> time);
+<a href="GstClock.html#GstClockID">GstClockID</a>  <a href="GstClock.html#gst-clock-new-periodic-id">gst_clock_new_periodic_id</a>       (<a href="GstClock.html" title="GstClock">GstClock</a> *clock,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> start_time,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> interval);
+<a href="GstClock.html#GstClockTime">GstClockTime</a> <a href="GstClock.html#gst-clock-get-internal-time">gst_clock_get_internal_time</a>    (<a href="GstClock.html" title="GstClock">GstClock</a> *clock);
+<a href="GstClock.html#GstClockTime">GstClockTime</a> <a href="GstClock.html#gst-clock-adjust-unlocked">gst_clock_adjust_unlocked</a>      (<a href="GstClock.html" title="GstClock">GstClock</a> *clock,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> internal);
+void        <a href="GstClock.html#gst-clock-get-calibration">gst_clock_get_calibration</a>       (<a href="GstClock.html" title="GstClock">GstClock</a> *clock,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> *internal,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> *external,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> *rate_num,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> *rate_denom);
+void        <a href="GstClock.html#gst-clock-set-calibration">gst_clock_set_calibration</a>       (<a href="GstClock.html" title="GstClock">GstClock</a> *clock,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> internal,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> external,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> rate_num,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> rate_denom);
+<a href="GstClock.html#GstClockTime">GstClockTime</a> <a href="GstClock.html#gst-clock-id-get-time">gst_clock_id_get_time</a>          (<a href="GstClock.html#GstClockID">GstClockID</a> id);
+<a href="GstClock.html#GstClockReturn">GstClockReturn</a> <a href="GstClock.html#gst-clock-id-wait">gst_clock_id_wait</a>            (<a href="GstClock.html#GstClockID">GstClockID</a> id,
+                                             <a href="GstClock.html#GstClockTimeDiff">GstClockTimeDiff</a> *jitter);
+<a href="GstClock.html#GstClockReturn">GstClockReturn</a> <a href="GstClock.html#gst-clock-id-wait-async">gst_clock_id_wait_async</a>      (<a href="GstClock.html#GstClockID">GstClockID</a> id,
+                                             <a href="GstClock.html#GstClockCallback">GstClockCallback</a> func,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+void        <a href="GstClock.html#gst-clock-id-unschedule">gst_clock_id_unschedule</a>         (<a href="GstClock.html#GstClockID">GstClockID</a> id);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>        <a href="GstClock.html#gst-clock-id-compare-func">gst_clock_id_compare_func</a>       (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gconstpointer"
+>gconstpointer</a> id1,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gconstpointer"
+>gconstpointer</a> id2);
+<a href="GstClock.html#GstClockID">GstClockID</a>  <a href="GstClock.html#gst-clock-id-ref">gst_clock_id_ref</a>                (<a href="GstClock.html#GstClockID">GstClockID</a> id);
+void        <a href="GstClock.html#gst-clock-id-unref">gst_clock_id_unref</a>              (<a href="GstClock.html#GstClockID">GstClockID</a> id);
+#define     <a href="GstClock.html#GST-TYPE-CLOCK-TIME:CAPS">GST_TYPE_CLOCK_TIME</a>
+
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2621783"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a href="GstObject.html" title="GstObject">GstObject</a>
+         +----GstClock
+               +----<a href="GstSystemClock.html" title="GstSystemClock">GstSystemClock</a>
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2621817"></a><h2>Properties</h2>
+<pre class="synopsis">
+
+  "<a href="GstClock.html#GstClock--stats">stats</a>"                <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+  "<a href="GstClock.html#GstClock--timeout">timeout</a>"              <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint64"
+>guint64</a>               : Read / Write
+  "<a href="GstClock.html#GstClock--window-size">window-size</a>"          <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write
+  "<a href="GstClock.html#GstClock--window-threshold">window-threshold</a>"     <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2621897"></a><h2>Description</h2>
+<p>
+GStreamer uses a global clock to synchronize the plugins in a pipeline.
+Different clock implementations are possible by implementing this abstract
+base class.
+</p>
+<p>
+The <a href="GstClock.html" title="GstClock"><span class="type">GstClock</span></a> returns a monotonically increasing time with the method
+<a href="GstClock.html#gst-clock-get-time"><code class="function">gst_clock_get_time()</code></a>. Its accuracy and base time depends on the specific
+clock implementation but time is always expessed in nanoseconds. Since the
+baseline of the clock is undefined, the clock time returned is not
+meaningful in itself, what matters are the deltas between two clock times.
+</p>
+<p>
+The pipeline uses the clock to calculate the stream time.  Usually all
+renderers synchronize to the global clock using the buffer timestamps, the
+newsegment events and the element's base time.
+</p>
+<p>
+The time of the clock in itself is not very useful for an application.
+</p>
+<p>
+A clock implementation can support periodic and single shot clock
+notifications both synchronous and asynchronous.
+</p>
+<p>
+One first needs to create a <a href="GstClock.html#GstClockID"><span class="type">GstClockID</span></a> for the periodic or single shot
+notification using <a href="GstClock.html#gst-clock-new-single-shot-id"><code class="function">gst_clock_new_single_shot_id()</code></a> or
+<a href="GstClock.html#gst-clock-new-periodic-id"><code class="function">gst_clock_new_periodic_id()</code></a>.
+</p>
+<p>
+To perform a blocking wait for the specific time of the <a href="GstClock.html#GstClockID"><span class="type">GstClockID</span></a> use the
+<a href="GstClock.html#gst-clock-id-wait"><code class="function">gst_clock_id_wait()</code></a>. To receive a callback when the specific time is reached
+in the clock use <a href="GstClock.html#gst-clock-id-wait-async"><code class="function">gst_clock_id_wait_async()</code></a>. Both these calls can be
+interrupted with the <a href="GstClock.html#gst-clock-id-unschedule"><code class="function">gst_clock_id_unschedule()</code></a> call. If the blocking wait is
+unscheduled a return value of GST_CLOCK_UNSCHEDULED is returned.
+</p>
+<p>
+Periodic callbacks scheduled async will be repeadedly called automatically
+until it is unscheduled. To schedule an async periodic callback,
+<a href="GstClock.html#gst-clock-id-wait"><code class="function">gst_clock_id_wait()</code></a> should be called repeadedly.
+</p>
+<p>
+The async callbacks can happen from any thread, either provided by the core
+or from a streaming thread. The application should be prepared for this.
+</p>
+<p>
+A <a href="GstClock.html#GstClockID"><span class="type">GstClockID</span></a> that has been unscheduled cannot be used again for any wait
+operation.
+</p>
+<p>
+It is possible to perform a blocking wait on the same <a href="GstClock.html#GstClockID"><span class="type">GstClockID</span></a> from
+multiple threads. However, registering the same <a href="GstClock.html#GstClockID"><span class="type">GstClockID</span></a> for multiple
+async notifications is not possible, the callback will only be called once.
+</p>
+<p>
+None of the wait operations unref the <a href="GstClock.html#GstClockID"><span class="type">GstClockID</span></a>, the owner is responsible
+for unreffing the ids itself. This holds for both periodic and single shot
+notifications. The reason being that the owner of the <a href="GstClock.html#GstClockID"><span class="type">GstClockID</span></a> has to
+keep a handle to the <a href="GstClock.html#GstClockID"><span class="type">GstClockID</span></a> to unblock the wait on FLUSHING events or
+state changes and if we unref it automatically, the handle might be invalid.
+</p>
+<p>
+These clock operations do not operate on the stream time, so the callbacks
+will also occur when not in PLAYING state as if the clock just keeps on
+running. Some clocks however do not progress when the element that provided
+the clock is not PLAYING.
+</p>
+<p>
+When a clock has the GST_CLOCK_FLAG_CAN_SET_MASTER flag set, it can be
+slaved to another <a href="GstClock.html" title="GstClock"><span class="type">GstClock</span></a> with the <a href="GstClock.html#gst-clock-set-master"><code class="function">gst_clock_set_master()</code></a>. The clock will
+then automatically be synchronized to this master clock by repeadedly
+sampling the master clock and the slave clock and recalibrating the slave
+clock with <a href="GstClock.html#gst-clock-set-calibration"><code class="function">gst_clock_set_calibration()</code></a>. This feature is mostly usefull for
+plugins that have an internal clock but must operate with another clock
+selected by the <a href="GstPipeline.html" title="GstPipeline"><span class="type">GstPipeline</span></a>.  They can track the offset and rate difference
+of their internal clock relative to the master clock by using the
+<a href="GstClock.html#gst-clock-get-calibration"><code class="function">gst_clock_get_calibration()</code></a> function.
+</p>
+<p>
+Last reviewed on 2005-10-28 (0.9.4)</p>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2622201"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2622207"></a><h3>
+<a name="GstClock-struct"></a>GstClock</h3>
+<a class="indexterm" name="id2622217"></a><pre class="programlisting">typedef struct _GstClock GstClock;</pre>
+<p>
+GstClock base structure. The values of this structure are
+protected for subclasses, use the methods to use the <a href="GstClock.html" title="GstClock"><span class="type">GstClock</span></a>.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622245"></a><h3>
+<a name="GstClockTime"></a>GstClockTime</h3>
+<a class="indexterm" name="id2622255"></a><pre class="programlisting">typedef guint64	GstClockTime;
+</pre>
+<p>
+A datatype to hold a time, measured in nanoseconds.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622275"></a><h3>
+<a name="GstClockTimeDiff"></a>GstClockTimeDiff</h3>
+<a class="indexterm" name="id2622285"></a><pre class="programlisting">typedef gint64 GstClockTimeDiff;
+</pre>
+<p>
+A datatype to hold a timedifference, measured in nanoseconds.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622304"></a><h3>
+<a name="GstClockID"></a>GstClockID</h3>
+<a class="indexterm" name="id2622315"></a><pre class="programlisting">typedef gpointer GstClockID;
+</pre>
+<p>
+A datatype to hold the handle to an outstanding sync or async clock callback.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622335"></a><h3>
+<a name="GST-CLOCK-TIME-NONE:CAPS"></a>GST_CLOCK_TIME_NONE</h3>
+<a class="indexterm" name="id2622346"></a><pre class="programlisting">#define GST_CLOCK_TIME_NONE		((GstClockTime) -1)
+</pre>
+<p>
+Constant to define an undefined clock time.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622366"></a><h3>
+<a name="GST-CLOCK-TIME-IS-VALID:CAPS"></a>GST_CLOCK_TIME_IS_VALID()</h3>
+<a class="indexterm" name="id2622377"></a><pre class="programlisting">#define GST_CLOCK_TIME_IS_VALID(time)	((time) != GST_CLOCK_TIME_NONE)
+</pre>
+<p>
+Tests if a given <a href="GstClock.html#GstClockTime"><span class="type">GstClockTime</span></a> represents a valid defined time.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>time</code></em>&#160;:</span></td>
+<td> clock time to validate
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622423"></a><h3>
+<a name="GST-SECOND:CAPS"></a>GST_SECOND</h3>
+<a class="indexterm" name="id2622434"></a><pre class="programlisting">#define GST_SECOND  (G_USEC_PER_SEC * G_GINT64_CONSTANT (1000))
+</pre>
+<p>
+Constant that defines one GStreamer second.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622453"></a><h3>
+<a name="GST-MSECOND:CAPS"></a>GST_MSECOND</h3>
+<a class="indexterm" name="id2622464"></a><pre class="programlisting">#define GST_MSECOND (GST_SECOND / G_GINT64_CONSTANT (1000))
+</pre>
+<p>
+Constant that defines one GStreamer millisecond.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622484"></a><h3>
+<a name="GST-USECOND:CAPS"></a>GST_USECOND</h3>
+<a class="indexterm" name="id2622495"></a><pre class="programlisting">#define GST_USECOND (GST_SECOND / G_GINT64_CONSTANT (1000000))
+</pre>
+<p>
+Constant that defines one GStreamer microsecond.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622514"></a><h3>
+<a name="GST-NSECOND:CAPS"></a>GST_NSECOND</h3>
+<a class="indexterm" name="id2622525"></a><pre class="programlisting">#define GST_NSECOND (GST_SECOND / G_GINT64_CONSTANT (1000000000))
+</pre>
+<p>
+Constant that defines one GStreamer nanosecond</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622544"></a><h3>
+<a name="GST-CLOCK-DIFF:CAPS"></a>GST_CLOCK_DIFF()</h3>
+<a class="indexterm" name="id2622555"></a><pre class="programlisting">#define GST_CLOCK_DIFF(s, e)		(GstClockTimeDiff)((e) - (s))
+</pre>
+<p>
+Calculate a difference between two clock times as a <a href="GstClock.html#GstClockTimeDiff"><span class="type">GstClockTimeDiff</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>s</code></em>&#160;:</span></td>
+<td> the first time
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>e</code></em>&#160;:</span></td>
+<td> the second time
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622615"></a><h3>
+<a name="GST-TIMEVAL-TO-TIME:CAPS"></a>GST_TIMEVAL_TO_TIME()</h3>
+<a class="indexterm" name="id2622626"></a><pre class="programlisting">#define GST_TIMEVAL_TO_TIME(tv)		((tv).tv_sec * GST_SECOND + (tv).tv_usec * GST_USECOND)
+</pre>
+<p>
+Convert a GTimeVal to a <a href="GstClock.html#GstClockTime"><span class="type">GstClockTime</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>tv</code></em>&#160;:</span></td>
+<td> the timeval to convert
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622672"></a><h3>
+<a name="GST-TIME-TO-TIMEVAL:CAPS"></a>GST_TIME_TO_TIMEVAL()</h3>
+<a class="indexterm" name="id2622683"></a><pre class="programlisting">#define     GST_TIME_TO_TIMEVAL(t,tv)</pre>
+<p>
+Note: on 32-bit systems, a timeval has a range of only 2^32 - 1 seconds,
+which is about 68 years.  Expect trouble if you want to schedule stuff
+in your pipeline for 2038.
+</p>
+<p>
+Convert a GstClockTime to a GTimeVal</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>t</code></em>&#160;:</span></td>
+<td> The GstClockTime to convert
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>tv</code></em>&#160;:</span></td>
+<td> The target timeval
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622741"></a><h3>
+<a name="GST-TIMESPEC-TO-TIME:CAPS"></a>GST_TIMESPEC_TO_TIME()</h3>
+<a class="indexterm" name="id2622752"></a><pre class="programlisting">#define GST_TIMESPEC_TO_TIME(ts)		((ts).tv_sec * GST_SECOND + (ts).tv_nsec * GST_NSECOND)
+</pre>
+<p>
+Convert a struct timespec (see man pselect) to a <a href="GstClock.html#GstClockTime"><span class="type">GstClockTime</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>ts</code></em>&#160;:</span></td>
+<td> the timespec to convert
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622799"></a><h3>
+<a name="GST-TIME-TO-TIMESPEC:CAPS"></a>GST_TIME_TO_TIMESPEC()</h3>
+<a class="indexterm" name="id2622809"></a><pre class="programlisting">#define     GST_TIME_TO_TIMESPEC(t,ts)</pre>
+<p>
+Convert a <a href="GstClock.html#GstClockTime"><span class="type">GstClockTime</span></a> to a struct timespec (see man pselect)</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>t</code></em>&#160;:</span></td>
+<td> The GstClockTime to convert
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>ts</code></em>&#160;:</span></td>
+<td> The target timespec
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622869"></a><h3>
+<a name="GST-CLOCK-ENTRY-TRACE-NAME:CAPS"></a>GST_CLOCK_ENTRY_TRACE_NAME</h3>
+<a class="indexterm" name="id2622881"></a><pre class="programlisting">#define GST_CLOCK_ENTRY_TRACE_NAME "GstClockEntry"
+</pre>
+<p>
+The name used for tracing clock entry allocations.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622901"></a><h3>
+<a name="GstClockEntry"></a>GstClockEntry</h3>
+<a class="indexterm" name="id2622911"></a><pre class="programlisting">typedef struct {
+  gint			refcount;
+} GstClockEntry;
+</pre>
+<p>
+All pending timeouts or periodic notifies are converted into
+an entry.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>&#160;<em class="structfield"><code>refcount</code></em>;</span></td>
+<td> reference counter (read-only)
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622956"></a><h3>
+<a name="GstClockCallback"></a>GstClockCallback ()</h3>
+<a class="indexterm" name="id2622966"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    (*GstClockCallback)             (<a href="GstClock.html" title="GstClock">GstClock</a> *clock,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> time,
+                                             <a href="GstClock.html#GstClockID">GstClockID</a> id,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+The function prototype of the callback.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>clock</code></em>&#160;:</span></td>
+<td> The clock that triggered the callback
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>time</code></em>&#160;:</span></td>
+<td> The time it was triggered
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>id</code></em>&#160;:</span></td>
+<td> The <a href="GstClock.html#GstClockID"><span class="type">GstClockID</span></a> that expired
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td> user data passed in the async_wait call
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> <code class="literal">TRUE</code> or <code class="literal">FALSE</code> (currently unused)
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623112"></a><h3>
+<a name="GstClockEntryType"></a>enum GstClockEntryType</h3>
+<a class="indexterm" name="id2623123"></a><pre class="programlisting">typedef enum {
+  GST_CLOCK_ENTRY_SINGLE,
+  GST_CLOCK_ENTRY_PERIODIC
+} GstClockEntryType;
+</pre>
+<p>
+The type of the clock entry</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_CLOCK_ENTRY_SINGLE</code></span></td>
+<td> a single shot timeout
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_CLOCK_ENTRY_PERIODIC</code></span></td>
+<td> a periodic timeout request
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623177"></a><h3>
+<a name="GST-CLOCK-ENTRY:CAPS"></a>GST_CLOCK_ENTRY()</h3>
+<a class="indexterm" name="id2623189"></a><pre class="programlisting">#define GST_CLOCK_ENTRY(entry)		((GstClockEntry *)(entry))
+</pre>
+<p>
+Cast to a clock entry</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>entry</code></em>&#160;:</span></td>
+<td> the entry to cast
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623226"></a><h3>
+<a name="GST-CLOCK-ENTRY-CLOCK:CAPS"></a>GST_CLOCK_ENTRY_CLOCK()</h3>
+<a class="indexterm" name="id2623237"></a><pre class="programlisting">#define GST_CLOCK_ENTRY_CLOCK(entry)	((entry)-&gt;clock)
+</pre>
+<p>
+Get the owner clock of the entry</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>entry</code></em>&#160;:</span></td>
+<td> the entry to query
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623276"></a><h3>
+<a name="GST-CLOCK-ENTRY-TYPE:CAPS"></a>GST_CLOCK_ENTRY_TYPE()</h3>
+<a class="indexterm" name="id2623287"></a><pre class="programlisting">#define GST_CLOCK_ENTRY_TYPE(entry)	((entry)-&gt;type)
+</pre>
+<p>
+Get the type of the clock entry</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>entry</code></em>&#160;:</span></td>
+<td> the entry to query
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623326"></a><h3>
+<a name="GST-CLOCK-ENTRY-TIME:CAPS"></a>GST_CLOCK_ENTRY_TIME()</h3>
+<a class="indexterm" name="id2623336"></a><pre class="programlisting">#define GST_CLOCK_ENTRY_TIME(entry)	((entry)-&gt;time)
+</pre>
+<p>
+Get the requested time of this entry</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>entry</code></em>&#160;:</span></td>
+<td> the entry to query
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623375"></a><h3>
+<a name="GST-CLOCK-ENTRY-INTERVAL:CAPS"></a>GST_CLOCK_ENTRY_INTERVAL()</h3>
+<a class="indexterm" name="id2623387"></a><pre class="programlisting">#define GST_CLOCK_ENTRY_INTERVAL(entry)	((entry)-&gt;interval)
+</pre>
+<p>
+Get the interval of this periodic entry</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>entry</code></em>&#160;:</span></td>
+<td> the entry to query
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623426"></a><h3>
+<a name="GST-CLOCK-ENTRY-STATUS:CAPS"></a>GST_CLOCK_ENTRY_STATUS()</h3>
+<a class="indexterm" name="id2623437"></a><pre class="programlisting">#define GST_CLOCK_ENTRY_STATUS(entry)	((entry)-&gt;status)
+</pre>
+<p>
+The status of the entry</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>entry</code></em>&#160;:</span></td>
+<td> the entry to query
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623475"></a><h3>
+<a name="GstClockReturn"></a>enum GstClockReturn</h3>
+<a class="indexterm" name="id2623486"></a><pre class="programlisting">typedef enum
+{
+  GST_CLOCK_OK		=  0,
+  GST_CLOCK_EARLY	=  1,
+  GST_CLOCK_UNSCHEDULED	=  2,
+  GST_CLOCK_BUSY	=  3,
+  GST_CLOCK_BADTIME	=  4,
+  GST_CLOCK_ERROR	=  5,
+  GST_CLOCK_UNSUPPORTED	=  6,
+} GstClockReturn;
+</pre>
+<p>
+The return value of a clock operation.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_CLOCK_OK</code></span></td>
+<td> The operation succeded.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_CLOCK_EARLY</code></span></td>
+<td> The operation was scheduled too late.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_CLOCK_UNSCHEDULED</code></span></td>
+<td> The clockID was unscheduled
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_CLOCK_BUSY</code></span></td>
+<td> The ClockID is busy
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_CLOCK_BADTIME</code></span></td>
+<td> A bad time was provided to a function.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_CLOCK_ERROR</code></span></td>
+<td> An error occured
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_CLOCK_UNSUPPORTED</code></span></td>
+<td> Operation is not supported
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623617"></a><h3>
+<a name="GstClockFlags"></a>enum GstClockFlags</h3>
+<a class="indexterm" name="id2623627"></a><pre class="programlisting">typedef enum {
+  GST_CLOCK_FLAG_CAN_DO_SINGLE_SYNC     = (GST_OBJECT_FLAG_LAST &lt;&lt; 0),
+  GST_CLOCK_FLAG_CAN_DO_SINGLE_ASYNC    = (GST_OBJECT_FLAG_LAST &lt;&lt; 1),
+  GST_CLOCK_FLAG_CAN_DO_PERIODIC_SYNC   = (GST_OBJECT_FLAG_LAST &lt;&lt; 2),
+  GST_CLOCK_FLAG_CAN_DO_PERIODIC_ASYNC  = (GST_OBJECT_FLAG_LAST &lt;&lt; 3),
+  GST_CLOCK_FLAG_CAN_SET_RESOLUTION     = (GST_OBJECT_FLAG_LAST &lt;&lt; 4),
+  GST_CLOCK_FLAG_CAN_SET_MASTER         = (GST_OBJECT_FLAG_LAST &lt;&lt; 5),
+  /* padding */
+  GST_CLOCK_FLAG_LAST		        = (GST_OBJECT_FLAG_LAST &lt;&lt; 8),
+} GstClockFlags;
+</pre>
+<p>
+The capabilities of this clock</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_CLOCK_FLAG_CAN_DO_SINGLE_SYNC</code></span></td>
+<td> clock can do a single sync timeout request
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_CLOCK_FLAG_CAN_DO_SINGLE_ASYNC</code></span></td>
+<td> clock can do a single async timeout request
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_CLOCK_FLAG_CAN_DO_PERIODIC_SYNC</code></span></td>
+<td> clock can do sync periodic timeout requests
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_CLOCK_FLAG_CAN_DO_PERIODIC_ASYNC</code></span></td>
+<td> clock can do async periodic timeout callbacks
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_CLOCK_FLAG_CAN_SET_RESOLUTION</code></span></td>
+<td> clock's resolution can be changed
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_CLOCK_FLAG_CAN_SET_MASTER</code></span></td>
+<td> clock can be slaved to a master clock
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_CLOCK_FLAG_LAST</code></span></td>
+<td> subclasses can add additional flags starting from this flag
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623777"></a><h3>
+<a name="GST-CLOCK-FLAGS:CAPS"></a>GST_CLOCK_FLAGS()</h3>
+<a class="indexterm" name="id2623789"></a><pre class="programlisting">#define GST_CLOCK_FLAGS(clock)  (GST_CLOCK(clock)-&gt;flags)
+</pre>
+<p>
+Gets the <a href="GstClock.html#GstClockFlags"><span class="type">GstClockFlags</span></a> clock flags.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>clock</code></em>&#160;:</span></td>
+<td> the clock to query
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623835"></a><h3>
+<a name="GST-CLOCK-BROADCAST:CAPS"></a>GST_CLOCK_BROADCAST()</h3>
+<a class="indexterm" name="id2623846"></a><pre class="programlisting">#define GST_CLOCK_BROADCAST(clock)       g_cond_broadcast(GST_CLOCK_COND(clock))
+</pre>
+<p>
+Signal that the entries in the clock have changed.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>clock</code></em>&#160;:</span></td>
+<td> the clock to broadcast
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623884"></a><h3>
+<a name="GST-CLOCK-COND:CAPS"></a>GST_CLOCK_COND()</h3>
+<a class="indexterm" name="id2623895"></a><pre class="programlisting">#define GST_CLOCK_COND(clock)            (GST_CLOCK_CAST(clock)-&gt;entries_changed)
+</pre>
+<p>
+Gets the <a
+href="/usr/share/gtk-doc/html/glib/glib-Threads.html#GCond"
+><span class="type">GCond</span></a> that gets signaled when the entries of the clock
+changed.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>clock</code></em>&#160;:</span></td>
+<td> the clock to query
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623943"></a><h3>
+<a name="GST-CLOCK-TIMED-WAIT:CAPS"></a>GST_CLOCK_TIMED_WAIT()</h3>
+<a class="indexterm" name="id2623954"></a><pre class="programlisting">#define GST_CLOCK_TIMED_WAIT(clock,tv)   g_cond_timed_wait(GST_CLOCK_COND(clock),GST_OBJECT_GET_LOCK(clock),tv)
+</pre>
+<p>
+Wait on the clock until the entries changed or the specified timeout
+occured.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>clock</code></em>&#160;:</span></td>
+<td> the clock to wait on
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>tv</code></em>&#160;:</span></td>
+<td> a GTimeVal to wait.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2624007"></a><h3>
+<a name="GST-CLOCK-WAIT:CAPS"></a>GST_CLOCK_WAIT()</h3>
+<a class="indexterm" name="id2624017"></a><pre class="programlisting">#define GST_CLOCK_WAIT(clock)            g_cond_wait(GST_CLOCK_COND(clock),GST_OBJECT_GET_LOCK(clock))
+</pre>
+<p>
+Wait on the clock until the entries changed.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>clock</code></em>&#160;:</span></td>
+<td> the clock to wait on
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2624056"></a><h3>
+<a name="gst-clock-add-observation"></a>gst_clock_add_observation ()</h3>
+<a class="indexterm" name="id2624068"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    gst_clock_add_observation       (<a href="GstClock.html" title="GstClock">GstClock</a> *clock,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> slave,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> master,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gdouble"
+>gdouble</a> *r_squared);</pre>
+<p>
+The time <em class="parameter"><code>master</code></em> of the master clock and the time <em class="parameter"><code>slave</code></em> of the slave
+clock are added to the list of observations. If enough observations
+are available, a linear regression algorithm is run on the
+observations and <em class="parameter"><code>clock</code></em> is recalibrated.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>clock</code></em>&#160;:</span></td>
+<td> a <a href="GstClock.html" title="GstClock"><span class="type">GstClock</span></a> 
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>slave</code></em>&#160;:</span></td>
+<td> a time on the slave
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>master</code></em>&#160;:</span></td>
+<td> a time on the master
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>r_squared</code></em>&#160;:</span></td>
+<td> a pointer to hold the result
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> TRUE if enough observations were added to run the 
+regression algorithm.
+
+MT safe.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2624223"></a><h3>
+<a name="gst-clock-set-master"></a>gst_clock_set_master ()</h3>
+<a class="indexterm" name="id2624234"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    gst_clock_set_master            (<a href="GstClock.html" title="GstClock">GstClock</a> *clock,
+                                             <a href="GstClock.html" title="GstClock">GstClock</a> *master);</pre>
+<p>
+Set <em class="parameter"><code>master</code></em> as the master clock for <em class="parameter"><code>clock</code></em>. <em class="parameter"><code>clock</code></em> will be automatically
+calibrated so that <a href="GstClock.html#gst-clock-get-time"><code class="function">gst_clock_get_time()</code></a> reports the same time as the
+master clock.  
+</p>
+<p>
+A clock provider that slaves its clock to a master can get the current
+calibration values with <a href="GstClock.html#gst-clock-get-calibration"><code class="function">gst_clock_get_calibration()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>clock</code></em>&#160;:</span></td>
+<td> a <a href="GstClock.html" title="GstClock"><span class="type">GstClock</span></a> 
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>master</code></em>&#160;:</span></td>
+<td> a master <a href="GstClock.html" title="GstClock"><span class="type">GstClock</span></a> 
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> TRUE if the clock is capable of being slaved to a master clock.
+
+MT safe.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2624378"></a><h3>
+<a name="gst-clock-get-master"></a>gst_clock_get_master ()</h3>
+<a class="indexterm" name="id2624389"></a><pre class="programlisting"><a href="GstClock.html" title="GstClock">GstClock</a>*   gst_clock_get_master            (<a href="GstClock.html" title="GstClock">GstClock</a> *clock);</pre>
+<p>
+Get the master clock that <em class="parameter"><code>clock</code></em> is slaved to or NULL when the clock is
+not slaved to any master clock.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>clock</code></em>&#160;:</span></td>
+<td> a <a href="GstClock.html" title="GstClock"><span class="type">GstClock</span></a> 
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> a master <a href="GstClock.html" title="GstClock"><span class="type">GstClock</span></a> or NULL when this clock is not slaved to a master
+clock. Unref after usage.
+
+MT safe.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2624473"></a><h3>
+<a name="gst-clock-set-resolution"></a>gst_clock_set_resolution ()</h3>
+<a class="indexterm" name="id2624484"></a><pre class="programlisting"><a href="GstClock.html#GstClockTime">GstClockTime</a> gst_clock_set_resolution       (<a href="GstClock.html" title="GstClock">GstClock</a> *clock,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> resolution);</pre>
+<p>
+Set the accuracy of the clock.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>clock</code></em>&#160;:</span></td>
+<td> a <a href="GstClock.html" title="GstClock"><span class="type">GstClock</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>resolution</code></em>&#160;:</span></td>
+<td> The resolution to set
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the new resolution of the clock.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2624575"></a><h3>
+<a name="gst-clock-get-resolution"></a>gst_clock_get_resolution ()</h3>
+<a class="indexterm" name="id2624586"></a><pre class="programlisting"><a href="GstClock.html#GstClockTime">GstClockTime</a> gst_clock_get_resolution       (<a href="GstClock.html" title="GstClock">GstClock</a> *clock);</pre>
+<p>
+Get the accuracy of the clock.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>clock</code></em>&#160;:</span></td>
+<td> a <a href="GstClock.html" title="GstClock"><span class="type">GstClock</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the resolution of the clock in units of <a href="GstClock.html#GstClockTime"><span class="type">GstClockTime</span></a>.
+
+MT safe.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2624664"></a><h3>
+<a name="gst-clock-get-time"></a>gst_clock_get_time ()</h3>
+<a class="indexterm" name="id2624675"></a><pre class="programlisting"><a href="GstClock.html#GstClockTime">GstClockTime</a> gst_clock_get_time             (<a href="GstClock.html" title="GstClock">GstClock</a> *clock);</pre>
+<p>
+Gets the current time of the given clock. The time is always
+monotonically increasing and adjusted according to the current
+offset and rate.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>clock</code></em>&#160;:</span></td>
+<td> a <a href="GstClock.html" title="GstClock"><span class="type">GstClock</span></a> to query
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the time of the clock. Or GST_CLOCK_TIME_NONE when
+giving wrong input.
+
+MT safe.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2624746"></a><h3>
+<a name="gst-clock-new-single-shot-id"></a>gst_clock_new_single_shot_id ()</h3>
+<a class="indexterm" name="id2624757"></a><pre class="programlisting"><a href="GstClock.html#GstClockID">GstClockID</a>  gst_clock_new_single_shot_id    (<a href="GstClock.html" title="GstClock">GstClock</a> *clock,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> time);</pre>
+<p>
+Get an ID from the given clock to trigger a single shot
+notification at the requested time. The single shot id should be
+unreffed after usage.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>clock</code></em>&#160;:</span></td>
+<td> The clockid to get a single shot notification from
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>time</code></em>&#160;:</span></td>
+<td> the requested time
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> An id that can be used to request the time notification.
+
+MT safe.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2624843"></a><h3>
+<a name="gst-clock-new-periodic-id"></a>gst_clock_new_periodic_id ()</h3>
+<a class="indexterm" name="id2624854"></a><pre class="programlisting"><a href="GstClock.html#GstClockID">GstClockID</a>  gst_clock_new_periodic_id       (<a href="GstClock.html" title="GstClock">GstClock</a> *clock,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> start_time,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> interval);</pre>
+<p>
+Get an ID from the given clock to trigger a periodic notification.
+The periodeic notifications will be start at time start_time and
+will then be fired with the given interval. The id should be unreffed
+after usage.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>clock</code></em>&#160;:</span></td>
+<td> The clockid to get a periodic notification id from
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>start_time</code></em>&#160;:</span></td>
+<td> the requested start time
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>interval</code></em>&#160;:</span></td>
+<td> the requested interval
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> An id that can be used to request the time notification.
+
+MT safe.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2624963"></a><h3>
+<a name="gst-clock-get-internal-time"></a>gst_clock_get_internal_time ()</h3>
+<a class="indexterm" name="id2624975"></a><pre class="programlisting"><a href="GstClock.html#GstClockTime">GstClockTime</a> gst_clock_get_internal_time    (<a href="GstClock.html" title="GstClock">GstClock</a> *clock);</pre>
+<p>
+Gets the current internal time of the given clock. The time is returned
+unadjusted for the offset and the rate.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>clock</code></em>&#160;:</span></td>
+<td> a <a href="GstClock.html" title="GstClock"><span class="type">GstClock</span></a> to query
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the internal time of the clock. Or GST_CLOCK_TIME_NONE when
+giving wrong input.
+
+MT safe.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2625045"></a><h3>
+<a name="gst-clock-adjust-unlocked"></a>gst_clock_adjust_unlocked ()</h3>
+<a class="indexterm" name="id2625056"></a><pre class="programlisting"><a href="GstClock.html#GstClockTime">GstClockTime</a> gst_clock_adjust_unlocked      (<a href="GstClock.html" title="GstClock">GstClock</a> *clock,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> internal);</pre>
+<p>
+Converts the given <em class="parameter"><code>internal</code></em> clock time to the real time, adjusting for the
+rate and reference time set with <a href="GstClock.html#gst-clock-set-calibration"><code class="function">gst_clock_set_calibration()</code></a> and making sure
+that the returned time is increasing. This function should be called with the
+clock's OBJECT_LOCK held and is mainly used by clock subclasses.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>clock</code></em>&#160;:</span></td>
+<td> a <a href="GstClock.html" title="GstClock"><span class="type">GstClock</span></a> to use
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>internal</code></em>&#160;:</span></td>
+<td> a clock time
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the converted time of the clock.
+
+MT safe.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2625168"></a><h3>
+<a name="gst-clock-get-calibration"></a>gst_clock_get_calibration ()</h3>
+<a class="indexterm" name="id2625180"></a><pre class="programlisting">void        gst_clock_get_calibration       (<a href="GstClock.html" title="GstClock">GstClock</a> *clock,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> *internal,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> *external,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> *rate_num,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> *rate_denom);</pre>
+<p>
+Gets the internal rate and reference time of <em class="parameter"><code>clock</code></em>. See
+<a href="GstClock.html#gst-clock-set-calibration"><code class="function">gst_clock_set_calibration()</code></a> for more information.
+</p>
+<p>
+<em class="parameter"><code>internal</code></em>, <em class="parameter"><code>external</code></em>, <em class="parameter"><code>rate_num</code></em>, and <em class="parameter"><code>rate_denom</code></em> can be left NULL if the
+caller is not interested in the values.
+</p>
+<p>
+MT safe.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>clock</code></em>&#160;:</span></td>
+<td> a <a href="GstClock.html" title="GstClock"><span class="type">GstClock</span></a> 
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>internal</code></em>&#160;:</span></td>
+<td> a location to store the internal time
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>external</code></em>&#160;:</span></td>
+<td> a location to store the external time
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>rate_num</code></em>&#160;:</span></td>
+<td> a location to store the rate numerator
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>rate_denom</code></em>&#160;:</span></td>
+<td> a location to store the rate denominator
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2625375"></a><h3>
+<a name="gst-clock-set-calibration"></a>gst_clock_set_calibration ()</h3>
+<a class="indexterm" name="id2625387"></a><pre class="programlisting">void        gst_clock_set_calibration       (<a href="GstClock.html" title="GstClock">GstClock</a> *clock,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> internal,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> external,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> rate_num,
+                                             <a href="GstClock.html#GstClockTime">GstClockTime</a> rate_denom);</pre>
+<p>
+Adjusts the rate and time of <em class="parameter"><code>clock</code></em>. A rate of 1/1 is the normal speed of
+the clock. Values bigger than 1/1 make the clock go faster.
+</p>
+<p>
+<em class="parameter"><code>internal</code></em> and <em class="parameter"><code>external</code></em> are calibration parameters that arrange that
+<a href="GstClock.html#gst-clock-get-time"><code class="function">gst_clock_get_time()</code></a> should have been <em class="parameter"><code>external</code></em> at internal time <em class="parameter"><code>internal</code></em>.
+This internal time should not be in the future; that is, it should be less
+than the value of <a href="GstClock.html#gst-clock-get-internal-time"><code class="function">gst_clock_get_internal_time()</code></a> when this function is called.
+</p>
+<p>
+Subsequent calls to <a href="GstClock.html#gst-clock-get-time"><code class="function">gst_clock_get_time()</code></a> will return clock times computed as
+follows:
+</p>
+<p>
+</p>
+<pre class="programlisting">
+  time = (internal_time - <em class="parameter"><code>internal</code></em>) * <em class="parameter"><code>rate_num</code></em> / <em class="parameter"><code>rate_denom</code></em> + <em class="parameter"><code>external</code></em>
+</pre>
+<p>
+</p>
+<p>
+This formula is implemented in <a href="GstClock.html#gst-clock-adjust-unlocked"><code class="function">gst_clock_adjust_unlocked()</code></a>. Of course, it
+tries to do the integer arithmetic as precisely as possible.
+</p>
+<p>
+Note that <a href="GstClock.html#gst-clock-get-time"><code class="function">gst_clock_get_time()</code></a> always returns increasing values so when you
+move the clock backwards, <a href="GstClock.html#gst-clock-get-time"><code class="function">gst_clock_get_time()</code></a> will report the previous value
+until the clock catches up.
+</p>
+<p>
+MT safe.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>clock</code></em>&#160;:</span></td>
+<td> a <a href="GstClock.html" title="GstClock"><span class="type">GstClock</span></a> to calibrate
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>internal</code></em>&#160;:</span></td>
+<td> a reference internal time
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>external</code></em>&#160;:</span></td>
+<td> a reference external time
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>rate_num</code></em>&#160;:</span></td>
+<td> the numerator of the rate of the clock relative to its
+           internal time 
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>rate_denom</code></em>&#160;:</span></td>
+<td> the denominator of the rate of the clock
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2625688"></a><h3>
+<a name="gst-clock-id-get-time"></a>gst_clock_id_get_time ()</h3>
+<a class="indexterm" name="id2625699"></a><pre class="programlisting"><a href="GstClock.html#GstClockTime">GstClockTime</a> gst_clock_id_get_time          (<a href="GstClock.html#GstClockID">GstClockID</a> id);</pre>
+<p>
+Get the time of the clock ID</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>id</code></em>&#160;:</span></td>
+<td> The clockid to query
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the time of the given clock id.
+
+MT safe.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2625760"></a><h3>
+<a name="gst-clock-id-wait"></a>gst_clock_id_wait ()</h3>
+<a class="indexterm" name="id2625772"></a><pre class="programlisting"><a href="GstClock.html#GstClockReturn">GstClockReturn</a> gst_clock_id_wait            (<a href="GstClock.html#GstClockID">GstClockID</a> id,
+                                             <a href="GstClock.html#GstClockTimeDiff">GstClockTimeDiff</a> *jitter);</pre>
+<p>
+Perform a blocking wait on the given ID. The jitter arg can be
+NULL.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>id</code></em>&#160;:</span></td>
+<td> The clockid to wait on
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>jitter</code></em>&#160;:</span></td>
+<td> A pointer that will contain the jitter
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the result of the blocking wait.
+
+MT safe.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2625855"></a><h3>
+<a name="gst-clock-id-wait-async"></a>gst_clock_id_wait_async ()</h3>
+<a class="indexterm" name="id2625866"></a><pre class="programlisting"><a href="GstClock.html#GstClockReturn">GstClockReturn</a> gst_clock_id_wait_async      (<a href="GstClock.html#GstClockID">GstClockID</a> id,
+                                             <a href="GstClock.html#GstClockCallback">GstClockCallback</a> func,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+Register a callback on the given clockid with the given
+function and user_data. When passing an id with an invalid
+time to this function, the callback will be called immediatly
+with  a time set to GST_CLOCK_TIME_NONE. The callback will
+be called when the time of the id has been reached.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>id</code></em>&#160;:</span></td>
+<td> a <a href="GstClock.html#GstClockID"><span class="type">GstClockID</span></a> to wait on
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>func</code></em>&#160;:</span></td>
+<td> The callback function
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td> User data passed in the calback
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the result of the non blocking wait.
+
+MT safe.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2625983"></a><h3>
+<a name="gst-clock-id-unschedule"></a>gst_clock_id_unschedule ()</h3>
+<a class="indexterm" name="id2625994"></a><pre class="programlisting">void        gst_clock_id_unschedule         (<a href="GstClock.html#GstClockID">GstClockID</a> id);</pre>
+<p>
+Cancel an outstanding request with the given ID. This can either
+be an outstanding async notification or a pending sync notification.
+After this call, the <em class="parameter"><code>id</code></em> cannot be used anymore to receive sync or
+async notifications, you need to create a new GstClockID.
+</p>
+<p>
+MT safe.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>id</code></em>&#160;:</span></td>
+<td> The id to unschedule
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2626057"></a><h3>
+<a name="gst-clock-id-compare-func"></a>gst_clock_id_compare_func ()</h3>
+<a class="indexterm" name="id2626068"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>        gst_clock_id_compare_func       (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gconstpointer"
+>gconstpointer</a> id1,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gconstpointer"
+>gconstpointer</a> id2);</pre>
+<p>
+Compares the two GstClockID instances. This function can be used
+as a GCompareFunc when sorting ids.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>id1</code></em>&#160;:</span></td>
+<td> A clockid
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>id2</code></em>&#160;:</span></td>
+<td> A clockid to compare with
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> negative value if a &lt; b; zero if a = b; positive value if a &gt; b
+
+MT safe.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2626154"></a><h3>
+<a name="gst-clock-id-ref"></a>gst_clock_id_ref ()</h3>
+<a class="indexterm" name="id2626164"></a><pre class="programlisting"><a href="GstClock.html#GstClockID">GstClockID</a>  gst_clock_id_ref                (<a href="GstClock.html#GstClockID">GstClockID</a> id);</pre>
+<p>
+Increase the refcount of the given clockid.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>id</code></em>&#160;:</span></td>
+<td> The clockid to ref
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> The same <a href="GstClock.html#GstClockID"><span class="type">GstClockID</span></a> with increased refcount.
+
+MT safe.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2626233"></a><h3>
+<a name="gst-clock-id-unref"></a>gst_clock_id_unref ()</h3>
+<a class="indexterm" name="id2626244"></a><pre class="programlisting">void        gst_clock_id_unref              (<a href="GstClock.html#GstClockID">GstClockID</a> id);</pre>
+<p>
+Unref the given clockid. When the refcount reaches 0 the
+<a href="GstClock.html#GstClockID"><span class="type">GstClockID</span></a> will be freed.
+</p>
+<p>
+MT safe.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>id</code></em>&#160;:</span></td>
+<td> The clockid to unref
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2626306"></a><h3>
+<a name="GST-TYPE-CLOCK-TIME:CAPS"></a>GST_TYPE_CLOCK_TIME</h3>
+<a class="indexterm" name="id2626317"></a><pre class="programlisting">#define GST_TYPE_CLOCK_TIME G_TYPE_UINT64
+</pre>
+<p>
+The GType of a GstClockTime.</p>
+<p>
+
+</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2626337"></a><h2>Properties</h2>
+<div class="refsect2" lang="en">
+<a name="id2626343"></a><h3>
+<a name="GstClock--stats"></a>The "<code class="literal">stats</code>" property</h3>
+<pre class="programlisting">  "stats"                <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>Enable clock stats.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2626379"></a><h3>
+<a name="GstClock--timeout"></a>The "<code class="literal">timeout</code>" property</h3>
+<pre class="programlisting">  "timeout"              <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint64"
+>guint64</a>               : Read / Write</pre>
+<p>The amount of time, in nanoseconds, to sample master and slave clocks.</p>
+<p>Default value: 100000000</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2626416"></a><h3>
+<a name="GstClock--window-size"></a>The "<code class="literal">window-size</code>" property</h3>
+<pre class="programlisting">  "window-size"          <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write</pre>
+<p>The size of the window used to calculate rate and offset.</p>
+<p>Allowed values: [2,1024]</p>
+<p>Default value: 32</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2626458"></a><h3>
+<a name="GstClock--window-threshold"></a>The "<code class="literal">window-threshold</code>" property</h3>
+<pre class="programlisting">  "window-threshold"     <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write</pre>
+<p>The threshold to start calculating rate and offset.</p>
+<p>Allowed values: [2,1024]</p>
+<p>Default value: 4</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2626500"></a><h2>See Also</h2>
+<a href="GstSystemClock.html" title="GstSystemClock"><span class="type">GstSystemClock</span></a>
+</div>
+</div>
+<table class="navigation" width="100%" summary="Navigation footer" cellpadding="2" cellspacing="0"><tr valign="middle">
+<td align="left"><a accesskey="p" href="gstreamer-GstChildProxy.html"><b>&lt;&lt;&#160;GstChildProxy</b></a></td>
+<td align="right"><a accesskey="n" href="gstreamer-gstconfig.html"><b>gstconfig&#160;&gt;&gt;</b></a></td>
+</tr></table>
+</body>
+</html>

@@ -1,0 +1,13 @@
+prefix=
+exec_prefix=
+libdir=/users/phai/share/GSTReamer_compilation/gst-plugins-good-0.10.26/gst-libs/gst
+includedir=/users/phai/share/GSTReamer_compilation/gst-plugins-good-0.10.26/gst-libs
+pluginsdir=/users/phai/share/GSTReamer_compilation/gst-plugins-good-0.10.26
+
+Name: GStreamer Good Plugins, Uninstalled
+Description: Streaming media framework, good plugins, uninstalled
+Version: 0.10.26
+Requires: gstreamer-0.10 gstreamer-plugins-base-0.10
+
+Libs: 
+Cflags: 

@@ -1,0 +1,484 @@
+2006-01-07  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* gettext.patch:
+	  make Makefile depend on LINGUAS, so rebuilds work when adding
+	  a language
+
+2006-01-03  Michael Smith  <msmith@fluendo.com>
+
+	* check.mak:
+	  Clarify error message from valgrind test runs.
+
+2005-12-16  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/gst-arch.m4:
+	  define HOST_CPU
+
+2005-11-29  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* check.mak:
+	  add a valgrind-forever target for tests
+
+2005-11-28  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* check.mak:
+	  when a "make test.check" run fails, make it rerun the test with	
+	  at least debug level 2
+
+2005-11-14  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/Makefile.am:
+	* m4/gst-check.m4:
+	  fix check for base plugins
+	* m4/gst-default.m4:
+	  add m4 to set default elements
+
+2005-10-18  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/gst-check.m4:
+	  check for tools correctly
+
+2005-10-18  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* gtk-doc.mak:
+	  only enable breaking on new API when make distcheck passes,
+	  not before
+
+2005-10-18  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/gst-check.m4:
+	  Resurrect Julien's dead body and wipe his mind clean
+
+2005-10-18  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/gst-check.m4:
+	  Kill Julien
+
+2005-10-17  Julien MOUTTE  <julien@moutte.net>
+
+	* m4/gst-check.m4: I know Thomas will kill me but this 
+	ifelse statement seems incorrect as it is always setting
+	required to "yes". With this one it seems to work. Fixes
+	build of gst-plugins-base on my setup where gstreamer-check
+	is definitely not present/required.
+
+2005-10-18  Stefan Kost  <ensonic@users.sf.net>
+
+	* gtk-doc.mak:
+	  make build break on new api that has not been added to the
+	  sections file
+
+2005-10-17  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/gst-glib2.m4:
+	* m4/Makefile.am:
+	* m4/gst-check.m4:
+	  add macro for easy checks for GStreamer libs
+
+2005-10-16  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/gst-glib2.m4:
+	  update, warn in error cases
+
+2005-10-16  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/gst-error.m4:
+	  add GST_SET_DEFAULT_LEVEL
+
+2005-10-16  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/Makefile.am:
+	* m4/gst-gettext.m4:
+	  remove the AM_GNU_GETTEXT* calls, they need to be in configure.ac
+	* m4/gst-glib2.m4:
+	  clean up and re-use in core soon
+	* m4/gst-plugindir.m4:
+	  macro to set up PLUGINDIR and plugindir define/var
+
+2005-10-15  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/Makefile.am:
+	* m4/gst-gettext.m4:
+	  add macro for setting up gettext
+
+2005-10-15  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/gst-args.m4:
+	  add some .m4's for argument checking that can be shared among modules
+
+2005-10-15  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/as-libtool.m4:
+	  set _LT_LDFLAGS
+	* m4/gst-libxml2.m4:
+	  document
+
+2005-10-15  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/gst-arch.m4:
+	  indent a little
+	  add AC_REQUIRE
+	* m4/gst-error.m4:
+	  clean up
+
+2005-10-12  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* gst-autogen.sh:
+	  update version detection expression to catch stuff like
+	  Libtool (libtool15) 1.5.0
+
+2005-10-11  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* gst.supp:
+	  commit 6 new suppressions related to g_module_open; can these
+	  really not be folded into one ?
+
+2005-10-11  Edward Hervey  <edward@fluendo.com>
+
+	* gst.supp: 
+	made the <g_type_init calloc 2> suppression more generic
+	Added pthread memleak suppresions
+	Added nss_parse_* memleak suppresion (used by g_option_context_parse)
+
+2005-10-11  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* check.mak:
+	  be more strict, more leak resolution
+	* gst.supp:
+	  clean up the g_type_init suppressions
+
+2005-10-07  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/Makefile.am:
+	* m4/gst-valgrind.m4:
+	  put the valgrind detection in an .m4
+
+2005-09-29  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* check.mak:
+	  add some more targets, like "help", but also more intensive tests
+
+2005-09-23  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* gtk-doc.mak:
+	  make certain doc warnings fatal so people maintain docs again
+
+2005-09-23  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* Makefile.am:
+	* gtk-doc-plugins.mak:
+	* scangobj-merge.py:
+	  merge additions from the .signals.new and .args.new file in
+	  the original ones, only updating if necessary
+
+2005-09-23  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* gst-xmlinspect.py:
+	* gstdoc-scangobj:
+	* gtk-doc-plugins.mak:
+	  fix properly for new API; make update in plugins dir now works
+
+2005-09-20  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* gst-xmlinspect.py:
+	* gstdoc-scangobj:
+	  some fixes for new API
+	* gtk-doc-plugins.mak:
+	  set environment properly
+
+2005-09-17  David Schleef  <ds@schleef.org>
+
+	* gtk-doc-plugins.mak: Use new environment variables.
+
+2005-09-16  Michael Smith <msmith@fluendo.com>
+
+	* gstdoc-scangobj:
+	  Make the scanobj code reflect registry/plugin API changes
+
+2005-09-15  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* gtk-doc-plugins.mak:
+	  split out scanobj step (which will be run by doc maintainer)
+	  from scan step (which will be run on every build)
+	  clean up some of the commands for make distcheck
+
+2005-09-15  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* gtk-doc-plugins.mak:
+	* mangle-tmpl.py:
+	  first stab at reorganizing the plugins build so we can maintain
+	  element docs
+
+2005-09-14  David Schleef  <ds@schleef.org>
+
+	* as-libtool.mak: Remove
+	* m4/as-libtool.m4: The libtool bug that this worked around has
+	  been fixed.
+	* m4/as-version.m4: Don't define GST_RELEASE, since it causes
+	  config.h to be regenerated needlessly, and we don't use it.
+
+2005-09-14  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* gtk-doc-plugins.mak:
+	  error out on inspect failure
+
+2005-09-14  Michael Smith <msmith@fluendo.com>
+
+	* glib-gen.mak:
+	  Don't call glib-mkenums with arguments that confuse/break MinGW,
+	  fixes 316155.
+
+2005-09-03  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* gtk-doc-plugins.mak:
+	* gtk-doc.mak:
+	* m4/gst-doc.m4:
+	  separate out gtk-doc and docbook stuff
+	  have two separate --enable configure flags
+
+2005-08-26  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* check.mak:
+	  add a .gdb target; rebuild registry for each target, otherwise
+	  a code rebuild always triggers a reg rebuild, and it's just too
+	  annoying
+	* gstdoc-scangobj:
+
+2005-08-21  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* check.mak:
+	  separate out REGISTRY_ENVIRONMENT; we want to use that from
+	  our valgrind runs, but we also want TESTS_ENVIRONMENT to contain
+	  everything that the first test, gst-register, needs
+
+2005-08-21  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* check.mak:
+	  parse output of valgrind and check for definitely lost, and error
+	  out; somehow I was led to believe valgrind returns non-zero for
+	  leaks, but I can't make it do that, so let's parse
+
+2005-08-20  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* check.mak:
+	  for some weird reason valgrind does not report actual memleaks
+	  if GST_PLUGIN_PATH is set to anything but the core gstreamer dir
+	  while valgrind is running.  Since the registry is going to go
+	  anyway, I don't want to waste any more time on this; I just run
+	  valgrind without GST_PLUGIN_PATH set.  Since the registry loading
+	  doesn't check if GST_PLUGIN_PATH got changed as a reason to rebuild
+	  the registry, that's actually fine.
+
+2005-08-15  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* mangle-tmpl.py:
+	  keep original Long_Description; only insert an include if it's
+	  not already the first line in there
+	* plugins.xsl:
+	  output more information for plugins, including an origin hyperlink
+
+2005-08-15  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* gst-xmlinspect.py:
+	  a first stab at inspecting plugins and outputting an xml description
+	* gtk-doc-plugins.mak:
+	  a gtk-doc using snippet for plugins documentation
+	* plugins.xsl:
+	  a stylesheet to convert gst-xmlinspect.py output to docbook output
+	  for inclusion in the gtk-doc stuff
+
+2005-07-20  Ronald S. Bultje  <rbultje@ronald.bitfreak.net>
+
+	* m4/gst-doc.m4:
+	  s/pdf/eps/ in test for whether we output EPS images (#309379).
+
+2005-07-18  Andy Wingo  <wingo@pobox.com>
+
+	* m4/as-libtool-tags.m4: Ooh, backported from libtool 1.6. Much
+	better. Thanks, Paolo Bonzini!
+	
+	* m4/Makefile.am (EXTRA_DIST): 
+	* m4/as-libtool-tags.m4: New file, tries to disable some CXX and
+	fortran checks.
+
+2005-07-08  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/gst-error.m4:
+	  add macro to set ERROR_CFLAGS
+
+2005-06-30  Jan Schmidt  <thaytan@mad.scientist.com>
+
+	* gst-autogen.sh:
+	  Remove the old autoregen.sh if it exists before recreating it,
+	  to prevent confusing any shell process that might be reading it
+	  currently.
+
+2005-06-29  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/gtk-doc.m4:
+	  added
+
+2005-06-03  Stefan Kost  <ensonic@users.sf.net>
+
+	* gst-autogen.sh: create autoregen.sh *before* shifting the options
+
+2005-05-17  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* gst-autogen.sh: only update autoregen.sh on actual runs
+
+2005-03-11  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/check.m4: m4 from the check unit test suite
+
+2004-12-14  David Schleef  <ds@schleef.org>
+
+	* m4/gst-arch.m4: remove MMX stuff, since it doesn't work and
+	isn't needed anywhere
+
+2004-12-08  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* gst-autogen.sh:
+	  allow failure command to be run so we can clean upfrom autopoint
+
+2004-09-03  Zeeshan Ali Khattak <zeenix@gmail.com>
+	* m4/gst-feature.m4: Trying to correct the GST_CHECK_CONFIGPROG macro
+
+2004-07-21  Benjamin Otte  <otte@gnome.org>
+
+	* m4/.cvsignore: exciting updates for libtool m4 files
+
+2004-07-12  David Schleef  <ds@schleef.org>
+
+	* m4/as-objc.m4:  Add a macro to test for objective C
+
+2004-06-12  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/gst-feature.m4:
+	  not all of them support --plugin-libs, so redirect stderr
+
+2004-06-12  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/as-scrub-include.m4:
+	  sync with upstream to 0.1.4.  Fixes #132440
+
+2004-06-07  Benjamin Otte  <otte@gnome.org>
+
+	* m4/gst-feature.m4:
+	  write a big marker into configure output when checking next plugin
+	  to allow easier parsing of why plugins are(n't) built.
+
+2004-06-01  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/as-compiler-flag.m4:
+	* m4/as-compiler.m4:
+	* m4/as-libtool.m4:
+	* m4/as-version.m4:
+	  sync with upstream, change sticky options to -ko
+
+2004-05-24  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/as-scrub-include.m4: synced with upstream
+
+2004-05-03  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* po.mak:
+          snippet for updating .po files
+
+2004-03-18  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* Makefile.am:
+	* m4/Makefile.am:
+          integrate these with the dist
+
+2004-03-17  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* release.mak: add a release target
+
+2004-03-09  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	patch by: Stephane Loeuillet
+
+	* m4/ax_create_stdint_h.m4:
+          use head -n instead of head - (#136500)
+
+2004-03-05  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/gst-doc.m4: don't build PS without dvips binary
+
+2004-02-22   Julio M. Merino Vidal <jmmv@menta.net>
+
+	reviewed by: Benjamin Otte  <otte@gnome.org>
+
+	* m4/as-docbook.m4:
+	  don't use == operator with test(1) (fixes #135115)
+
+2004-02-16  Thomas Vander Stichele  <thomas at apestaart dot org>
+ 
+	* common/m4/gst-arch.m4: x86_64 is x86 too (clue from Fedora 2 test)
+
+2004-02-13  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/gst-feature.m4:
+          remove AM_CONDITIONAL for the subsystem since automake 1.6.x
+          requires that call be in configure.ac
+
+2004-02-13  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/gst-libxml2.m4:
+          take required version as argument, and default to 2.4.9 if not
+          specified
+
+2004-02-12  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/gst-feature.m4:
+          rename and fix up GST_CHECK_DISABLE_SUBSYSTEM
+
+2004-02-11  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* common/m4/as-ac-expand.m4:
+	* common/m4/as-auto-alt.m4:
+	* common/m4/as-compiler-flag.m4:
+	* common/m4/as-compiler.m4:
+	* common/m4/as-docbook.m4:
+	* common/m4/as-libtool.m4:
+	* common/m4/as-scrub-include.m4:
+	* common/m4/as-version.m4:
+	* common/m4/glib-gettext.m4:
+	* common/m4/gst-arch.m4:
+	* common/m4/gst-debuginfo.m4:
+	* common/m4/gst-doc.m4:
+	* common/m4/gst-feature.m4:
+	* common/m4/gst-function.m4:
+	* common/m4/gst-glib2.m4:
+	* common/m4/gst-gstreamer.m4:
+	* common/m4/gst-libxml2.m4:
+	* common/m4/gst-makecontext.m4:
+	* common/m4/gst-mcsc.m4:
+	* common/m4/pkg.m4:
+          fix underquoted macros as reported by automake 1.8.x (#133800)
+
+2004-02-11  Johan Dahlin  <johan@gnome.org>
+
+	* gst-autogen.sh: Use A-Z instead of A-z in sed expression to
+	avoid a warning
+
+2004-02-05  Thomas Vander Stichele  <thomas (at) apestaart (dot) org>
+
+	* m4/gst-doc.m4:
+          we use --output-format=xml and --ingnore-files options to
+          gtkdoc-mkdb, which got added between 0.9 and 1.0
+
+2004-02-04  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* m4/as-libtool.m4: remove AM_PROG_LIBTOOL so it can move back
+          to configure.ac to shut up libtoolize
+
+2004-02-03  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+        * glib-gen.mak: added; used to generate enums and marshal code
+
+2004-01-13  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+        * gettext.patch: added; used by autogen.sh to make sure
+          GETTEXT_PACKAGE is understood from po/Makefile.in.in -> po/Makefile.in
+

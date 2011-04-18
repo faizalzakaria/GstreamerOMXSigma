@@ -1,0 +1,86 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>gstconfig</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.68.1">
+<link rel="start" href="index.html" title="GStreamer 0.10 Core Reference Manual">
+<link rel="up" href="libgstreamer.html" title="GStreamer Core Library">
+<link rel="prev" href="GstClock.html" title="GstClock">
+<link rel="next" href="GstElement.html" title="GstElement">
+<meta name="generator" content="GTK-Doc V1.4 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="gstreamer.html" title="GStreamer Overview">
+<link rel="chapter" href="libgstreamer.html" title="GStreamer Core Library">
+<link rel="chapter" href="gstreamer-support.html" title="GStreamer Core Support">
+<link rel="chapter" href="gstreamer-hierarchy.html" title="Object Hierarchy">
+<link rel="index" href="api-index.html" title="Index">
+<link rel="index" href="ix02.html" title="Index of deprecated symbols">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="GstClock.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libgstreamer.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GStreamer 0.10 Core Reference Manual</th>
+<td><a accesskey="n" href="GstElement.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" lang="en">
+<a name="gstreamer-gstconfig"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">gstconfig</span></h2>
+<p>gstconfig &#8212; Build configuration options</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gst/gst.h&gt;
+
+
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2631430"></a><h2>Description</h2>
+<p>
+This describes the configuration options for GStreamer. When building
+GStreamer there are a lot of parts (known internally as "subsystems" ) that
+can be disabled for various reasons. The most common reasons are speed and
+size, which is important because GStreamer is designed to run on embedded
+systems.
+</p>
+<p>
+If a subsystem is disabled, most of this changes are done in an API
+compatible way, so you don't need to adapt your code in most cases. It is
+never done in an ABI compatible way though. So if you want to disable a
+suybsystem, you have to rebuild all programs depending on GStreamer, too.
+</p>
+<p>
+If a subsystem is disabled in GStreamer, a value is defined in
+&lt;gst/gst.h&gt;. You can check this if you do subsystem-specific stuff.
+</p>
+<div class="example">
+<a name="id2632067"></a><p class="title"><b>Example&#160;5.&#160;Doing subsystem specific things</b></p>
+<pre class="programlisting">
+#ifndef GST_DISABLE_GST_DEBUG
+// do stuff specific to the debugging subsystem
+#endif // GST_DISABLE_GST_DEBUG
+</pre>
+</div>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2632089"></a><h2>Details</h2>
+</div>
+</div>
+<table class="navigation" width="100%" summary="Navigation footer" cellpadding="2" cellspacing="0"><tr valign="middle">
+<td align="left"><a accesskey="p" href="GstClock.html"><b>&lt;&lt;&#160;GstClock</b></a></td>
+<td align="right"><a accesskey="n" href="GstElement.html"><b>GstElement&#160;&gt;&gt;</b></a></td>
+</tr></table>
+</body>
+</html>

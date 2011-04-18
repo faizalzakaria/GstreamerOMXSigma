@@ -1,0 +1,189 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>tee</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.68.1">
+<link rel="start" href="index.html" title="GStreamer Core Plugins 0.10 Plugins Reference Manual">
+<link rel="up" href="ch01.html" title="gstreamer Elements">
+<link rel="prev" href="gstreamer-plugins-queue.html" title="queue">
+<link rel="next" href="gstreamer-plugins-typefind.html" title="typefind">
+<meta name="generator" content="GTK-Doc V1.4 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="gstreamer Elements">
+<link rel="chapter" href="ch02.html" title="gstreamer Plugins">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="gstreamer-plugins-queue.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GStreamer Core Plugins 0.10 Plugins Reference Manual</th>
+<td><a accesskey="n" href="gstreamer-plugins-typefind.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" lang="en">
+<a name="gstreamer-plugins-tee"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">tee</span></h2>
+<p>tee &#8212; 1-to-N pipe fitting</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<a name="GstTee"></a><pre class="synopsis">
+
+
+
+            <a href="gstreamer-plugins-tee.html#GstTee-struct">GstTee</a>;
+
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2894081"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="/usr/share/gtk-doc/html/gstreamer/GstObject.html"
+>GstObject</a>
+         +----<a
+href="/usr/share/gtk-doc/html/gstreamer/GstElement.html"
+>GstElement</a>
+               +----GstTee
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2873532"></a><h2>Properties</h2>
+<pre class="synopsis">
+
+  "<a href="gstreamer-plugins-tee.html#GstTee--has-chain">has-chain</a>"            <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct
+  "<a href="gstreamer-plugins-tee.html#GstTee--has-sink-loop">has-sink-loop</a>"        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct
+  "<a href="gstreamer-plugins-tee.html#GstTee--last-message">last-message</a>"         <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray"
+>gchararray</a>            : Read
+  "<a href="gstreamer-plugins-tee.html#GstTee--num-src-pads">num-src-pads</a>"         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                  : Read
+  "<a href="gstreamer-plugins-tee.html#GstTee--silent">silent</a>"               <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2873607"></a><h2>Description</h2>
+<p>
+Split data to multiple pads.</p>
+<div class="refsect2" lang="en">
+<a name="id2873620"></a><h3>Element Information</h3>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term">plugin</span></td>
+<td>
+          <a href="gstreamer-plugins-plugin-coreelements.html#plugin-coreelements">coreelements</a>
+        </td>
+</tr>
+<tr>
+<td>
+<span class="term">author</span></td>
+<td>Erik Walthinsen &lt;omega@cse.ogi.edu&gt;, Wim "Tim" Taymans &lt;wim@fluendo.com&gt;</td>
+</tr>
+<tr>
+<td>
+<span class="term">class</span></td>
+<td>Generic</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2907826"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2907833"></a><h3>
+<a name="GstTee-struct"></a>GstTee</h3>
+<a class="indexterm" name="id2907842"></a><pre class="programlisting">typedef struct _GstTee GstTee;</pre>
+<p>
+Opaque <a href="gstreamer-plugins-tee.html#GstTee"><span class="type">GstTee</span></a> data structure.</p>
+<p>
+
+</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2907869"></a><h2>Properties</h2>
+<div class="refsect2" lang="en">
+<a name="id2907875"></a><h3>
+<a name="GstTee--has-chain"></a>The "<code class="literal">has-chain</code>" property</h3>
+<pre class="programlisting">  "has-chain"            <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct</pre>
+<p>has-chain.</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2907909"></a><h3>
+<a name="GstTee--has-sink-loop"></a>The "<code class="literal">has-sink-loop</code>" property</h3>
+<pre class="programlisting">  "has-sink-loop"        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct</pre>
+<p>has-sink-loop.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2871333"></a><h3>
+<a name="GstTee--last-message"></a>The "<code class="literal">last-message</code>" property</h3>
+<pre class="programlisting">  "last-message"         <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray"
+>gchararray</a>            : Read</pre>
+<p>last_message.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2871367"></a><h3>
+<a name="GstTee--num-src-pads"></a>The "<code class="literal">num-src-pads</code>" property</h3>
+<pre class="programlisting">  "num-src-pads"         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                  : Read</pre>
+<p>num-src-pads.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2871404"></a><h3>
+<a name="GstTee--silent"></a>The "<code class="literal">silent</code>" property</h3>
+<pre class="programlisting">  "silent"               <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct</pre>
+<p>silent.</p>
+<p>Default value: TRUE</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2871439"></a><h2>See Also</h2>
+<a href="gstreamer-plugins-identity.html#GstIdentity"><span class="type">GstIdentity</span></a>
+</div>
+</div>
+<table class="navigation" width="100%" summary="Navigation footer" cellpadding="2" cellspacing="0"><tr valign="middle">
+<td align="left"><a accesskey="p" href="gstreamer-plugins-queue.html"><b>&lt;&lt;&#160;queue</b></a></td>
+<td align="right"><a accesskey="n" href="gstreamer-plugins-typefind.html"><b>typefind&#160;&gt;&gt;</b></a></td>
+</tr></table>
+</body>
+</html>

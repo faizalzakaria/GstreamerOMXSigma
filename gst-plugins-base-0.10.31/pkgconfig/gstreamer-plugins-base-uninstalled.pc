@@ -1,0 +1,16 @@
+# the standard variables don't make sense for an uninstalled copy
+prefix=
+exec_prefix=
+libdir=
+# includedir is builddir because it is used to find gstconfig.h in places
+includedir=/users/phai/share/GSTReamer_compilation/gst-plugins-base-0.10.31/gst-libs
+pluginsdir=/users/phai/share/GSTReamer_compilation/gst-plugins-base-0.10.31
+
+Name: GStreamer Base Plugins Libraries, Uninstalled
+Description: Streaming media framework, base plugins libraries, uninstalled
+Version: 0.10.31
+Requires: gstreamer-0.10
+Libs: -L/users/phai/share/GSTReamer_compilation/gst-plugins-base-0.10.31/gst-libs/gst/audio -L/users/phai/share/GSTReamer_compilation/gst-plugins-base-0.10.31/gst-libs/gst/cdda -L/users/phai/share/GSTReamer_compilation/gst-plugins-base-0.10.31/gst-libs/gst/fft -L/users/phai/share/GSTReamer_compilation/gst-plugins-base-0.10.31/gst-libs/gst/floatcast -L/users/phai/share/GSTReamer_compilation/gst-plugins-base-0.10.31/gst-libs/gst/interfaces -L/users/phai/share/GSTReamer_compilation/gst-plugins-base-0.10.31/gst-libs/gst/netbuffer -L/users/phai/share/GSTReamer_compilation/gst-plugins-base-0.10.31/gst-libs/gst/riff -L/users/phai/share/GSTReamer_compilation/gst-plugins-base-0.10.31/gst-libs/gst/rtp -L/users/phai/share/GSTReamer_compilation/gst-plugins-base-0.10.31/gst-libs/gst/rtsp -L/users/phai/share/GSTReamer_compilation/gst-plugins-base-0.10.31/gst-libs/gst/sdp -L/users/phai/share/GSTReamer_compilation/gst-plugins-base-0.10.31/gst-libs/gst/tag -L/users/phai/share/GSTReamer_compilation/gst-plugins-base-0.10.31/gst-libs/gst/pbutils -L/users/phai/share/GSTReamer_compilation/gst-plugins-base-0.10.31/gst-libs/gst/video -L/users/phai/share/GSTReamer_compilation/gst-plugins-base-0.10.31/gst-libs/gst/app
+Cflags: -I/users/phai/share/GSTReamer_compilation/gst-plugins-base-0.10.31/gst-libs -I/users/phai/share/GSTReamer_compilation/gst-plugins-base-0.10.31/gst-libs
+
+libraries=app audio cdda fft floatcast interfaces netbuffer riff rtp rtsp sdp tag pbutils video

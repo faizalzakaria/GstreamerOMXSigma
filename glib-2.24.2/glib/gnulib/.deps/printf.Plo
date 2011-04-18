@@ -1,0 +1,287 @@
+printf.lo: printf.c ../../config.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/string.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/features.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/predefs.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/cdefs.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/wordsize.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/gnu/stubs.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../lib/gcc/mips-linux-gnu/4.3.2/include/stddef.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/stdlib.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/types.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/types.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/typesizes.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/time.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/endian.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/endian.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/select.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/select.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/sigset.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/time.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/sysmacros.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/pthreadtypes.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/alloca.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/stdio.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/libio.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/_G_config.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/wchar.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../lib/gcc/mips-linux-gnu/4.3.2/include/stdarg.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/stdio_lim.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/sys_errlist.h \
+  g-gnulib.h ../../glib/glib.h ../../glib/galloca.h ../../glib/gtypes.h \
+  ../../glibconfig.h ../../glib/gmacros.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../lib/gcc/mips-linux-gnu/4.3.2/include-fixed/el/limits.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../lib/gcc/mips-linux-gnu/4.3.2/include-fixed/el/syslimits.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/limits.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/posix1_lim.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/local_lim.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/linux/limits.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/posix2_lim.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../lib/gcc/mips-linux-gnu/4.3.2/include/float.h \
+  ../../glib/garray.h ../../glib/gasyncqueue.h ../../glib/gthread.h \
+  ../../glib/gerror.h ../../glib/gquark.h ../../glib/gutils.h \
+  ../../glib/gatomic.h ../../glib/gbacktrace.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/signal.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/signum.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/siginfo.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/sigaction.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/sigcontext.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sgidefs.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/sigstack.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/sigthread.h \
+  ../../glib/gbase64.h ../../glib/gbitlock.h ../../glib/gbookmarkfile.h \
+  ../../glib/gcache.h ../../glib/glist.h ../../glib/gmem.h \
+  ../../glib/gslice.h ../../glib/gchecksum.h ../../glib/gcompletion.h \
+  ../../glib/gconvert.h ../../glib/gdataset.h ../../glib/gdate.h \
+  ../../glib/gdir.h ../../glib/gfileutils.h ../../glib/ghash.h \
+  ../../glib/ghook.h ../../glib/ghostutils.h ../../glib/giochannel.h \
+  ../../glib/gmain.h ../../glib/gpoll.h ../../glib/gslist.h \
+  ../../glib/gstring.h ../../glib/gunicode.h ../../glib/gkeyfile.h \
+  ../../glib/gmappedfile.h ../../glib/gmarkup.h ../../glib/gmessages.h \
+  ../../glib/gnode.h ../../glib/goption.h ../../glib/gpattern.h \
+  ../../glib/gprimes.h ../../glib/gqsort.h ../../glib/gqueue.h \
+  ../../glib/grand.h ../../glib/grel.h ../../glib/gregex.h \
+  ../../glib/gscanner.h ../../glib/gsequence.h ../../glib/gshell.h \
+  ../../glib/gspawn.h ../../glib/gstrfuncs.h ../../glib/gtestutils.h \
+  ../../glib/gthreadpool.h ../../glib/gtimer.h ../../glib/gtree.h \
+  ../../glib/gurifuncs.h ../../glib/gvarianttype.h ../../glib/gvariant.h \
+  ../../glib/galias.h vasnprintf.h printf.h
+
+../../config.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/string.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/features.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/predefs.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/cdefs.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/wordsize.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/gnu/stubs.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../lib/gcc/mips-linux-gnu/4.3.2/include/stddef.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/stdlib.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/types.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/types.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/typesizes.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/time.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/endian.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/endian.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/select.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/select.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/sigset.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/time.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/sysmacros.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/pthreadtypes.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/alloca.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/stdio.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/libio.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/_G_config.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/wchar.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../lib/gcc/mips-linux-gnu/4.3.2/include/stdarg.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/stdio_lim.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/sys_errlist.h:
+
+g-gnulib.h:
+
+../../glib/glib.h:
+
+../../glib/galloca.h:
+
+../../glib/gtypes.h:
+
+../../glibconfig.h:
+
+../../glib/gmacros.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../lib/gcc/mips-linux-gnu/4.3.2/include-fixed/el/limits.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../lib/gcc/mips-linux-gnu/4.3.2/include-fixed/el/syslimits.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/limits.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/posix1_lim.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/local_lim.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/linux/limits.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/posix2_lim.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../lib/gcc/mips-linux-gnu/4.3.2/include/float.h:
+
+../../glib/garray.h:
+
+../../glib/gasyncqueue.h:
+
+../../glib/gthread.h:
+
+../../glib/gerror.h:
+
+../../glib/gquark.h:
+
+../../glib/gutils.h:
+
+../../glib/gatomic.h:
+
+../../glib/gbacktrace.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/signal.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/signum.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/siginfo.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/sigaction.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/sigcontext.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sgidefs.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/sigstack.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/sigthread.h:
+
+../../glib/gbase64.h:
+
+../../glib/gbitlock.h:
+
+../../glib/gbookmarkfile.h:
+
+../../glib/gcache.h:
+
+../../glib/glist.h:
+
+../../glib/gmem.h:
+
+../../glib/gslice.h:
+
+../../glib/gchecksum.h:
+
+../../glib/gcompletion.h:
+
+../../glib/gconvert.h:
+
+../../glib/gdataset.h:
+
+../../glib/gdate.h:
+
+../../glib/gdir.h:
+
+../../glib/gfileutils.h:
+
+../../glib/ghash.h:
+
+../../glib/ghook.h:
+
+../../glib/ghostutils.h:
+
+../../glib/giochannel.h:
+
+../../glib/gmain.h:
+
+../../glib/gpoll.h:
+
+../../glib/gslist.h:
+
+../../glib/gstring.h:
+
+../../glib/gunicode.h:
+
+../../glib/gkeyfile.h:
+
+../../glib/gmappedfile.h:
+
+../../glib/gmarkup.h:
+
+../../glib/gmessages.h:
+
+../../glib/gnode.h:
+
+../../glib/goption.h:
+
+../../glib/gpattern.h:
+
+../../glib/gprimes.h:
+
+../../glib/gqsort.h:
+
+../../glib/gqueue.h:
+
+../../glib/grand.h:
+
+../../glib/grel.h:
+
+../../glib/gregex.h:
+
+../../glib/gscanner.h:
+
+../../glib/gsequence.h:
+
+../../glib/gshell.h:
+
+../../glib/gspawn.h:
+
+../../glib/gstrfuncs.h:
+
+../../glib/gtestutils.h:
+
+../../glib/gthreadpool.h:
+
+../../glib/gtimer.h:
+
+../../glib/gtree.h:
+
+../../glib/gurifuncs.h:
+
+../../glib/gvarianttype.h:
+
+../../glib/gvariant.h:
+
+../../glib/galias.h:
+
+vasnprintf.h:
+
+printf.h:

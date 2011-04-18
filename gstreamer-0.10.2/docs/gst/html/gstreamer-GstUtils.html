@@ -1,0 +1,1292 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>GstUtils</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.68.1">
+<link rel="start" href="index.html" title="GStreamer 0.10 Core Reference Manual">
+<link rel="up" href="libgstreamer.html" title="GStreamer Core Library">
+<link rel="prev" href="gstreamer-GstUriHandler.html" title="GstUriHandler">
+<link rel="next" href="gstreamer-GStreamer-GValue-types.html" title="GStreamer GValue types">
+<meta name="generator" content="GTK-Doc V1.4 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="gstreamer.html" title="GStreamer Overview">
+<link rel="chapter" href="libgstreamer.html" title="GStreamer Core Library">
+<link rel="chapter" href="gstreamer-support.html" title="GStreamer Core Support">
+<link rel="chapter" href="gstreamer-hierarchy.html" title="Object Hierarchy">
+<link rel="index" href="api-index.html" title="Index">
+<link rel="index" href="ix02.html" title="Index of deprecated symbols">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="gstreamer-GstUriHandler.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libgstreamer.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GStreamer 0.10 Core Reference Manual</th>
+<td><a accesskey="n" href="gstreamer-GStreamer-GValue-types.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" lang="en">
+<a name="gstreamer-GstUtils"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">GstUtils</span></h2>
+<p>GstUtils &#8212; Various utility functions</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gst/gst.h&gt;
+
+
+#define     <a href="gstreamer-GstUtils.html#GST-BOILERPLATE-WITH-INTERFACE:CAPS">GST_BOILERPLATE_WITH_INTERFACE</a>  (type, type_as_function,		\
+    parent_type, parent_type_as_macro, interface_type,			\
+    interface_type_as_macro, interface_as_function)
+#define     <a href="gstreamer-GstUtils.html#GST-BOILERPLATE-FULL:CAPS">GST_BOILERPLATE_FULL</a>            (type, type_as_function, parent_type, parent_type_macro, additional_initializations)
+#define     <a href="gstreamer-GstUtils.html#GST-BOILERPLATE:CAPS">GST_BOILERPLATE</a>                 (type,type_as_function,parent_type,parent_type_macro)
+#define     <a href="gstreamer-GstUtils.html#GST-CALL-PARENT:CAPS">GST_CALL_PARENT</a>                 (parent_class_cast, name, args)
+#define     <a href="gstreamer-GstUtils.html#GST-CALL-PARENT-WITH-DEFAULT:CAPS">GST_CALL_PARENT_WITH_DEFAULT</a>    (parent_class_cast, name, args, def_return)
+#define     <a href="gstreamer-GstUtils.html#GST-READ-UINT8:CAPS">GST_READ_UINT8</a>                  (data)
+#define     <a href="gstreamer-GstUtils.html#GST-READ-UINT16-LE:CAPS">GST_READ_UINT16_LE</a>              (data)
+#define     <a href="gstreamer-GstUtils.html#GST-READ-UINT16-BE:CAPS">GST_READ_UINT16_BE</a>              (data)
+#define     <a href="gstreamer-GstUtils.html#GST-READ-UINT32-LE:CAPS">GST_READ_UINT32_LE</a>              (data)
+#define     <a href="gstreamer-GstUtils.html#GST-READ-UINT32-BE:CAPS">GST_READ_UINT32_BE</a>              (data)
+#define     <a href="gstreamer-GstUtils.html#GST-READ-UINT64-LE:CAPS">GST_READ_UINT64_LE</a>              (data)
+#define     <a href="gstreamer-GstUtils.html#GST-READ-UINT64-BE:CAPS">GST_READ_UINT64_BE</a>              (data)
+#define     <a href="gstreamer-GstUtils.html#GST-WRITE-UINT8:CAPS">GST_WRITE_UINT8</a>                 (data, num)
+#define     <a href="gstreamer-GstUtils.html#GST-WRITE-UINT16-LE:CAPS">GST_WRITE_UINT16_LE</a>             (data, num)
+#define     <a href="gstreamer-GstUtils.html#GST-WRITE-UINT16-BE:CAPS">GST_WRITE_UINT16_BE</a>             (data, num)
+#define     <a href="gstreamer-GstUtils.html#GST-WRITE-UINT32-LE:CAPS">GST_WRITE_UINT32_LE</a>             (data, num)
+#define     <a href="gstreamer-GstUtils.html#GST-WRITE-UINT32-BE:CAPS">GST_WRITE_UINT32_BE</a>             (data, num)
+#define     <a href="gstreamer-GstUtils.html#GST-WRITE-UINT64-LE:CAPS">GST_WRITE_UINT64_LE</a>             (data, num)
+#define     <a href="gstreamer-GstUtils.html#GST-WRITE-UINT64-BE:CAPS">GST_WRITE_UINT64_BE</a>             (data, num)
+#define     <a href="gstreamer-GstUtils.html#GST-ROUND-UP-2:CAPS">GST_ROUND_UP_2</a>                  (num)
+#define     <a href="gstreamer-GstUtils.html#GST-ROUND-UP-4:CAPS">GST_ROUND_UP_4</a>                  (num)
+#define     <a href="gstreamer-GstUtils.html#GST-ROUND-UP-8:CAPS">GST_ROUND_UP_8</a>                  (num)
+#define     <a href="gstreamer-GstUtils.html#GST-ROUND-UP-16:CAPS">GST_ROUND_UP_16</a>                 (num)
+#define     <a href="gstreamer-GstUtils.html#GST-ROUND-UP-32:CAPS">GST_ROUND_UP_32</a>                 (num)
+#define     <a href="gstreamer-GstUtils.html#GST-ROUND-UP-64:CAPS">GST_ROUND_UP_64</a>                 (num)
+void        <a href="gstreamer-GstUtils.html#gst-atomic-int-set">gst_atomic_int_set</a>              (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> *atomic_int,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> value);
+const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>* <a href="gstreamer-GstUtils.html#gst-flow-get-name">gst_flow_get_name</a>              (<a href="GstPad.html#GstFlowReturn">GstFlowReturn</a> ret);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Quarks.html#GQuark"
+>GQuark</a>      <a href="gstreamer-GstUtils.html#gst-flow-to-quark">gst_flow_to_quark</a>               (<a href="GstPad.html#GstFlowReturn">GstFlowReturn</a> ret);
+void        <a href="gstreamer-GstUtils.html#gst-print-element-args">gst_print_element_args</a>          (<a
+href="/usr/share/gtk-doc/html/glib/glib-Strings.html#GString"
+>GString</a> *buf,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> indent,
+                                             <a href="GstElement.html" title="GstElement">GstElement</a> *element);
+void        <a href="gstreamer-GstUtils.html#gst-print-pad-caps">gst_print_pad_caps</a>              (<a
+href="/usr/share/gtk-doc/html/glib/glib-Strings.html#GString"
+>GString</a> *buf,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> indent,
+                                             <a href="GstPad.html" title="GstPad">GstPad</a> *pad);
+#define     <a href="gstreamer-GstUtils.html#gst-guint64-to-gdouble">gst_guint64_to_gdouble</a>          (value)
+#define     <a href="gstreamer-GstUtils.html#gst-gdouble-to-guint64">gst_gdouble_to_guint64</a>          (value)
+void        <a href="gstreamer-GstUtils.html#gst-util-dump-mem">gst_util_dump_mem</a>               (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guchar"
+>guchar</a> *mem,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> size);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint64"
+>guint64</a>     <a href="gstreamer-GstUtils.html#gst-util-uint64-scale">gst_util_uint64_scale</a>           (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint64"
+>guint64</a> val,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint64"
+>guint64</a> num,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint64"
+>guint64</a> denom);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint64"
+>guint64</a>     <a href="gstreamer-GstUtils.html#gst-util-uint64-scale-int">gst_util_uint64_scale_int</a>       (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint64"
+>guint64</a> val,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> num,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> denom);
+void        <a href="gstreamer-GstUtils.html#gst-util-set-object-arg">gst_util_set_object_arg</a>         (<a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a> *object,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *value);
+void        <a href="gstreamer-GstUtils.html#gst-util-set-value-from-string">gst_util_set_value_from_string</a>  (<a
+href="/usr/share/gtk-doc/html/gobject/gobject-Generic-values.html#GValue"
+>GValue</a> *value,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *value_str);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2848808"></a><h2>Description</h2>
+<p>
+When defining own plugins, use the GST_BOILERPLATE ease gobject creation.</p>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2848822"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2848828"></a><h3>
+<a name="GST-BOILERPLATE-WITH-INTERFACE:CAPS"></a>GST_BOILERPLATE_WITH_INTERFACE()</h3>
+<a class="indexterm" name="id2848839"></a><pre class="programlisting">#define     GST_BOILERPLATE_WITH_INTERFACE(type, type_as_function,		\
+    parent_type, parent_type_as_macro, interface_type,			\
+    interface_type_as_macro, interface_as_function)</pre>
+<p>
+Like GST_BOILERPLATE, but makes the type 1) implement an interface, and 2)
+implement GstImplementsInterface for that type.
+</p>
+<p>
+After this you will need to implement interface_as_function ## _supported
+and interface_as_function ## _interface_init</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>type</code></em>&#160;:</span></td>
+<td> the name of the type struct
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>type_as_function</code></em>&#160;:</span></td>
+<td> the prefix for the functions
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>parent_type_as_macro</code></em>&#160;:</span></td>
+<td> the parent type macro
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>interface_type</code></em>&#160;:</span></td>
+<td> the name of the interface type struct
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>interface_as_function</code></em>&#160;:</span></td>
+<td> the interface function name prefix
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2848944"></a><h3>
+<a name="GST-BOILERPLATE-FULL:CAPS"></a>GST_BOILERPLATE_FULL()</h3>
+<a class="indexterm" name="id2848955"></a><pre class="programlisting">#define     GST_BOILERPLATE_FULL(type, type_as_function, parent_type, parent_type_macro, additional_initializations)</pre>
+<p>
+Define the boilerplate type stuff to reduce typos and code size.  Defines
+the get_type method and the parent_class static variable.
+</p>
+<p>
+</p>
+<div class="informalexample"><pre class="programlisting">
+  GST_BOILERPLATE_FULL (GstFdSink, gst_fdsink, GstElement, GST_TYPE_ELEMENT, _do_init);
+</pre></div>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>type</code></em>&#160;:</span></td>
+<td> the name of the type struct
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>type_as_function</code></em>&#160;:</span></td>
+<td> the prefix for the functions
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>parent_type</code></em>&#160;:</span></td>
+<td> the parent type struct name
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>parent_type_macro</code></em>&#160;:</span></td>
+<td> the parent type macro
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>additional_initializations</code></em>&#160;:</span></td>
+<td> function pointer in the form of
+void additional_initializations (GType type) that can be used for
+initializing interfaces and the like
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2849067"></a><h3>
+<a name="GST-BOILERPLATE:CAPS"></a>GST_BOILERPLATE()</h3>
+<a class="indexterm" name="id2849078"></a><pre class="programlisting">#define     GST_BOILERPLATE(type,type_as_function,parent_type,parent_type_macro)</pre>
+<p>
+Define the boilerplate type stuff to reduce typos and code size.  Defines
+the get_type method and the parent_class static variable.
+</p>
+<p>
+</p>
+<div class="informalexample"><pre class="programlisting">
+  GST_BOILERPLATE (GstFdSink, gst_fdsink, GstElement, GST_TYPE_ELEMENT);
+</pre></div>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>type</code></em>&#160;:</span></td>
+<td> the name of the type struct
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>type_as_function</code></em>&#160;:</span></td>
+<td> the prefix for the functions
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>parent_type</code></em>&#160;:</span></td>
+<td> the parent type struct name
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>parent_type_macro</code></em>&#160;:</span></td>
+<td> the parent type macro
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2849173"></a><h3>
+<a name="GST-CALL-PARENT:CAPS"></a>GST_CALL_PARENT()</h3>
+<a class="indexterm" name="id2849184"></a><pre class="programlisting">#define     GST_CALL_PARENT(parent_class_cast, name, args)</pre>
+<p>
+Just call the parent handler.  This assumes that there is a variable
+named parent_class that points to the (duh!) parent class.  Note that
+this macro is not to be used with things that return something, use
+the _WITH_DEFAULT version for that</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>parent_class_cast</code></em>&#160;:</span></td>
+<td> the name of the class cast macro for the parent type
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></td>
+<td> name of the function to call
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>args</code></em>&#160;:</span></td>
+<td> arguments enclosed in '( )'
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2849254"></a><h3>
+<a name="GST-CALL-PARENT-WITH-DEFAULT:CAPS"></a>GST_CALL_PARENT_WITH_DEFAULT()</h3>
+<a class="indexterm" name="id2849265"></a><pre class="programlisting">#define     GST_CALL_PARENT_WITH_DEFAULT(parent_class_cast, name, args, def_return)</pre>
+<p>
+Same as <a href="gstreamer-GstUtils.html#GST-CALL-PARENT:CAPS"><code class="function">GST_CALL_PARENT()</code></a>, but in case there is no implementation, it
+evaluates to <em class="parameter"><code>def_return</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>parent_class_cast</code></em>&#160;:</span></td>
+<td> the name of the class cast macro for the parent type
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></td>
+<td> name of the function to call
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>args</code></em>&#160;:</span></td>
+<td> arguments enclosed in '( )'
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>def_return</code></em>&#160;:</span></td>
+<td> default result
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2849364"></a><h3>
+<a name="GST-READ-UINT8:CAPS"></a>GST_READ_UINT8()</h3>
+<a class="indexterm" name="id2849374"></a><pre class="programlisting">#define     GST_READ_UINT8(data)</pre>
+<p>
+Read an 8 bit unsigned integer value from the memory buffer.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></td>
+<td> memory location
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2849412"></a><h3>
+<a name="GST-READ-UINT16-LE:CAPS"></a>GST_READ_UINT16_LE()</h3>
+<a class="indexterm" name="id2849424"></a><pre class="programlisting">#define     GST_READ_UINT16_LE(data)</pre>
+<p>
+Read a 16 bit unsigned integer value in little endian format from the memory buffer.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></td>
+<td> memory location
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2849462"></a><h3>
+<a name="GST-READ-UINT16-BE:CAPS"></a>GST_READ_UINT16_BE()</h3>
+<a class="indexterm" name="id2849473"></a><pre class="programlisting">#define     GST_READ_UINT16_BE(data)</pre>
+<p>
+Read a 16 bit unsigned integer value in big endian format from the memory buffer.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></td>
+<td> memory location
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2849511"></a><h3>
+<a name="GST-READ-UINT32-LE:CAPS"></a>GST_READ_UINT32_LE()</h3>
+<a class="indexterm" name="id2849522"></a><pre class="programlisting">#define     GST_READ_UINT32_LE(data)</pre>
+<p>
+Read a 32 bit unsigned integer value in little endian format from the memory buffer.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></td>
+<td> memory location
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2849560"></a><h3>
+<a name="GST-READ-UINT32-BE:CAPS"></a>GST_READ_UINT32_BE()</h3>
+<a class="indexterm" name="id2849571"></a><pre class="programlisting">#define     GST_READ_UINT32_BE(data)</pre>
+<p>
+Read a 32 bit unsigned integer value in big endian format from the memory buffer.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></td>
+<td> memory location
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2849609"></a><h3>
+<a name="GST-READ-UINT64-LE:CAPS"></a>GST_READ_UINT64_LE()</h3>
+<a class="indexterm" name="id2849620"></a><pre class="programlisting">#define     GST_READ_UINT64_LE(data)</pre>
+<p>
+Read a 64 bit unsigned integer value in little endian format from the memory buffer.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></td>
+<td> memory location
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2849659"></a><h3>
+<a name="GST-READ-UINT64-BE:CAPS"></a>GST_READ_UINT64_BE()</h3>
+<a class="indexterm" name="id2849669"></a><pre class="programlisting">#define     GST_READ_UINT64_BE(data)</pre>
+<p>
+Read a 64 bit unsigned integer value in big endian format from the memory buffer.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></td>
+<td> memory location
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2849708"></a><h3>
+<a name="GST-WRITE-UINT8:CAPS"></a>GST_WRITE_UINT8()</h3>
+<a class="indexterm" name="id2849719"></a><pre class="programlisting">#define     GST_WRITE_UINT8(data, num)</pre>
+<p>
+Store an 8 bit unsigned integer value into the memory buffer.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></td>
+<td> memory location
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>num</code></em>&#160;:</span></td>
+<td> value to store
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2849771"></a><h3>
+<a name="GST-WRITE-UINT16-LE:CAPS"></a>GST_WRITE_UINT16_LE()</h3>
+<a class="indexterm" name="id2849781"></a><pre class="programlisting">#define     GST_WRITE_UINT16_LE(data, num)</pre>
+<p>
+Store a 16 bit unsigned integer value in little endian format into the memory buffer.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></td>
+<td> memory location
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>num</code></em>&#160;:</span></td>
+<td> value to store
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2849833"></a><h3>
+<a name="GST-WRITE-UINT16-BE:CAPS"></a>GST_WRITE_UINT16_BE()</h3>
+<a class="indexterm" name="id2849844"></a><pre class="programlisting">#define     GST_WRITE_UINT16_BE(data, num)</pre>
+<p>
+Store a 16 bit unsigned integer value in big endian format into the memory buffer.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></td>
+<td> memory location
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>num</code></em>&#160;:</span></td>
+<td> value to store
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2849896"></a><h3>
+<a name="GST-WRITE-UINT32-LE:CAPS"></a>GST_WRITE_UINT32_LE()</h3>
+<a class="indexterm" name="id2849906"></a><pre class="programlisting">#define     GST_WRITE_UINT32_LE(data, num)</pre>
+<p>
+Store a 32 bit unsigned integer value in little endian format into the memory buffer.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></td>
+<td> memory location
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>num</code></em>&#160;:</span></td>
+<td> value to store
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2849959"></a><h3>
+<a name="GST-WRITE-UINT32-BE:CAPS"></a>GST_WRITE_UINT32_BE()</h3>
+<a class="indexterm" name="id2849969"></a><pre class="programlisting">#define     GST_WRITE_UINT32_BE(data, num)</pre>
+<p>
+Store a 32 bit unsigned integer value in big endian format into the memory buffer.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></td>
+<td> memory location
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>num</code></em>&#160;:</span></td>
+<td> value to store
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2850021"></a><h3>
+<a name="GST-WRITE-UINT64-LE:CAPS"></a>GST_WRITE_UINT64_LE()</h3>
+<a class="indexterm" name="id2850032"></a><pre class="programlisting">#define     GST_WRITE_UINT64_LE(data, num)</pre>
+<p>
+Store a 64 bit unsigned integer value in little endian format into the memory buffer.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></td>
+<td> memory location
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>num</code></em>&#160;:</span></td>
+<td> value to store
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2850084"></a><h3>
+<a name="GST-WRITE-UINT64-BE:CAPS"></a>GST_WRITE_UINT64_BE()</h3>
+<a class="indexterm" name="id2850095"></a><pre class="programlisting">#define     GST_WRITE_UINT64_BE(data, num)</pre>
+<p>
+Store a 64 bit unsigned integer value in big endian format into the memory buffer.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></td>
+<td> memory location
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>num</code></em>&#160;:</span></td>
+<td> value to store
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2850147"></a><h3>
+<a name="GST-ROUND-UP-2:CAPS"></a>GST_ROUND_UP_2()</h3>
+<a class="indexterm" name="id2850158"></a><pre class="programlisting">#define GST_ROUND_UP_2(num)  (((num)+1)&amp;~1)
+</pre>
+<p>
+Make number divideable by two without a rest.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>num</code></em>&#160;:</span></td>
+<td> value round up
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2850196"></a><h3>
+<a name="GST-ROUND-UP-4:CAPS"></a>GST_ROUND_UP_4()</h3>
+<a class="indexterm" name="id2850206"></a><pre class="programlisting">#define GST_ROUND_UP_4(num)  (((num)+3)&amp;~3)
+</pre>
+<p>
+Make number divideable by four without a rest.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>num</code></em>&#160;:</span></td>
+<td> value round up
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2850244"></a><h3>
+<a name="GST-ROUND-UP-8:CAPS"></a>GST_ROUND_UP_8()</h3>
+<a class="indexterm" name="id2850255"></a><pre class="programlisting">#define GST_ROUND_UP_8(num)  (((num)+7)&amp;~7)
+</pre>
+<p>
+Make number divideable by eight without a rest.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>num</code></em>&#160;:</span></td>
+<td> value round up
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2850293"></a><h3>
+<a name="GST-ROUND-UP-16:CAPS"></a>GST_ROUND_UP_16()</h3>
+<a class="indexterm" name="id2850304"></a><pre class="programlisting">#define GST_ROUND_UP_16(num) (((num)+15)&amp;~15)
+</pre>
+<p>
+Make number divideable by 16 without a rest.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>num</code></em>&#160;:</span></td>
+<td> value round up
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2850342"></a><h3>
+<a name="GST-ROUND-UP-32:CAPS"></a>GST_ROUND_UP_32()</h3>
+<a class="indexterm" name="id2850353"></a><pre class="programlisting">#define GST_ROUND_UP_32(num) (((num)+31)&amp;~31)
+</pre>
+<p>
+Make number divideable by 32 without a rest.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>num</code></em>&#160;:</span></td>
+<td> value round up
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2850391"></a><h3>
+<a name="GST-ROUND-UP-64:CAPS"></a>GST_ROUND_UP_64()</h3>
+<a class="indexterm" name="id2850402"></a><pre class="programlisting">#define GST_ROUND_UP_64(num) (((num)+63)&amp;~63)
+</pre>
+<p>
+Make number divideable by 64 without a rest.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>num</code></em>&#160;:</span></td>
+<td> value round up
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2850440"></a><h3>
+<a name="gst-atomic-int-set"></a>gst_atomic_int_set ()</h3>
+<a class="indexterm" name="id2850451"></a><pre class="programlisting">void        gst_atomic_int_set              (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> *atomic_int,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> value);</pre>
+<p>
+Unconditionally sets the atomic integer to <em class="parameter"><code>value</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>atomic_int</code></em>&#160;:</span></td>
+<td> pointer to an atomic integer
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>value</code></em>&#160;:</span></td>
+<td> value to set
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2850528"></a><h3>
+<a name="gst-flow-get-name"></a>gst_flow_get_name ()</h3>
+<a class="indexterm" name="id2850540"></a><pre class="programlisting">const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>* gst_flow_get_name              (<a href="GstPad.html#GstFlowReturn">GstFlowReturn</a> ret);</pre>
+<p>
+Gets a string representing the given flow return.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>ret</code></em>&#160;:</span></td>
+<td> a <a href="GstPad.html#GstFlowReturn"><span class="type">GstFlowReturn</span></a> to get the name of.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> a string with the name of the flow return.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2850610"></a><h3>
+<a name="gst-flow-to-quark"></a>gst_flow_to_quark ()</h3>
+<a class="indexterm" name="id2850621"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Quarks.html#GQuark"
+>GQuark</a>      gst_flow_to_quark               (<a href="GstPad.html#GstFlowReturn">GstFlowReturn</a> ret);</pre>
+<p>
+Get the unique quark for the given GstFlowReturn.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>ret</code></em>&#160;:</span></td>
+<td> a <a href="GstPad.html#GstFlowReturn"><span class="type">GstFlowReturn</span></a> to get the quark of.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the quark associated with the flow return or 0 if an
+invalid return was specified.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2850691"></a><h3>
+<a name="gst-print-element-args"></a>gst_print_element_args ()</h3>
+<a class="indexterm" name="id2850702"></a><pre class="programlisting">void        gst_print_element_args          (<a
+href="/usr/share/gtk-doc/html/glib/glib-Strings.html#GString"
+>GString</a> *buf,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> indent,
+                                             <a href="GstElement.html" title="GstElement">GstElement</a> *element);</pre>
+<p>
+Print the element argument in a human readable format in the given
+GString.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>buf</code></em>&#160;:</span></td>
+<td> the buffer to print the args in
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>indent</code></em>&#160;:</span></td>
+<td> initial indentation
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>element</code></em>&#160;:</span></td>
+<td> the element to print the args of
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2850796"></a><h3>
+<a name="gst-print-pad-caps"></a>gst_print_pad_caps ()</h3>
+<a class="indexterm" name="id2850808"></a><pre class="programlisting">void        gst_print_pad_caps              (<a
+href="/usr/share/gtk-doc/html/glib/glib-Strings.html#GString"
+>GString</a> *buf,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> indent,
+                                             <a href="GstPad.html" title="GstPad">GstPad</a> *pad);</pre>
+<p>
+Write the pad capabilities in a human readable format into
+the given GString.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>buf</code></em>&#160;:</span></td>
+<td> the buffer to print the caps in
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>indent</code></em>&#160;:</span></td>
+<td> initial indentation
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>pad</code></em>&#160;:</span></td>
+<td> the pad to print the caps from
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2850901"></a><h3>
+<a name="gst-guint64-to-gdouble"></a>gst_guint64_to_gdouble()</h3>
+<a class="indexterm" name="id2850912"></a><pre class="programlisting">#define     gst_guint64_to_gdouble(value)</pre>
+<p>
+Convert <em class="parameter"><code>value</code></em> to a gdouble.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>value</code></em>&#160;:</span></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint64"
+><span class="type">guint64</span></a> value to convert
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2850963"></a><h3>
+<a name="gst-gdouble-to-guint64"></a>gst_gdouble_to_guint64()</h3>
+<a class="indexterm" name="id2850974"></a><pre class="programlisting">#define     gst_gdouble_to_guint64(value)</pre>
+<p>
+Convert <em class="parameter"><code>value</code></em> to a guint64.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>value</code></em>&#160;:</span></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gdouble"
+><span class="type">gdouble</span></a> value to convert
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2851025"></a><h3>
+<a name="gst-util-dump-mem"></a>gst_util_dump_mem ()</h3>
+<a class="indexterm" name="id2851036"></a><pre class="programlisting">void        gst_util_dump_mem               (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guchar"
+>guchar</a> *mem,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> size);</pre>
+<p>
+Dumps the memory block into a hex representation. Useful for debugging.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>mem</code></em>&#160;:</span></td>
+<td> a pointer to the memory to dump
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>size</code></em>&#160;:</span></td>
+<td> the size of the memory block to dump
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2851109"></a><h3>
+<a name="gst-util-uint64-scale"></a>gst_util_uint64_scale ()</h3>
+<a class="indexterm" name="id2851120"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint64"
+>guint64</a>     gst_util_uint64_scale           (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint64"
+>guint64</a> val,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint64"
+>guint64</a> num,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint64"
+>guint64</a> denom);</pre>
+<p>
+Scale <em class="parameter"><code>val</code></em> by <em class="parameter"><code>num</code></em> / <em class="parameter"><code>denom</code></em>, trying to avoid overflows.
+</p>
+<p>
+This function can potentially be very slow if denom &gt; G_MAXUINT32.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>val</code></em>&#160;:</span></td>
+<td> the number to scale
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>num</code></em>&#160;:</span></td>
+<td> the numerator of the scale ratio
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>denom</code></em>&#160;:</span></td>
+<td> the denominator of the scale ratio
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> <em class="parameter"><code>val</code></em> * <em class="parameter"><code>num</code></em> / <em class="parameter"><code>denom</code></em>, trying to avoid overflows.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2851263"></a><h3>
+<a name="gst-util-uint64-scale-int"></a>gst_util_uint64_scale_int ()</h3>
+<a class="indexterm" name="id2851275"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint64"
+>guint64</a>     gst_util_uint64_scale_int       (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint64"
+>guint64</a> val,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> num,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> denom);</pre>
+<p>
+Scale a guint64 by a factor expressed as a fraction (num/denom), avoiding
+overflows and loss of precision.
+</p>
+<p>
+<em class="parameter"><code>num</code></em> and <em class="parameter"><code>denom</code></em> must be positive integers. <em class="parameter"><code>denom</code></em> cannot be 0.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>val</code></em>&#160;:</span></td>
+<td> guint64 (such as a <a href="GstClock.html#GstClockTime"><span class="type">GstClockTime</span></a>) to scale.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>num</code></em>&#160;:</span></td>
+<td> numerator of the scale factor.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>denom</code></em>&#160;:</span></td>
+<td> denominator of the scale factor.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> <em class="parameter"><code>val</code></em> * <em class="parameter"><code>num</code></em> / <em class="parameter"><code>denom</code></em>, avoiding overflow and loss of precision
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2851427"></a><h3>
+<a name="gst-util-set-object-arg"></a>gst_util_set_object_arg ()</h3>
+<a class="indexterm" name="id2851438"></a><pre class="programlisting">void        gst_util_set_object_arg         (<a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a> *object,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *value);</pre>
+<p>
+Convertes the string value to the type of the objects argument and
+sets the argument with it.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>object</code></em>&#160;:</span></td>
+<td> the object to set the argument of
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></td>
+<td> the name of the argument to set
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>value</code></em>&#160;:</span></td>
+<td> the string value to set
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2851533"></a><h3>
+<a name="gst-util-set-value-from-string"></a>gst_util_set_value_from_string ()</h3>
+<a class="indexterm" name="id2851544"></a><pre class="programlisting">void        gst_util_set_value_from_string  (<a
+href="/usr/share/gtk-doc/html/gobject/gobject-Generic-values.html#GValue"
+>GValue</a> *value,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *value_str);</pre>
+<p>
+Converts the string to the type of the value and
+sets the value with it.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>value</code></em>&#160;:</span></td>
+<td> the value to set
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>value_str</code></em>&#160;:</span></td>
+<td> the string to get the value from
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<table class="navigation" width="100%" summary="Navigation footer" cellpadding="2" cellspacing="0"><tr valign="middle">
+<td align="left"><a accesskey="p" href="gstreamer-GstUriHandler.html"><b>&lt;&lt;&#160;GstUriHandler</b></a></td>
+<td align="right"><a accesskey="n" href="gstreamer-GStreamer-GValue-types.html"><b>GStreamer GValue types&#160;&gt;&gt;</b></a></td>
+</tr></table>
+</body>
+</html>

@@ -1,0 +1,172 @@
+xdgmimecache.lo: xdgmimecache.c ../../config.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/stdio.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/features.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/predefs.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/cdefs.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/wordsize.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/gnu/stubs.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../lib/gcc/mips-linux-gnu/4.3.2/include/stddef.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/types.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/typesizes.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/libio.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/_G_config.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/wchar.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../lib/gcc/mips-linux-gnu/4.3.2/include/stdarg.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/stdio_lim.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/sys_errlist.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/stdlib.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/types.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/time.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/endian.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/endian.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/select.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/select.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/sigset.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/time.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/sysmacros.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/pthreadtypes.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/alloca.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/string.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/fcntl.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/fcntl.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sgidefs.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/unistd.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/posix_opt.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/confname.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/getopt.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/fnmatch.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/assert.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/netinet/in.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/stdint.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/wchar.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/socket.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/uio.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/uio.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/socket.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/sockaddr.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/asm/socket.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/asm/sockios.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/asm/ioctl.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/in.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/byteswap.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/mman.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/mman.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/stat.h \
+  /utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/stat.h \
+  xdgmimecache.h xdgmime.h xdgmimeint.h
+
+../../config.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/stdio.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/features.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/predefs.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/cdefs.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/wordsize.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/gnu/stubs.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../lib/gcc/mips-linux-gnu/4.3.2/include/stddef.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/types.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/typesizes.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/libio.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/_G_config.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/wchar.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../lib/gcc/mips-linux-gnu/4.3.2/include/stdarg.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/stdio_lim.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/sys_errlist.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/stdlib.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/types.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/time.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/endian.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/endian.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/select.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/select.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/sigset.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/time.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/sysmacros.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/pthreadtypes.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/alloca.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/string.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/fcntl.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/fcntl.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sgidefs.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/unistd.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/posix_opt.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/confname.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/getopt.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/fnmatch.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/assert.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/netinet/in.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/stdint.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/wchar.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/socket.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/uio.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/uio.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/socket.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/sockaddr.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/asm/socket.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/asm/sockios.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/asm/ioctl.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/in.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/byteswap.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/mman.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/mman.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/sys/stat.h:
+
+/utils/release/sets/3_9_3_iptv_dev/mips-4.3-51-mips-linux-gnu-i686-pc-linux-gnu/bin/../mips-linux-gnu/libc/usr/include/bits/stat.h:
+
+xdgmimecache.h:
+
+xdgmime.h:
+
+xdgmimeint.h:

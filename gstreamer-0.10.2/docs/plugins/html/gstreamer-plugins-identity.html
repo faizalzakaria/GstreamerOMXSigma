@@ -1,0 +1,312 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>identity</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.68.1">
+<link rel="start" href="index.html" title="GStreamer Core Plugins 0.10 Plugins Reference Manual">
+<link rel="up" href="ch01.html" title="gstreamer Elements">
+<link rel="prev" href="gstreamer-plugins-filesink.html" title="filesink">
+<link rel="next" href="gstreamer-plugins-queue.html" title="queue">
+<meta name="generator" content="GTK-Doc V1.4 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="gstreamer Elements">
+<link rel="chapter" href="ch02.html" title="gstreamer Plugins">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="gstreamer-plugins-filesink.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GStreamer Core Plugins 0.10 Plugins Reference Manual</th>
+<td><a accesskey="n" href="gstreamer-plugins-queue.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" lang="en">
+<a name="gstreamer-plugins-identity"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">identity</span></h2>
+<p>identity &#8212; Pass data without modification</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<a name="GstIdentity"></a><pre class="synopsis">
+
+
+
+            <a href="gstreamer-plugins-identity.html#GstIdentity-struct">GstIdentity</a>;
+
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2868470"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="/usr/share/gtk-doc/html/gstreamer/GstObject.html"
+>GstObject</a>
+         +----<a
+href="/usr/share/gtk-doc/html/gstreamer/GstElement.html"
+>GstElement</a>
+               +----<a
+href="/usr/share/gtk-doc/html/gstreamer/GstBaseTransform.html"
+>GstBaseTransform</a>
+                     +----GstIdentity
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2870823"></a><h2>Properties</h2>
+<pre class="synopsis">
+
+  "<a href="gstreamer-plugins-identity.html#GstIdentity--check-perfect">check-perfect</a>"        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+  "<a href="gstreamer-plugins-identity.html#GstIdentity--datarate">datarate</a>"             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write
+  "<a href="gstreamer-plugins-identity.html#GstIdentity--drop-probability">drop-probability</a>"     <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gfloat"
+>gfloat</a>                : Read / Write
+  "<a href="gstreamer-plugins-identity.html#GstIdentity--dump">dump</a>"                 <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+  "<a href="gstreamer-plugins-identity.html#GstIdentity--error-after">error-after</a>"          <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write
+  "<a href="gstreamer-plugins-identity.html#GstIdentity--last-message">last-message</a>"         <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray"
+>gchararray</a>            : Read
+  "<a href="gstreamer-plugins-identity.html#GstIdentity--silent">silent</a>"               <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+  "<a href="gstreamer-plugins-identity.html#GstIdentity--single-segment">single-segment</a>"       <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+  "<a href="gstreamer-plugins-identity.html#GstIdentity--sleep-time">sleep-time</a>"           <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>                 : Read / Write
+  "<a href="gstreamer-plugins-identity.html#GstIdentity--sync">sync</a>"                 <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2870954"></a><h2>Signal Prototypes</h2>
+<pre class="synopsis">
+
+"<a href="gstreamer-plugins-identity.html#GstIdentity-handoff">handoff</a>"   void        user_function      (<a href="gstreamer-plugins-identity.html#GstIdentity">GstIdentity</a> *identity,
+                                            <a
+href="/usr/share/gtk-doc/html/gstreamer/gstreamer-GstBuffer.html#GstBuffer"
+>GstBuffer</a> buffer,
+                                            <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2889885"></a><h2>Description</h2>
+<div class="refsect2" lang="en">
+<a name="id2889896"></a><h3>Element Information</h3>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term">plugin</span></td>
+<td>
+          <a href="gstreamer-plugins-plugin-coreelements.html#plugin-coreelements">coreelements</a>
+        </td>
+</tr>
+<tr>
+<td>
+<span class="term">author</span></td>
+<td>Erik Walthinsen &lt;omega@cse.ogi.edu&gt;</td>
+</tr>
+<tr>
+<td>
+<span class="term">class</span></td>
+<td>Generic</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2889964"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2889971"></a><h3>
+<a name="GstIdentity-struct"></a>GstIdentity</h3>
+<a class="indexterm" name="id2889981"></a><pre class="programlisting">typedef struct _GstIdentity GstIdentity;</pre>
+<p>
+Opaque <a href="gstreamer-plugins-identity.html#GstIdentity"><span class="type">GstIdentity</span></a> data structure</p>
+<p>
+
+</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2877287"></a><h2>Properties</h2>
+<div class="refsect2" lang="en">
+<a name="id2877293"></a><h3>
+<a name="GstIdentity--check-perfect"></a>The "<code class="literal">check-perfect</code>" property</h3>
+<pre class="programlisting">  "check-perfect"        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>Verify that the stream is time- and data-contiguous.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2877327"></a><h3>
+<a name="GstIdentity--datarate"></a>The "<code class="literal">datarate</code>" property</h3>
+<pre class="programlisting">  "datarate"             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write</pre>
+<p>(Re)timestamps buffers with number of bytes per second (0 = inactive).</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2877365"></a><h3>
+<a name="GstIdentity--drop-probability"></a>The "<code class="literal">drop-probability</code>" property</h3>
+<pre class="programlisting">  "drop-probability"     <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gfloat"
+>gfloat</a>                : Read / Write</pre>
+<p>The Probability a buffer is dropped.</p>
+<p>Allowed values: [0,1]</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2877404"></a><h3>
+<a name="GstIdentity--dump"></a>The "<code class="literal">dump</code>" property</h3>
+<pre class="programlisting">  "dump"                 <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>Dump buffer contents.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2877438"></a><h3>
+<a name="GstIdentity--error-after"></a>The "<code class="literal">error-after</code>" property</h3>
+<pre class="programlisting">  "error-after"          <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write</pre>
+<p>Error after N buffers.</p>
+<p>Default value: -1</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2877471"></a><h3>
+<a name="GstIdentity--last-message"></a>The "<code class="literal">last-message</code>" property</h3>
+<pre class="programlisting">  "last-message"         <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray"
+>gchararray</a>            : Read</pre>
+<p>last-message.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2877505"></a><h3>
+<a name="GstIdentity--silent"></a>The "<code class="literal">silent</code>" property</h3>
+<pre class="programlisting">  "silent"               <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>silent.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2867285"></a><h3>
+<a name="GstIdentity--single-segment"></a>The "<code class="literal">single-segment</code>" property</h3>
+<pre class="programlisting">  "single-segment"       <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>Timestamp buffers and eat newsegments so as to appear as one segment.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2867319"></a><h3>
+<a name="GstIdentity--sleep-time"></a>The "<code class="literal">sleep-time</code>" property</h3>
+<pre class="programlisting">  "sleep-time"           <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>                 : Read / Write</pre>
+<p>Microseconds to sleep between processing.</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2867353"></a><h3>
+<a name="GstIdentity--sync"></a>The "<code class="literal">sync</code>" property</h3>
+<pre class="programlisting">  "sync"                 <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>Synchronize to pipeline clock.</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2867389"></a><h2>Signals</h2>
+<div class="refsect2" lang="en">
+<a name="id2867395"></a><h3>
+<a name="GstIdentity-handoff"></a>The "handoff" signal</h3>
+<pre class="programlisting">void        user_function                  (<a href="gstreamer-plugins-identity.html#GstIdentity">GstIdentity</a> *identity,
+                                            <a
+href="/usr/share/gtk-doc/html/gstreamer/gstreamer-GstBuffer.html#GstBuffer"
+>GstBuffer</a> buffer,
+                                            <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+This signal gets emitted before passing the buffer downstream.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>identity</code></em>&#160;:</span></td>
+<td> the identity instance
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>buffer</code></em>&#160;:</span></td>
+<td> the buffer that just has been received
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>pad</code></em>&#160;:</span></td>
+<td> the pad that received it
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<table class="navigation" width="100%" summary="Navigation footer" cellpadding="2" cellspacing="0"><tr valign="middle">
+<td align="left"><a accesskey="p" href="gstreamer-plugins-filesink.html"><b>&lt;&lt;&#160;filesink</b></a></td>
+<td align="right"><a accesskey="n" href="gstreamer-plugins-queue.html"><b>queue&#160;&gt;&gt;</b></a></td>
+</tr></table>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>typefind</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.68.1">
+<link rel="start" href="index.html" title="GStreamer Core Plugins 0.10 Plugins Reference Manual">
+<link rel="up" href="ch01.html" title="gstreamer Elements">
+<link rel="prev" href="gstreamer-plugins-tee.html" title="tee">
+<link rel="next" href="ch02.html" title="gstreamer Plugins">
+<meta name="generator" content="GTK-Doc V1.4 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="gstreamer Elements">
+<link rel="chapter" href="ch02.html" title="gstreamer Plugins">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="gstreamer-plugins-tee.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GStreamer Core Plugins 0.10 Plugins Reference Manual</th>
+<td><a accesskey="n" href="ch02.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" lang="en">
+<a name="gstreamer-plugins-typefind"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">typefind</span></h2>
+<p>typefind &#8212; Finds the media type of a stream</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<a name="GstTypeFindElement"></a><pre class="synopsis">
+
+
+
+            <a href="gstreamer-plugins-typefind.html#GstTypeFindElement-struct">GstTypeFindElement</a>;
+
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2873646"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="/usr/share/gtk-doc/html/gstreamer/GstObject.html"
+>GstObject</a>
+         +----<a
+href="/usr/share/gtk-doc/html/gstreamer/GstElement.html"
+>GstElement</a>
+               +----GstTypeFindElement
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2871852"></a><h2>Properties</h2>
+<pre class="synopsis">
+
+  "<a href="gstreamer-plugins-typefind.html#GstTypeFindElement--caps">caps</a>"                 <a
+href="/usr/share/gtk-doc/html/gstreamer/gstreamer-GstCaps.html#GstCaps"
+>GstCaps</a>               : Read
+  "<a href="gstreamer-plugins-typefind.html#GstTypeFindElement--maximum">maximum</a>"              <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>                 : Read / Write
+  "<a href="gstreamer-plugins-typefind.html#GstTypeFindElement--minimum">minimum</a>"              <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>                 : Read / Write
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2871901"></a><h2>Signal Prototypes</h2>
+<pre class="synopsis">
+
+"<a href="gstreamer-plugins-typefind.html#GstTypeFindElement-have-type">have-type</a>" void        user_function      (<a href="gstreamer-plugins-typefind.html#GstTypeFindElement">GstTypeFindElement</a> *typefind,
+                                            <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> probability,
+                                            <a
+href="/usr/share/gtk-doc/html/gstreamer/gstreamer-GstCaps.html#GstCaps"
+>GstCaps</a> *caps,
+                                            <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2876076"></a><h2>Description</h2>
+<div class="refsect2" lang="en">
+<a name="id2876086"></a><h3>Element Information</h3>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term">plugin</span></td>
+<td>
+          <a href="gstreamer-plugins-plugin-coreelements.html#plugin-coreelements">coreelements</a>
+        </td>
+</tr>
+<tr>
+<td>
+<span class="term">author</span></td>
+<td>Benjamin Otte &lt;in7y118@public.uni-hamburg.de&gt;</td>
+</tr>
+<tr>
+<td>
+<span class="term">class</span></td>
+<td>Generic</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2876155"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2876161"></a><h3>
+<a name="GstTypeFindElement-struct"></a>GstTypeFindElement</h3>
+<a class="indexterm" name="id2876171"></a><pre class="programlisting">typedef struct _GstTypeFindElement GstTypeFindElement;</pre>
+<p>
+Opaque <a href="gstreamer-plugins-typefind.html#GstTypeFindElement"><span class="type">GstTypeFindElement</span></a> data structure</p>
+<p>
+
+</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2863794"></a><h2>Properties</h2>
+<div class="refsect2" lang="en">
+<a name="id2863801"></a><h3>
+<a name="GstTypeFindElement--caps"></a>The "<code class="literal">caps</code>" property</h3>
+<pre class="programlisting">  "caps"                 <a
+href="/usr/share/gtk-doc/html/gstreamer/gstreamer-GstCaps.html#GstCaps"
+>GstCaps</a>               : Read</pre>
+<p>detected capabilities in stream.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2863830"></a><h3>
+<a name="GstTypeFindElement--maximum"></a>The "<code class="literal">maximum</code>" property</h3>
+<pre class="programlisting">  "maximum"              <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>                 : Read / Write</pre>
+<p>probability to stop typefinding.</p>
+<p>Allowed values: [1,100]</p>
+<p>Default value: 100</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2863866"></a><h3>
+<a name="GstTypeFindElement--minimum"></a>The "<code class="literal">minimum</code>" property</h3>
+<pre class="programlisting">  "minimum"              <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>                 : Read / Write</pre>
+<p>minimum probability required to accept caps.</p>
+<p>Allowed values: [1,100]</p>
+<p>Default value: 1</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2863904"></a><h2>Signals</h2>
+<div class="refsect2" lang="en">
+<a name="id2863910"></a><h3>
+<a name="GstTypeFindElement-have-type"></a>The "have-type" signal</h3>
+<pre class="programlisting">void        user_function                  (<a href="gstreamer-plugins-typefind.html#GstTypeFindElement">GstTypeFindElement</a> *typefind,
+                                            <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> probability,
+                                            <a
+href="/usr/share/gtk-doc/html/gstreamer/gstreamer-GstCaps.html#GstCaps"
+>GstCaps</a> *caps,
+                                            <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+This signal gets emitted when the type and its probability has 
+been found.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>typefind</code></em>&#160;:</span></td>
+<td> the typefind instance
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>probability</code></em>&#160;:</span></td>
+<td> the probability of the type found
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>caps</code></em>&#160;:</span></td>
+<td> the caps of the type found
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<table class="navigation" width="100%" summary="Navigation footer" cellpadding="2" cellspacing="0"><tr valign="middle">
+<td align="left"><a accesskey="p" href="gstreamer-plugins-tee.html"><b>&lt;&lt;&#160;tee</b></a></td>
+<td align="right"><a accesskey="n" href="ch02.html"><b>gstreamer Plugins&#160;&gt;&gt;</b></a></td>
+</tr></table>
+</body>
+</html>

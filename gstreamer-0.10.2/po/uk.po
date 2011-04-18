@@ -1,0 +1,890 @@
+# Ukrainian translation to gstreamer.
+# Copyright (C) 2004 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gstreamer package.
+# Maxim V. Dziumanenko <mvd@mylinux.com.ua>, 2004-2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gstreamer 0.9.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-01-14 22:11+0100\n"
+"PO-Revision-Date: 2005-11-26 15:16+0300\n"
+"Last-Translator: Maxim V. Dziumanenko <mvd@mylinux.com.ua>\n"
+"Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: gst/gst.c:270
+msgid "Print the GStreamer version"
+msgstr "Вивести версію GStreamer"
+
+#: gst/gst.c:272
+msgid "Make all warnings fatal"
+msgstr "Вважати всі попередження помилками"
+
+#: gst/gst.c:275
+msgid "Print available debug categories and exit"
+msgstr "Вивести наявні категорії налагодження та вийти"
+
+#: gst/gst.c:278
+msgid ""
+"Default debug level from 1 (only error) to 5 (anything) or 0 for no output"
+msgstr ""
+"Типовий рівень налагодження від 1 (лише помилки) до 5 (усе), або 0 - без "
+"налагодження"
+
+#: gst/gst.c:280
+msgid "LEVEL"
+msgstr "РІВЕНЬ"
+
+#: gst/gst.c:282
+msgid ""
+"Comma-separated list of category_name:level pairs to set specific levels for "
+"the individual categories. Example: GST_AUTOPLUG:5,GST_ELEMENT_*:3"
+msgstr ""
+"Перелік розділених комою пар \"назва_категорії:рівень\" для встановлення "
+"певних рівнів окремим категоріям. Наприклад: GST_AUTOPLUG:5,GST_ELEMENT_*:3"
+
+#: gst/gst.c:285
+msgid "LIST"
+msgstr "ПЕРЕЛІК"
+
+#: gst/gst.c:287
+msgid "Disable colored debugging output"
+msgstr "Вимкнути оформлення кольором налагоджувальних повідомлень"
+
+#: gst/gst.c:289
+msgid "Disable debugging"
+msgstr "Вимкнути налагодження"
+
+#: gst/gst.c:292
+msgid "Enable verbose plugin loading diagnostics"
+msgstr "Вимкнути докладну діагностику завантаження модулів"
+
+#: gst/gst.c:295
+msgid "Colon-separated paths containing plugins"
+msgstr "Список розділених крапкою з комою шляхів, які містять модулі"
+
+#: gst/gst.c:295
+msgid "PATHS"
+msgstr "ШЛЯХИ"
+
+#: gst/gst.c:297
+msgid ""
+"Comma-separated list of plugins to preload in addition to the list stored in "
+"environment variable GST_PLUGIN_PATH"
+msgstr ""
+"Перелік розділених комою назв модулів, що попередньо завантажуються, які є "
+"додатковими до переліку, що зберігається у змінній оточення GST_PLUGIN_PATH"
+
+#: gst/gst.c:299
+msgid "PLUGINS"
+msgstr "МОДУЛІ"
+
+#: gst/gst.c:302
+msgid "Disable trapping of segmentation faults during plugin loading"
+msgstr "Вимкнути перехоплення помилок сегментації при завантаженні модулів"
+
+#: gst/gst.c:307
+msgid "GStreamer Options"
+msgstr "Параметри GStreamer"
+
+#: gst/gst.c:308
+msgid "Show GStreamer Options"
+msgstr "Показати параметри GStreamer"
+
+#: gst/gst.c:790
+msgid "Unknown option"
+msgstr "Невідомий параметр"
+
+#: gst/gstelement.c:278
+#, c-format
+msgid "ERROR: from element %s: %s\n"
+msgstr "ПОМИЛКА: у елементі %s: %s\n"
+
+#: gst/gstelement.c:280
+#, c-format
+msgid ""
+"Additional debug info:\n"
+"%s\n"
+msgstr ""
+"Додаткова налагоджувальна інформація:\n"
+"%s\n"
+
+#: gst/gsterror.c:132
+msgid "GStreamer encountered a general core library error."
+msgstr "GStreamer перехопив загальну помилку основної бібліотеки."
+
+#: gst/gsterror.c:134 gst/gsterror.c:171 gst/gsterror.c:191 gst/gsterror.c:221
+msgid ""
+"GStreamer developers were too lazy to assign an error code to this error."
+msgstr "Розробники GStreamer не призначили код для цієї помилки."
+
+#: gst/gsterror.c:137
+msgid "Internal GStreamer error: code not implemented."
+msgstr "Внутрішня помилка GStreamer: код не реалізований."
+
+#: gst/gsterror.c:139
+msgid "Internal GStreamer error: state change failed."
+msgstr "Внутрішня помилка GStreamer: помилка зміни стану."
+
+#: gst/gsterror.c:140
+msgid "Internal GStreamer error: pad problem."
+msgstr "Внутрішня помилка GStreamer: проблема наповнення."
+
+#: gst/gsterror.c:142
+msgid "Internal GStreamer error: thread problem."
+msgstr "Внутрішня помилка GStreamer: помилка потоку виконання."
+
+#: gst/gsterror.c:144
+msgid "Internal GStreamer error: negotiation problem."
+msgstr "Внутрішня помилка GStreamer: помилка встановлення зв'язку."
+
+#: gst/gsterror.c:146
+msgid "Internal GStreamer error: event problem."
+msgstr "Внутрішня помилка GStreamer: помилка події."
+
+#: gst/gsterror.c:148
+msgid "Internal GStreamer error: seek problem."
+msgstr "Внутрішня помилка GStreamer: помилка встановлення позиції."
+
+#: gst/gsterror.c:150
+msgid "Internal GStreamer error: caps problem."
+msgstr "Внутрішня помилка GStreamer: проблема можливостей."
+
+#: gst/gsterror.c:151
+msgid "Internal GStreamer error: tag problem."
+msgstr "Внутрішня помилка GStreamer: помилка тегу."
+
+#: gst/gsterror.c:153
+msgid "Your GStreamer installation is missing a plug-in."
+msgstr "У вашій збірці GStreamer відсутній модуль."
+
+#: gst/gsterror.c:155
+msgid "Internal GStreamer error: clock problem."
+msgstr "Внутрішня помилка GStreamer: помилка годинника."
+
+#: gst/gsterror.c:169
+msgid "GStreamer encountered a general supporting library error."
+msgstr "GStreamer перехопив загальну помилку основної бібліотеки підтримки."
+
+#: gst/gsterror.c:173
+msgid "Could not initialize supporting library."
+msgstr "Не вдається ініціалізувати бібліотеку підтримки."
+
+#: gst/gsterror.c:174 gst/gsterror.c:175
+msgid "Could not close supporting library."
+msgstr "Не вдається закрити бібліотеку підтримки."
+
+#: gst/gsterror.c:189
+msgid "GStreamer encountered a general resource error."
+msgstr "GStreamer перехопив загальну помилку ресурсу."
+
+#: gst/gsterror.c:193
+msgid "Resource not found."
+msgstr "Ресурс не існує."
+
+#: gst/gsterror.c:194
+msgid "Resource busy or not available."
+msgstr "Ресурс зайнятий або недоступний."
+
+#: gst/gsterror.c:195
+msgid "Could not open resource for reading."
+msgstr "Не вдається відкрити ресурс для читання."
+
+#: gst/gsterror.c:196
+msgid "Could not open resource for writing."
+msgstr "Не вдається відкрити ресурс для запису."
+
+#: gst/gsterror.c:198
+msgid "Could not open resource for reading and writing."
+msgstr "Не вдається відкрити ресурс для читання чи запису."
+
+#: gst/gsterror.c:199
+msgid "Could not close resource."
+msgstr "Не вдається закрити ресурс."
+
+#: gst/gsterror.c:200
+msgid "Could not read from resource."
+msgstr "Не вдається прочитати з ресурсу."
+
+#: gst/gsterror.c:201
+msgid "Could not write to resource."
+msgstr "Не вдається записати у ресурс."
+
+#: gst/gsterror.c:202
+msgid "Could not perform seek on resource."
+msgstr "Не вдається виконати встановлення позиції у ресурсі."
+
+#: gst/gsterror.c:203
+msgid "Could not synchronize on resource."
+msgstr "Не вдається синхронізуватись з ресурсом."
+
+#: gst/gsterror.c:205
+msgid "Could not get/set settings from/on resource."
+msgstr "Не вдається отримати/встановити параметри з/у ресурсі."
+
+#: gst/gsterror.c:219
+msgid "GStreamer encountered a general stream error."
+msgstr "GStreamer перехопив загальну помилку потоку."
+
+#: gst/gsterror.c:224
+msgid "Element doesn't implement handling of this stream. Please file a bug."
+msgstr ""
+"У елементі не реалізовано перехоплення цього потоку. Сповістіть про помилку."
+
+#: gst/gsterror.c:226
+msgid "Could not determine type of stream."
+msgstr "Не вдається визначити тип потоку."
+
+#: gst/gsterror.c:228
+msgid "The stream is of a different type than handled by this element."
+msgstr "Потік іншого типу ніж тип, який обробляє цей елемент."
+
+#: gst/gsterror.c:230
+msgid "There is no codec present that can handle the stream's type."
+msgstr "Відсутній кодек, який здатен обробляти цей тип потоку."
+
+#: gst/gsterror.c:231
+msgid "Could not decode stream."
+msgstr "Не вдається розкодувати потік."
+
+#: gst/gsterror.c:232
+msgid "Could not encode stream."
+msgstr "Не вдається закодувати потік."
+
+#: gst/gsterror.c:233
+msgid "Could not demultiplex stream."
+msgstr "Не вдається демультиплексувати потік."
+
+#: gst/gsterror.c:234
+msgid "Could not multiplex stream."
+msgstr "Не вдається мультиплексувати потік."
+
+#: gst/gsterror.c:285
+#, c-format
+msgid "No error message for domain %s."
+msgstr "Немає повідомлення про помилку для домену %s."
+
+#: gst/gsterror.c:293
+#, c-format
+msgid "No standard error message for domain %s and code %d."
+msgstr "Немає стандартного повідомлення про помилку для домену %s та коду %d."
+
+#: gst/gsttaglist.c:92
+msgid "title"
+msgstr "заголовок"
+
+#: gst/gsttaglist.c:92
+msgid "commonly used title"
+msgstr "загальновживаний заголовок"
+
+#: gst/gsttaglist.c:95
+msgid "artist"
+msgstr "артист"
+
+#: gst/gsttaglist.c:96
+msgid "person(s) responsible for the recording"
+msgstr "особа, що відповідальна за запис"
+
+#: gst/gsttaglist.c:100
+msgid "album"
+msgstr "альбом"
+
+#: gst/gsttaglist.c:101
+msgid "album containing this data"
+msgstr "альбом, що містить ці дані"
+
+#: gst/gsttaglist.c:103
+msgid "date"
+msgstr "дата"
+
+#: gst/gsttaglist.c:103
+msgid "date the data was created (as a GDate structure)"
+msgstr "дата створення (як структура GDate)"
+
+#: gst/gsttaglist.c:106
+msgid "genre"
+msgstr "жанр"
+
+#: gst/gsttaglist.c:107
+msgid "genre this data belongs to"
+msgstr "жанр цих даних"
+
+#: gst/gsttaglist.c:110
+msgid "comment"
+msgstr "коментар"
+
+#: gst/gsttaglist.c:111
+msgid "free text commenting the data"
+msgstr "довільний текст з описом даних"
+
+#: gst/gsttaglist.c:114
+msgid "track number"
+msgstr "номер доріжки"
+
+#: gst/gsttaglist.c:115
+msgid "track number inside a collection"
+msgstr "номер доріжки у збірці"
+
+#: gst/gsttaglist.c:118
+msgid "track count"
+msgstr "кількість доріжок"
+
+#: gst/gsttaglist.c:119
+msgid "count of tracks inside collection this track belongs to"
+msgstr "кількість доріжок у збірці, до якої належить ця доріжка"
+
+#: gst/gsttaglist.c:123
+msgid "disc number"
+msgstr "номер диску"
+
+#: gst/gsttaglist.c:124
+msgid "disc number inside a collection"
+msgstr "номер диску у зібранні"
+
+#: gst/gsttaglist.c:127
+msgid "disc count"
+msgstr "кількість дисків"
+
+#: gst/gsttaglist.c:128
+msgid "count of discs inside collection this disc belongs to"
+msgstr "кількість дисків у зібранні, до якого належить цей диск"
+
+#: gst/gsttaglist.c:132
+msgid "location"
+msgstr "адреса"
+
+#: gst/gsttaglist.c:133
+msgid "original location of file as a URI"
+msgstr "оригінальне розташування файлу у вигляді URI"
+
+#: gst/gsttaglist.c:137
+msgid "description"
+msgstr "опис"
+
+#: gst/gsttaglist.c:138
+msgid "short text describing the content of the data"
+msgstr "короткий текст з описом вмісту даних"
+
+#: gst/gsttaglist.c:141
+msgid "version"
+msgstr "версія"
+
+#: gst/gsttaglist.c:141
+msgid "version of this data"
+msgstr "версія цих даних"
+
+#: gst/gsttaglist.c:144
+msgid "ISRC"
+msgstr "ISRC"
+
+#: gst/gsttaglist.c:146
+msgid "International Standard Recording Code - see http://www.ifpi.org/isrc/"
+msgstr ""
+"Інтернаціональний стандартний код запису (ISRC) - дивіться http://www.ifpi."
+"org/isrc/"
+
+#: gst/gsttaglist.c:148
+msgid "organization"
+msgstr "організація"
+
+#: gst/gsttaglist.c:151
+msgid "copyright"
+msgstr "авторські права"
+
+#: gst/gsttaglist.c:151
+msgid "copyright notice of the data"
+msgstr "примітка про авторські права даних"
+
+#: gst/gsttaglist.c:154
+msgid "contact"
+msgstr "контакти"
+
+#: gst/gsttaglist.c:154
+msgid "contact information"
+msgstr "контактна інформація"
+
+#: gst/gsttaglist.c:156
+msgid "license"
+msgstr "ліцензія"
+
+#: gst/gsttaglist.c:156
+msgid "license of data"
+msgstr "ліцензія даних"
+
+#: gst/gsttaglist.c:159
+msgid "performer"
+msgstr "виконавець"
+
+#: gst/gsttaglist.c:160
+msgid "person(s) performing"
+msgstr "особа(и), що виконала"
+
+#: gst/gsttaglist.c:163
+msgid "duration"
+msgstr "тривалість"
+
+#: gst/gsttaglist.c:163
+msgid "length in GStreamer time units (nanoseconds)"
+msgstr "тривалість у одиницях виміру GStreamer (наносекунди)"
+
+#: gst/gsttaglist.c:166
+msgid "codec"
+msgstr "кодек"
+
+#: gst/gsttaglist.c:167
+msgid "codec the data is stored in"
+msgstr "кодек, яким закодовані дані"
+
+#: gst/gsttaglist.c:170
+msgid "video codec"
+msgstr "відео кодек"
+
+#: gst/gsttaglist.c:170
+msgid "codec the video data is stored in"
+msgstr "кодек, яким закодовані відео дані"
+
+#: gst/gsttaglist.c:173
+msgid "audio codec"
+msgstr "аудіо кодек"
+
+#: gst/gsttaglist.c:173
+msgid "codec the audio data is stored in"
+msgstr "кодек, яким закодовані звукові дані"
+
+#: gst/gsttaglist.c:175
+msgid "bitrate"
+msgstr "щільність потоку бітів"
+
+#: gst/gsttaglist.c:175
+msgid "exact or average bitrate in bits/s"
+msgstr "точна або приблизна щільність потоку бітів у біт/с"
+
+#: gst/gsttaglist.c:177
+msgid "nominal bitrate"
+msgstr "номінальна щільність потоку бітів"
+
+#: gst/gsttaglist.c:177
+msgid "nominal bitrate in bits/s"
+msgstr "номінальна щільність потоку бітів у біт/с"
+
+#: gst/gsttaglist.c:179
+msgid "minimum bitrate"
+msgstr "мінімальна щільність потоку бітів"
+
+#: gst/gsttaglist.c:179
+msgid "minimum bitrate in bits/s"
+msgstr "мінімальна щільність потоку бітів у біт/с"
+
+#: gst/gsttaglist.c:181
+msgid "maximum bitrate"
+msgstr "максимальна щільність потоку бітів"
+
+#: gst/gsttaglist.c:181
+msgid "maximum bitrate in bits/s"
+msgstr "максимальна щільність потоку бітів у біт/с"
+
+#: gst/gsttaglist.c:184
+msgid "encoder"
+msgstr "кодер"
+
+#: gst/gsttaglist.c:184
+msgid "encoder used to encode this stream"
+msgstr "кодер, що використовувався для кодування цих даних"
+
+#: gst/gsttaglist.c:187
+msgid "encoder version"
+msgstr "версія кодера"
+
+#: gst/gsttaglist.c:188
+msgid "version of the encoder used to encode this stream"
+msgstr "версія кодера, що використовувався для кодування цих даних"
+
+#: gst/gsttaglist.c:190
+msgid "serial"
+msgstr "номер"
+
+#: gst/gsttaglist.c:190
+msgid "serial number of track"
+msgstr "послідовний номер доріжки"
+
+#: gst/gsttaglist.c:192
+msgid "replaygain track gain"
+msgstr "рівень відтворення доріжки"
+
+#: gst/gsttaglist.c:192
+msgid "track gain in db"
+msgstr "рівень доріжки, у дБ"
+
+#: gst/gsttaglist.c:194
+msgid "replaygain track peak"
+msgstr "пік відтворення доріжки"
+
+#: gst/gsttaglist.c:194
+msgid "peak of the track"
+msgstr "пік доріжки"
+
+#: gst/gsttaglist.c:196
+msgid "replaygain album gain"
+msgstr "рівень відтворення альбому"
+
+#: gst/gsttaglist.c:196
+msgid "album gain in db"
+msgstr "рівень альбому, у дБ"
+
+#: gst/gsttaglist.c:198
+msgid "replaygain album peak"
+msgstr "пік програвання альбому"
+
+#: gst/gsttaglist.c:198
+msgid "peak of the album"
+msgstr "пік альбому"
+
+#: gst/gsttaglist.c:200
+msgid "language code"
+msgstr "код мови"
+
+#: gst/gsttaglist.c:201
+msgid "language code for this stream, conforming to ISO-639-1"
+msgstr "код мови для потоку, код має відповідати ISO-639-1"
+
+#: gst/gsttaglist.c:240
+msgid ", "
+msgstr ", "
+
+#: gst/parse/grammar.y:206
+#, c-format
+msgid "specified empty bin \"%s\", not allowed"
+msgstr "вказаний порожній контейнер \"%s\", не допускається"
+
+#: gst/parse/grammar.y:212
+#, c-format
+msgid "no bin \"%s\", skipping"
+msgstr "немає контейнера \"%s\", пропускається"
+
+#: gst/parse/grammar.y:294
+#, c-format
+msgid "no property \"%s\" in element \"%s\""
+msgstr "немає властивості \"%s\" у елементі \"%s\""
+
+#: gst/parse/grammar.y:309
+#, c-format
+msgid "could not set property \"%s\" in element \"%s\" to \"%s\""
+msgstr ""
+"не вдається встановити властивість \"%s\" у елементі \"%s\" у значення \"%s\""
+
+#: gst/parse/grammar.y:532
+#, c-format
+msgid "could not link %s to %s"
+msgstr "не вдається прив'язати %s до %s"
+
+#: gst/parse/grammar.y:578
+#, c-format
+msgid "no element \"%s\""
+msgstr "немає елементу \"%s\""
+
+#: gst/parse/grammar.y:624
+#, c-format
+msgid "could not parse caps \"%s\""
+msgstr "не вдається розібрати можливості \"%s\""
+
+#: gst/parse/grammar.y:646 gst/parse/grammar.y:694 gst/parse/grammar.y:710
+#: gst/parse/grammar.y:768
+msgid "link without source element"
+msgstr "зв'язок без елемента-джерела"
+
+#: gst/parse/grammar.y:652 gst/parse/grammar.y:691 gst/parse/grammar.y:777
+msgid "link without sink element"
+msgstr "зв'язок без елемента-споживача"
+
+#: gst/parse/grammar.y:728
+#, c-format
+msgid "no source element for URI \"%s\""
+msgstr "відсутній елемент-джерело для URI \"%s\""
+
+#: gst/parse/grammar.y:738
+#, c-format
+msgid "no element to link URI \"%s\" to"
+msgstr "відсутній елемент для зв'язку URI \"%s\" до"
+
+#: gst/parse/grammar.y:746
+#, c-format
+msgid "no sink element for URI \"%s\""
+msgstr "відсутній елемент-споживач для URI \"%s\""
+
+#: gst/parse/grammar.y:750
+#, c-format
+msgid "could not link sink element for URI \"%s\""
+msgstr "не вдається прив'язати елемент-споживач для URI \"%s\""
+
+#: gst/parse/grammar.y:762
+msgid "empty pipeline not allowed"
+msgstr "порожній канал не допускається"
+
+#: libs/gst/base/gstbasesrc.c:1314 libs/gst/base/gstbasesrc.c:1323
+#: plugins/elements/gstqueue.c:820
+msgid "Internal data flow error."
+msgstr "Помилка внутрішнього потоку даних."
+
+#: libs/gst/base/gstbasesink.c:633
+msgid "Internal data flow problem."
+msgstr "Помилка внутрішнього потоку даних."
+
+#: plugins/elements/gstfilesink.c:230
+msgid "No file name specified for writing."
+msgstr "Не вказана назва файлу для запису."
+
+#: plugins/elements/gstfilesink.c:237
+#, c-format
+msgid "Could not open file \"%s\" for writing."
+msgstr "Не вдається відкрити файл \"%s\" для запису."
+
+#: plugins/elements/gstfilesink.c:253
+#, c-format
+msgid "Error closing file \"%s\"."
+msgstr "Помилка закривання файлу \"%s\"."
+
+#: plugins/elements/gstfilesink.c:361 plugins/elements/gstfilesink.c:425
+#, c-format
+msgid "Error while writing to file \"%s\"."
+msgstr "Помилка при записуванні у файл \"%s\"."
+
+#: plugins/elements/gstfilesrc.c:910
+msgid "No file name specified for reading."
+msgstr "Не вказана назва файлу для читання."
+
+#: plugins/elements/gstfilesrc.c:922
+#, c-format
+msgid "Could not open file \"%s\" for reading: %s."
+msgstr "Не вдається відкрити файл \"%s\" для читання: %s."
+
+#: plugins/elements/gstfilesrc.c:931
+#, c-format
+msgid "could not get info on \"%s\"."
+msgstr "не вдається отримати інформацію про \"%s\"."
+
+#: plugins/elements/gstfilesrc.c:938
+#, c-format
+msgid "\"%s\" is a directory."
+msgstr "\"%s\" є каталогом."
+
+#: plugins/elements/gstfilesrc.c:945
+#, c-format
+msgid "File \"%s\" is a socket."
+msgstr "Файл \"%s\" є сокетом."
+
+#: plugins/elements/gstidentity.c:359
+msgid "Failed after iterations as requested."
+msgstr "Помилка після ітерацій у запитаному порядку."
+
+#: plugins/elements/gsttypefindelement.c:183
+msgid "caps"
+msgstr "можливості"
+
+#: plugins/elements/gsttypefindelement.c:184
+msgid "detected capabilities in stream"
+msgstr "у потоці знайдено можливості"
+
+#: plugins/elements/gsttypefindelement.c:187
+msgid "minimum"
+msgstr "мінімум"
+
+#: plugins/elements/gsttypefindelement.c:191
+msgid "maximum"
+msgstr "максимум"
+
+#: tools/gst-inspect.c:1110
+msgid "Print all elements"
+msgstr "Вивести усі елементи"
+
+#: tools/gst-launch.c:82
+msgid "Usage: gst-xmllaunch <file.xml> [ element.property=value ... ]\n"
+msgstr ""
+"Використання: gst-xmllaunch <file.xml> [ елемент.властивість=значення ... ]\n"
+
+#: tools/gst-launch.c:91
+#, c-format
+msgid "ERROR: parse of xml file '%s' failed.\n"
+msgstr "ПОМИЛКА: помилка при аналізі xml файлу \"%s\".\n"
+
+#: tools/gst-launch.c:97
+#, c-format
+msgid "ERROR: no toplevel pipeline element in file '%s'.\n"
+msgstr "ПОМИЛКА: немає верхнього елементу каналу у файлі \"%s\".\n"
+
+#: tools/gst-launch.c:104
+#, c-format
+msgid "WARNING: only one toplevel element is supported at this time."
+msgstr "ПОПЕРЕДЖЕННЯ: наразі підтримується лише один верхній елемент."
+
+#: tools/gst-launch.c:115
+#, c-format
+msgid "ERROR: could not parse command line argument %d: %s.\n"
+msgstr ""
+"ПОМИЛКА: не вдається проаналізувати аргумент командного рядка %d: %s.\n"
+
+#: tools/gst-launch.c:126
+#, c-format
+msgid "WARNING: element named '%s' not found.\n"
+msgstr "ПОПЕРЕДЖЕННЯ: елемент з назвою \"%s\" не існує.\n"
+
+#: tools/gst-launch.c:380
+#, c-format
+msgid "Got Message from element \"%s\" (%s): "
+msgstr "Отримано повідомлення від елементу \"%s\" (%s): "
+
+#: tools/gst-launch.c:407
+#, c-format
+msgid "Got EOS from element \"%s\".\n"
+msgstr "Отримано ознаку кінця рядка від елементу \"%s\".\n"
+
+#: tools/gst-launch.c:417
+#, c-format
+msgid "FOUND TAG      : found by element \"%s\".\n"
+msgstr "ЗНАЙДЕНО ТЕГ  : знайдено у елементі \"%s\".\n"
+
+#: tools/gst-launch.c:463
+#, c-format
+msgid "Element \"%s\" has gone from PLAYING to PAUSED, quitting.\n"
+msgstr "Елемент \"%s\" перейшов зі стану PLAYING до PAUSED, завершення.\n"
+
+#: tools/gst-launch.c:494
+msgid "Output tags (also known as metadata)"
+msgstr "Вивести теги (також відомі як метадані)"
+
+#: tools/gst-launch.c:496
+msgid "Output status information and property notifications"
+msgstr "Вивести інформацію про статус та сповіщення властивостей"
+
+#: tools/gst-launch.c:498
+msgid "Output messages"
+msgstr "Виведено повідомлення"
+
+#: tools/gst-launch.c:500
+msgid "Do not output status information of TYPE"
+msgstr "Не виводити інформацію про статус типу ТИП"
+
+#: tools/gst-launch.c:500
+msgid "TYPE1,TYPE2,..."
+msgstr "ТИП1,ТИП2,..."
+
+#: tools/gst-launch.c:503
+msgid "Save xml representation of pipeline to FILE and exit"
+msgstr "Зберегти xml представлення каналу у файл ФАЙЛ та завершитись"
+
+#: tools/gst-launch.c:503
+msgid "FILE"
+msgstr "ФАЙЛ"
+
+#: tools/gst-launch.c:506
+msgid "Do not install a fault handler"
+msgstr "Не встановлювати обробник збоїв"
+
+#: tools/gst-launch.c:508
+msgid "Print alloc trace (if enabled at compile time)"
+msgstr "Вивести трасу розподілу (якщо ввімкнено при компіляції)"
+
+#: tools/gst-launch.c:586
+#, c-format
+msgid "ERROR: pipeline could not be constructed: %s.\n"
+msgstr "ПОМИЛКА: канал не може бути сконструйований: %s.\n"
+
+#: tools/gst-launch.c:590
+#, c-format
+msgid "ERROR: pipeline could not be constructed.\n"
+msgstr "ПОМИЛКА: канал не може бути сконструйований.\n"
+
+#: tools/gst-launch.c:594
+#, c-format
+msgid "WARNING: erroneous pipeline: %s\n"
+msgstr "ПОПЕРЕДЖЕННЯ: помилковий канал: %s\n"
+
+#: tools/gst-launch.c:620
+#, c-format
+msgid "ERROR: the 'pipeline' element wasn't found.\n"
+msgstr "ПОМИЛКА: не знайдений елемент \"pipeline\".\n"
+
+#: tools/gst-launch.c:626 tools/gst-launch.c:673
+#, fuzzy, c-format
+msgid "Setting pipeline to PAUSED ...\n"
+msgstr "ПРИЗУПИНЯЄТЬСЯ канал ...\n"
+
+#: tools/gst-launch.c:631
+#, fuzzy, c-format
+msgid "ERROR: Pipeline doesn't want to pause.\n"
+msgstr "ПОМИЛКА: канал не може призупинитись.\n"
+
+#: tools/gst-launch.c:636
+#, fuzzy, c-format
+msgid "ERROR: Pipeline can't PREROLL ...\n"
+msgstr "ПОМИЛКА: канал не може почати відтворення.\n"
+
+#: tools/gst-launch.c:639
+#, c-format
+msgid "Pipeline is PREROLLING ...\n"
+msgstr ""
+
+#: tools/gst-launch.c:643
+#, c-format
+msgid "Pipeline is PREROLLED ...\n"
+msgstr ""
+
+#: tools/gst-launch.c:650
+#, c-format
+msgid "ERROR: pipeline doesn't want to preroll.\n"
+msgstr "ПОМИЛКА: канал не може перейти у стан preroll.\n"
+
+#: tools/gst-launch.c:655
+#, c-format
+msgid "Setting pipeline to PLAYING ...\n"
+msgstr ""
+
+#: tools/gst-launch.c:658
+#, c-format
+msgid "ERROR: pipeline doesn't want to play.\n"
+msgstr "ПОМИЛКА: канал не може почати відтворення.\n"
+
+#: tools/gst-launch.c:669
+msgid "Execution ended after %"
+msgstr "Виконання завершено після %"
+
+#: tools/gst-launch.c:669
+msgid " ns.\n"
+msgstr " нс.\n"
+
+#: tools/gst-launch.c:676
+#, fuzzy, c-format
+msgid "Setting pipeline to READY ...\n"
+msgstr "ПРИЗУПИНЯЄТЬСЯ канал ...\n"
+
+#: tools/gst-launch.c:681
+#, fuzzy, c-format
+msgid "Setting pipeline to NULL ...\n"
+msgstr "ПРИЗУПИНЯЄТЬСЯ канал ...\n"
+
+#: tools/gst-launch.c:686
+#, c-format
+msgid "FREEING pipeline ...\n"
+msgstr "канал ЗВІЛЬНЕННЯ...\n"
+
+#~ msgid "NO_PREROLL pipeline ...\n"
+#~ msgstr "канал у стані NO_PREROLL ...\n"
+
+#~ msgid "PREROLL pipeline ...\n"
+#~ msgstr "канал у стані PREROLL...\n"
+
+#~ msgid "PREROLLED pipeline ...\n"
+#~ msgstr "канал у стані PREROLLED ...\n"
+
+#~ msgid "RUNNING pipeline ...\n"
+#~ msgstr "ЗАПУСКАЄТЬСЯ канал ...\n"
+
+#~ msgid "READY pipeline ...\n"
+#~ msgstr "канал у стані ГОТОВИЙ...\n"
+
+#~ msgid "NULL pipeline ...\n"
+#~ msgstr "канал у стані NULL...\n"

@@ -1,0 +1,487 @@
+### this file contains suppressions for valgrind when running
+### the gstreamer unit tests
+### it might be useful for wider use as well
+
+### syscall suppressions
+
+{
+   <clone on Wim's Debian>
+   Memcheck:Param
+   clone(parent_tidptr)
+   fun:clone
+   fun:clone
+}
+
+{
+   <clone on Wim's Debian>
+   Memcheck:Param
+   clone(tlsinfo)
+   fun:clone
+   fun:clone
+}
+
+### glibc suppressions
+
+# glibc does not deallocate thread-local storage
+
+{
+   <tls>
+   Memcheck:Leak
+   fun:calloc
+   fun:_dl_allocate_tls
+   fun:pthread_create@@*
+}
+
+{
+   <pthread strstr>
+   Memcheck:Cond
+   fun:strstr
+   fun:__pthread_initialize_minimal
+   obj:/lib/libpthread-*.so
+   obj:/lib/libpthread-*.so
+   fun:call_init
+   fun:_dl_init
+   obj:/lib/ld-*.so
+}
+
+# a thread-related free problem in glibc from Edgard
+{
+   __libc_freeres_rw_acess
+   Memcheck:Addr4
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:__libc_freeres
+}
+
+{
+   <a conditional jump on wim's debian>
+   Memcheck:Cond
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+}
+
+# g_module_open-related problems
+{
+   <started showing up on fc4-quick>
+   Memcheck:Addr2
+   fun:memcpy
+   fun:_dl_map_object_deps
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:g_module_open
+   fun:gst_plugin_load_file
+   fun:gst_registry_scan_path_level
+   fun:gst_registry_scan_path_level
+   fun:gst_registry_scan_path_level
+   fun:init_post
+   fun:g_option_context_parse
+   fun:gst_init_check
+   fun:gst_init
+   fun:gst_check_init
+   fun:main
+}
+
+{
+   <started showing up on fc4-quick>
+   Memcheck:Addr4
+   fun:memcpy
+   fun:_dl_map_object_deps
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:g_module_open
+   fun:gst_plugin_load_file
+   fun:gst_registry_scan_path_level
+   fun:gst_registry_scan_path_level
+   fun:gst_registry_scan_path_level
+   fun:init_post
+   fun:g_option_context_parse
+   fun:gst_init_check
+   fun:gst_init
+   fun:gst_check_init
+   fun:main
+}
+
+{
+   <g_module_open on wim's debian>
+   Memcheck:Cond
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   fun:do_sym
+   fun:_dl_sym
+   fun:dlsym_doit
+   obj:/lib/ld-2.3.5.so
+   fun:_dlerror_run
+   fun:dlsym
+   fun:g_module_symbol
+   fun:g_module_open
+   fun:gst_plugin_load_file
+}
+
+{
+   <g_module_open on wim's debian>
+   Memcheck:Cond
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   fun:dl_open_worker
+   obj:/lib/ld-2.3.5.so
+   fun:_dl_open
+   fun:dlopen_doit
+   obj:/lib/ld-2.3.5.so
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:g_module_open
+   fun:gst_plugin_load_file
+}
+{
+   <g_module_open on wim's debian>
+   Memcheck:Cond
+   obj:/lib/ld-2.3.5.so
+   fun:dl_open_worker
+   obj:/lib/ld-2.3.5.so
+   fun:_dl_open
+   fun:dlopen_doit
+   obj:/lib/ld-2.3.5.so
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:g_module_open
+   fun:gst_plugin_load_file
+   fun:gst_plugin_load_by_name
+   fun:gst_plugin_feature_load
+}
+
+{
+   <leak on wim's debian in g_module_open>
+   Memcheck:Leak
+   fun:malloc
+   obj:/lib/ld-2.3.5.so
+   fun:dl_open_worker
+   obj:/lib/ld-2.3.5.so
+   fun:_dl_open
+   fun:dlopen_doit
+   obj:/lib/ld-2.3.5.so
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:g_module_open
+   fun:gst_plugin_load_file
+   fun:gst_plugin_load_by_name
+}
+
+{
+   <invalid read on wim's debian>
+   Memcheck:Addr4
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   fun:dl_open_worker
+   obj:/lib/ld-2.3.5.so
+   fun:_dl_open
+   fun:dlopen_doit
+   obj:/lib/ld-2.3.5.so
+}
+
+{
+   <invalid read on wim's debian>
+   Memcheck:Addr4
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   fun:dl_open_worker
+   obj:/lib/ld-2.3.5.so
+   fun:_dl_open
+   fun:dlopen_doit
+   obj:/lib/ld-2.3.5.so
+   fun:_dlerror_run
+}
+
+{
+   <futex on Andy's 64-bit ubuntu>
+   Memcheck:Param
+   futex(uaddr2)
+   fun:pthread_once
+   obj:/lib/libc-2.3.5.so
+   obj:/lib/libc-2.3.5.so
+   fun:mbsnrtowcs
+   fun:vfprintf
+   fun:vsprintf
+   fun:sprintf
+   obj:/lib/libc-2.3.5.so
+   fun:tmpfile
+   fun:setup_pipe
+   fun:setup_messaging_with_key
+   fun:setup_messaging
+}
+
+# valgrind doesn't allow me to specify a suppression for Addr1, Addr2, Addr4
+# as Addr*, so 3 copies for that; and then 2 of each for that pesky memcpy
+{
+   <Invalid read of size 1, 2, 4 on thomas's FC4>
+   Memcheck:Addr1
+   fun:_dl_signal_error
+   fun:_dl_map_object_deps
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:g_module_open
+}
+
+{
+   <Invalid read of size 1, 2, 4 on thomas's FC4>
+   Memcheck:Addr2
+   fun:_dl_signal_error
+   fun:_dl_map_object_deps
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:g_module_open
+}
+{
+   <Invalid read of size 1, 2, 4 on thomas's FC4>
+   Memcheck:Addr4
+   fun:_dl_signal_error
+   fun:_dl_map_object_deps
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:g_module_open
+}
+
+{
+   <Invalid read of size 1, 2, 4 on thomas's FC4>
+   Memcheck:Addr1
+   fun:memcpy
+   fun:_dl_signal_error
+   fun:_dl_map_object_deps
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:g_module_open
+}
+
+{
+   <Invalid read of size 1, 2, 4 on thomas's FC4>
+   Memcheck:Addr2
+   fun:memcpy
+   fun:_dl_signal_error
+   fun:_dl_map_object_deps
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:g_module_open
+}
+{
+   <Invalid read of size 1, 2, 4 on thomas's FC4>
+   Memcheck:Addr4
+   fun:memcpy
+   fun:_dl_signal_error
+   fun:_dl_map_object_deps
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:g_module_open
+}
+
+{
+   <Addr8 on Andy's AMD64 ubuntu in dl_open>
+   Memcheck:Addr8
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/libc-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   fun:_dl_open
+   obj:/lib/libdl-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+}
+
+{
+   <Conditional jump on Andy's AMD64 ubuntu>
+   Memcheck:Cond
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/libc-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   fun:_dl_open
+   obj:/lib/libdl-2.3.5.so
+   obj:/lib/ld-2.3.5.so
+   obj:/lib/libdl-2.3.5.so
+   fun:dlopen
+   fun:g_module_open
+   fun:gst_plugin_load_file
+   fun:gst_plugin_load_by_name
+   fun:gst_plugin_feature_load
+}
+
+
+
+### glib suppressions
+
+{
+   <g_type_init malloc>
+   Memcheck:Leak
+   fun:malloc
+   fun:g_malloc
+   fun:g_strdup
+   fun:g_quark_from_string
+   obj:*
+   obj:*
+   fun:g_type_register_fundamental
+   obj:*
+   fun:g_type_init_with_debug_flags
+   fun:g_type_init
+   fun:init_pre
+}
+
+{
+   <g_type_init calloc>
+   Memcheck:Leak
+   fun:calloc
+   fun:g_malloc0
+   obj:*
+   obj:*
+   fun:g_type_register_fundamental
+}
+
+{
+   <g_type_init calloc 2>
+   Memcheck:Leak
+   fun:calloc
+   fun:g_malloc0
+   obj:*
+   obj:*
+   fun:g_type_init_with_debug_flags
+}
+
+### GStreamer suppressions
+
+# ds is saying he's rewriting the registry anyway
+{
+   <registry>
+   Memcheck:Leak
+   fun:malloc
+   fun:g_malloc
+   fun:g_strdup
+   fun:read_string
+   fun:load_plugin
+   fun:gst_xml_registry_load
+   fun:gst_registry_load
+   fun:_registry_load_func
+   fun:g_list_foreach
+   fun:gst_registry_pool_load_all
+   fun:init_post
+   fun:init_popt_callback
+}
+
+#pthread memleaks
+
+{
+   Thread creation leak
+   Memcheck:Leak
+   fun:calloc
+   fun:allocate_dtv
+   fun:_dl_allocate*
+   fun:_dl_allocate*
+   fun:__pthread_initialize_minimal
+}
+
+{
+   Thread management leak
+   Memcheck:Leak
+   fun:calloc
+   fun:allocate_dtv
+   fun:_dl_allocate*
+   fun:_dl_allocate*
+   fun:__pthread_*
+}
+
+{
+   Thread management leak 2
+   Memcheck:Leak
+   fun:memalign
+   fun:_dl_allocate*
+   fun:_dl_allocate*
+   fun:__pthread_*
+}
+
+{
+   pthread_create Syscall param write(buf) points to uninitialised byte(s)
+   Memcheck:Param
+   write(buf)
+   fun:pthread_create@@GLIBC_2.2.5
+   fun:g_thread_create*
+
+}
+
+# nss_parse_* memleak (used by g_option_context_parse)
+{
+   nss_parse_* memleak
+   Memcheck:Leak
+   fun:malloc
+   fun:nss_parse_service_list
+   fun:__nss_database_lookup
+}
+
+# liboil suppressions
+{
+   <liboil cpu_fault_check_try>
+   Memcheck:Value8
+   obj:/usr/lib/liboil-0.3.so.0.1.0
+   obj:/usr/lib/liboil-0.3.so.0.1.0
+   obj:/usr/lib/liboil-0.3.so.0.1.0
+   fun:oil_cpu_fault_check_try
+   fun:oil_test_check_impl
+   fun:oil_class_optimize
+   fun:oil_optimize_all
+   fun:oil_init
+}

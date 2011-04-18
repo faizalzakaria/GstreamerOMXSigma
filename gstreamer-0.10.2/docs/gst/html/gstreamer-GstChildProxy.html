@@ -1,0 +1,618 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>GstChildProxy</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.68.1">
+<link rel="start" href="index.html" title="GStreamer 0.10 Core Reference Manual">
+<link rel="up" href="libgstreamer.html" title="GStreamer Core Library">
+<link rel="prev" href="gstreamer-GstCaps.html" title="GstCaps">
+<link rel="next" href="GstClock.html" title="GstClock">
+<meta name="generator" content="GTK-Doc V1.4 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="gstreamer.html" title="GStreamer Overview">
+<link rel="chapter" href="libgstreamer.html" title="GStreamer Core Library">
+<link rel="chapter" href="gstreamer-support.html" title="GStreamer Core Support">
+<link rel="chapter" href="gstreamer-hierarchy.html" title="Object Hierarchy">
+<link rel="index" href="api-index.html" title="Index">
+<link rel="index" href="ix02.html" title="Index of deprecated symbols">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="gstreamer-GstCaps.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libgstreamer.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GStreamer 0.10 Core Reference Manual</th>
+<td><a accesskey="n" href="GstClock.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" lang="en">
+<a name="gstreamer-GstChildProxy"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">GstChildProxy</span></h2>
+<p>GstChildProxy &#8212; Interface for multi child elements.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gst/gst.h&gt;
+
+
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>       <a href="gstreamer-GstChildProxy.html#gst-child-proxy-get-children-count">gst_child_proxy_get_children_count</a>
+                                            (GstChildProxy *parent);
+<a href="GstObject.html" title="GstObject">GstObject</a>*  <a href="gstreamer-GstChildProxy.html#gst-child-proxy-get-child-by-name">gst_child_proxy_get_child_by_name</a>
+                                            (GstChildProxy *parent,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name);
+<a href="GstObject.html" title="GstObject">GstObject</a>*  <a href="gstreamer-GstChildProxy.html#gst-child-proxy-get-child-by-index">gst_child_proxy_get_child_by_index</a>
+                                            (GstChildProxy *parent,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> index);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    <a href="gstreamer-GstChildProxy.html#gst-child-proxy-lookup">gst_child_proxy_lookup</a>          (<a href="GstObject.html" title="GstObject">GstObject</a> *object,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name,
+                                             <a href="GstObject.html" title="GstObject">GstObject</a> **target,
+                                             <a
+href="/usr/share/gtk-doc/html/gobject/gobject-GParamSpec.html#GParamSpec"
+>GParamSpec</a> **pspec);
+void        <a href="gstreamer-GstChildProxy.html#gst-child-proxy-get-property">gst_child_proxy_get_property</a>    (<a href="GstObject.html" title="GstObject">GstObject</a> *object,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name,
+                                             <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Generic-values.html#GValue"
+>GValue</a> *value);
+void        <a href="gstreamer-GstChildProxy.html#gst-child-proxy-get-valist">gst_child_proxy_get_valist</a>      (<a href="GstObject.html" title="GstObject">GstObject</a> *object,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *first_property_name,
+                                             va_list var_args);
+void        <a href="gstreamer-GstChildProxy.html#gst-child-proxy-get">gst_child_proxy_get</a>             (<a href="GstObject.html" title="GstObject">GstObject</a> *object,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *first_property_name,
+                                             ...);
+void        <a href="gstreamer-GstChildProxy.html#gst-child-proxy-set-property">gst_child_proxy_set_property</a>    (<a href="GstObject.html" title="GstObject">GstObject</a> *object,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name,
+                                             const <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Generic-values.html#GValue"
+>GValue</a> *value);
+void        <a href="gstreamer-GstChildProxy.html#gst-child-proxy-set-valist">gst_child_proxy_set_valist</a>      (<a href="GstObject.html" title="GstObject">GstObject</a> *object,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *first_property_name,
+                                             va_list var_args);
+void        <a href="gstreamer-GstChildProxy.html#gst-child-proxy-set">gst_child_proxy_set</a>             (<a href="GstObject.html" title="GstObject">GstObject</a> *object,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *first_property_name,
+                                             ...);
+void        <a href="gstreamer-GstChildProxy.html#gst-child-proxy-child-added">gst_child_proxy_child_added</a>     (<a href="GstObject.html" title="GstObject">GstObject</a> *object,
+                                             <a href="GstObject.html" title="GstObject">GstObject</a> *child);
+void        <a href="gstreamer-GstChildProxy.html#gst-child-proxy-child-removed">gst_child_proxy_child_removed</a>   (<a href="GstObject.html" title="GstObject">GstObject</a> *object,
+                                             <a href="GstObject.html" title="GstObject">GstObject</a> *child);
+
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2617630"></a><h2>Description</h2>
+<p>
+This interface abstracts handling of property sets for child elements.
+Imagine elements such as mixers or polyphonic generators. They all have
+multiple <a href="GstPad.html" title="GstPad"><span class="type">GstPad</span></a> or some kind of voice objects. The element acts as a
+parent for those child objects. Each child has the same properties.
+</p>
+<p>
+By implementing this interface the child properties can be accessed from the
+parent element by using <a href="gstreamer-GstChildProxy.html#gst-child-proxy-get"><code class="function">gst_child_proxy_get()</code></a> and <a href="gstreamer-GstChildProxy.html#gst-child-proxy-set"><code class="function">gst_child_proxy_set()</code></a>.
+</p>
+<p>
+Property names are written as "child-name::property-name". The whole naming
+scheme is recursive. Thus "child1::child2::property" is valid too, if
+"child1" also implements the <span class="type">GstChildProxy</span> interface.</p>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2617697"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2617702"></a><h3>
+<a name="gst-child-proxy-get-children-count"></a>gst_child_proxy_get_children_count ()</h3>
+<a class="indexterm" name="id2617714"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>       gst_child_proxy_get_children_count
+                                            (GstChildProxy *parent);</pre>
+<p>
+Gets the number of child objects this parent contains.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>parent</code></em>&#160;:</span></td>
+<td> the parent object
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the number of child objects
+
+MT safe.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2617776"></a><h3>
+<a name="gst-child-proxy-get-child-by-name"></a>gst_child_proxy_get_child_by_name ()</h3>
+<a class="indexterm" name="id2617789"></a><pre class="programlisting"><a href="GstObject.html" title="GstObject">GstObject</a>*  gst_child_proxy_get_child_by_name
+                                            (GstChildProxy *parent,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name);</pre>
+<p>
+Looks up a child element by the given name.
+</p>
+<p>
+Implementors can use <a href="GstObject.html" title="GstObject"><span class="type">GstObject</span></a> together with <a href="GstObject.html#gst-object-get-name"><code class="function">gst_object_get_name()</code></a></p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>parent</code></em>&#160;:</span></td>
+<td> the parent object to get the child from
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></td>
+<td> the childs name
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the child object or <code class="literal">NULL</code> if not found. Unref after usage.
+
+MT safe.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2617902"></a><h3>
+<a name="gst-child-proxy-get-child-by-index"></a>gst_child_proxy_get_child_by_index ()</h3>
+<a class="indexterm" name="id2617913"></a><pre class="programlisting"><a href="GstObject.html" title="GstObject">GstObject</a>*  gst_child_proxy_get_child_by_index
+                                            (GstChildProxy *parent,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> index);</pre>
+<p>
+Fetches a child by its number.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>parent</code></em>&#160;:</span></td>
+<td> the parent object to get the child from
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>index</code></em>&#160;:</span></td>
+<td> the childs position in the child list
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the child object or <code class="literal">NULL</code> if not found (index too high). Unref
+after usage.
+
+MT safe.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2618004"></a><h3>
+<a name="gst-child-proxy-lookup"></a>gst_child_proxy_lookup ()</h3>
+<a class="indexterm" name="id2618015"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    gst_child_proxy_lookup          (<a href="GstObject.html" title="GstObject">GstObject</a> *object,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name,
+                                             <a href="GstObject.html" title="GstObject">GstObject</a> **target,
+                                             <a
+href="/usr/share/gtk-doc/html/gobject/gobject-GParamSpec.html#GParamSpec"
+>GParamSpec</a> **pspec);</pre>
+<p>
+Looks up which object and <a
+href="/usr/share/gtk-doc/html/gobject/gobject-GParamSpec.html#GParamSpec"
+><span class="type">GParamSpec</span></a> would be effected by the given <em class="parameter"><code>name</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>object</code></em>&#160;:</span></td>
+<td> object to lookup the property in
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></td>
+<td> name of the property to look up
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>target</code></em>&#160;:</span></td>
+<td> pointer to a <a href="GstObject.html" title="GstObject"><span class="type">GstObject</span></a> that takes the real object to set property on
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>pspec</code></em>&#160;:</span></td>
+<td> pointer to take the <a
+href="/usr/share/gtk-doc/html/gobject/gobject-GParamSpec.html#GParamSpec"
+><span class="type">GParamSpec</span></a> describing the property
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> TRUE if <em class="parameter"><code>target</code></em> and <em class="parameter"><code>pspec</code></em> could be found. FALSE otherwise. In that
+case the values for <em class="parameter"><code>pspec</code></em> and <em class="parameter"><code>target</code></em> are not modified. Unref <em class="parameter"><code>target</code></em> after
+usage.
+
+MT safe.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2618203"></a><h3>
+<a name="gst-child-proxy-get-property"></a>gst_child_proxy_get_property ()</h3>
+<a class="indexterm" name="id2618214"></a><pre class="programlisting">void        gst_child_proxy_get_property    (<a href="GstObject.html" title="GstObject">GstObject</a> *object,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name,
+                                             <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Generic-values.html#GValue"
+>GValue</a> *value);</pre>
+<p>
+Gets a single property using the GstChildProxy mechanism.
+You are responsible for for freeing it by calling <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Generic-values.html#g-value-unset"
+><code class="function">g_value_unset()</code></a></p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>object</code></em>&#160;:</span></td>
+<td> object to query
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></td>
+<td> name of the property
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>value</code></em>&#160;:</span></td>
+<td> an uninitialized <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Generic-values.html#GValue"
+><span class="type">GValue</span></a> that should take the result.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2618329"></a><h3>
+<a name="gst-child-proxy-get-valist"></a>gst_child_proxy_get_valist ()</h3>
+<a class="indexterm" name="id2618340"></a><pre class="programlisting">void        gst_child_proxy_get_valist      (<a href="GstObject.html" title="GstObject">GstObject</a> *object,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *first_property_name,
+                                             va_list var_args);</pre>
+<p>
+Gets properties of the parent object and its children.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>object</code></em>&#160;:</span></td>
+<td> the object to query
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>first_property_name</code></em>&#160;:</span></td>
+<td> name of the first property to get
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>var_args</code></em>&#160;:</span></td>
+<td> return location for the first property, followed optionally by more name/return location pairs, followed by NULL
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2618436"></a><h3>
+<a name="gst-child-proxy-get"></a>gst_child_proxy_get ()</h3>
+<a class="indexterm" name="id2618447"></a><pre class="programlisting">void        gst_child_proxy_get             (<a href="GstObject.html" title="GstObject">GstObject</a> *object,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *first_property_name,
+                                             ...);</pre>
+<p>
+Gets properties of the parent object and its children.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>object</code></em>&#160;:</span></td>
+<td> the parent object
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>first_property_name</code></em>&#160;:</span></td>
+<td> name of the first property to get
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>...</code></em>&#160;:</span></td>
+<td> return location for the first property, followed optionally by more name/return location pairs, followed by NULL
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2618535"></a><h3>
+<a name="gst-child-proxy-set-property"></a>gst_child_proxy_set_property ()</h3>
+<a class="indexterm" name="id2618546"></a><pre class="programlisting">void        gst_child_proxy_set_property    (<a href="GstObject.html" title="GstObject">GstObject</a> *object,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name,
+                                             const <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Generic-values.html#GValue"
+>GValue</a> *value);</pre>
+<p>
+Sets a single property using the GstChildProxy mechanism.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>object</code></em>&#160;:</span></td>
+<td> the parent object
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></td>
+<td> name of the property to set
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>value</code></em>&#160;:</span></td>
+<td> new <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Generic-values.html#GValue"
+><span class="type">GValue</span></a> for the property
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2618649"></a><h3>
+<a name="gst-child-proxy-set-valist"></a>gst_child_proxy_set_valist ()</h3>
+<a class="indexterm" name="id2618660"></a><pre class="programlisting">void        gst_child_proxy_set_valist      (<a href="GstObject.html" title="GstObject">GstObject</a> *object,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *first_property_name,
+                                             va_list var_args);</pre>
+<p>
+Sets properties of the parent object and its children.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>object</code></em>&#160;:</span></td>
+<td> the parent object
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>first_property_name</code></em>&#160;:</span></td>
+<td> name of the first property to set
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>var_args</code></em>&#160;:</span></td>
+<td> value for the first property, followed optionally by more name/value pairs, followed by NULL
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2618755"></a><h3>
+<a name="gst-child-proxy-set"></a>gst_child_proxy_set ()</h3>
+<a class="indexterm" name="id2618766"></a><pre class="programlisting">void        gst_child_proxy_set             (<a href="GstObject.html" title="GstObject">GstObject</a> *object,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *first_property_name,
+                                             ...);</pre>
+<p>
+Sets properties of the parent object and its children.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>object</code></em>&#160;:</span></td>
+<td> the parent object
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>first_property_name</code></em>&#160;:</span></td>
+<td> name of the first property to set
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>...</code></em>&#160;:</span></td>
+<td> value for the first property, followed optionally by more name/value pairs, followed by NULL
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2618854"></a><h3>
+<a name="gst-child-proxy-child-added"></a>gst_child_proxy_child_added ()</h3>
+<a class="indexterm" name="id2618866"></a><pre class="programlisting">void        gst_child_proxy_child_added     (<a href="GstObject.html" title="GstObject">GstObject</a> *object,
+                                             <a href="GstObject.html" title="GstObject">GstObject</a> *child);</pre>
+<p>
+Emits the "child-added" signal.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>object</code></em>&#160;:</span></td>
+<td> the parent object
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>child</code></em>&#160;:</span></td>
+<td> the newly added child
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2618938"></a><h3>
+<a name="gst-child-proxy-child-removed"></a>gst_child_proxy_child_removed ()</h3>
+<a class="indexterm" name="id2618948"></a><pre class="programlisting">void        gst_child_proxy_child_removed   (<a href="GstObject.html" title="GstObject">GstObject</a> *object,
+                                             <a href="GstObject.html" title="GstObject">GstObject</a> *child);</pre>
+<p>
+Emits the "child-removed" signal.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>object</code></em>&#160;:</span></td>
+<td> the parent object
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>child</code></em>&#160;:</span></td>
+<td> the newly added child
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2619022"></a><h2>See Also</h2>
+<a href="GstBin.html" title="GstBin"><span class="type">GstBin</span></a>
+</div>
+</div>
+<table class="navigation" width="100%" summary="Navigation footer" cellpadding="2" cellspacing="0"><tr valign="middle">
+<td align="left"><a accesskey="p" href="gstreamer-GstCaps.html"><b>&lt;&lt;&#160;GstCaps</b></a></td>
+<td align="right"><a accesskey="n" href="GstClock.html"><b>GstClock&#160;&gt;&gt;</b></a></td>
+</tr></table>
+</body>
+</html>

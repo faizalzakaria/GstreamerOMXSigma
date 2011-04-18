@@ -1,0 +1,191 @@
+Romain_Bichet@sdesigns.com
+Version 0.10.1
+
+This document describes some things to know about DirectFB and AMP, as well
+as implementation details in GStreamer.
+
+Warning : This is not the lastest version of the README. I haven't had the
+time to update it. Please report to the current Word version.
+
+INTRODUCTION
+============
+
+This document is brief and should be completed later. Sorry about that...
+For more information, do not hesitate to check the source files.
+
+GSTAMPSRC
+=========
+
+Here is a example of pipeline using this element: GstAmpSrc ! GstFakeSink.
+This source is a mix between GstFakeSrc and GstFileSrc. As GstFakeSrc, buffers which are transmitted to the sink
+are empty. The “location” feature (to give a url as a input) from GstFileSrc has been kept.
+After to be sure that everything has been properly initialized, the given url can be transmitted to DCC-HD thanks to
+the function OpenMedia and the playback started thanks to the function StartPresentation. In this element, playback
+operations (play, stop, pause, scan forward and scan backward) are handled.
+This is also this element that provides a clock for the whole pipeline and creates a global AMP instance. These topics
+will be discussed later on this document.
+
+Source state	
+------------
+  
+Every GStreamer element has a GStreamer state (null, ready, paused or playing). The first idea is that the GStreamer
+state should be enough to control the playback. However because of latency between GStreamer state and playback
+status, the fact that state changes propagate along the pipeline and that there are only four steps, the source needs his
+own state:
+	• null: the source is in the initialization step (creation of DirectFB instance, AMP instance, OpenMedia and
+StartPresentation calls)
+	• ready: the initialization has finished and the source waits for the playback to start
+	• stopped: similar to ready, but the playback had already started and has been stopped someway
+	• paused: the playback had already started and has been paused
+	• playing: the playback is playing
+	• scan: a scan forward or a scan backward is processing
+
+
+Launching	
+---------  
+
+Here is the major steps of the launching:
+
+1. Initialization
+	a. Set the source state to null
+	b. Create a DirectFB interface
+	c. Retrieve the main video layer and configure it
+	d. Configure the mixer
+	e. Create an AMP instance
+	f. Create an event buffer
+
+2. Set property
+	a. Set the url of the file
+
+3. Start
+	a. Do a OpenMedia and check the result
+	b. Do a StartPresentation and check the result
+	c. Set the source state to ready
+
+4. Create
+	a.Wait for the playback to start and set the source state to playing
+
+State change	
+------------
+  
+The basic idea is the following one:
+	• The user presses a remote key (play, pause, stop)
+	• The application catches the DirectFB event and sets a new GStreamer state
+	• The source sees the state change and sends a command if it is appropriate
+	• The source checks, asynchronously, the result and if it is a success changes the source state
+
+Polling on the playback status is done in order to catch the eos (end of stream) and to set the source state to stopped.
+The last case is a scan forward or a scan backward. The application sends an event instead of setting a new GStreamer
+state.
+
+Disposing	
+---------
+  
+If there is a fatal error during the execution or if the user presses power, GStreamer disposes and finalizes the
+pipeline. Sources are the last ones to be disposed and finalized. These functions are overridden in order to release:
+	• The AMP instance
+	• The event buffer
+	• The DirectFB instance
+
+GSTAMPAUDIOSINK
+===============
+
+The goal of GstAmpAudioSink is to control every audio related operation such as mute/unmute and volume
+up/volume down. This element is similar to GstFakeSink with an additional custom events handling feature.
+Here is a example of a pipeline using GstAmpAudioSink: GstAmpSrc ! GstAmpAudioSink.
+The first thing to notice is that the sink needs an AMP instance to work. However the DirectFB function
+GetInterface does not work to retrieve an AMP instance. So GstAmpSrc creates a global AMP instance for the whole
+pipeline and the other elements can use it thanks to the keyword extern. It is important to use GstAmpAudioSink
+with GstAmpSrc.
+This element as a sink is initialized after the source (hopefully because of the AMP instance). It has to retrieve the
+DirectFB instance, then to create an event buffer and finally to retrieve the global AMP instance. There is no
+property to set.
+
+Mute/unmute or volume up/volume	down	
+------------------------------------
+  
+The basic idea is the following one:
+	• The user presses a remote key (mute, volume up or volume down)
+	• The application catch the DirectFB event and sends a GStreamer event with the proper string
+	• The sink catches the GStreamer event, parses it and configures a future command.
+		o Mute: if mute was on, set mute to off and the other way around
+		o Volume up: increase the volume if it is possible
+		o Volume down: decrease the volume if it is possible
+	• The sink sends the command and checks the result
+
+Disposing	
+---------
+  
+If there is a fatal error during the execution or if the user presses power, GStreamer disposes and finalizes the
+pipeline. Sinks are the first ones to be disposed and finalized. These functions are overridden in order to release:
+	• The AMP instance
+	• The event buffer
+	• The DirectFB instance
+
+GSTAMPVIDEOSINK
+===============
+
+The goal of GstAmpVideoSink is to control every video related operation such as zoom/dezoom, resize and move.
+This element is similar to GstFakeSink with an additional custom events handling feature. This is a example of a
+pipeline using GstAmpVideoSink: GstAmpSrc ! GstAmpVideoSink.
+It is the same than for GstAmpAudioSink: this element must be used with GstAmpSrc somewhere in the pipeline.
+The initialization phase is very similar to the GstAmpAudioSink initialization phase except that here the main video
+layer needs to be retrieved, configured as well as the mixer.
+
+Zoom/dezoom, resize or move	
+---------------------------
+  
+The basic idea is the following one:
+	• The user presses a remote key (zoom, pan, fastfoward, rewind or an arrow)
+	• The application catch the DirectFB event and sends a GStreamer event with the proper string
+	• The sink catches the GStreamer event, parses it and updates the variables.
+		o Zoom: if zoom mode was off, set it to on and the other way around
+		o Fastforward: if zoom mode was on, zoom if it is possible. If pan mode was on, increase the size if it
+is possible.
+		o Rewind: if zoom mode was on, dezoom if it is possible. If pan mode was on, decrease the size if it is
+possible.
+		o Pan: if pan mode was off, set it to on and the other way around
+		o An arrow: move the image. The image has to be resized first.
+	• The sink applies the changes
+
+Disposing	
+---------
+  
+If there is a fatal error during the execution or if the user presses power, GStreamer disposes and finalizes the
+pipeline. Sinks are the first ones to be disposed and finalized. These functions are overridden in order to release:
+	• The main video layer
+	• The AMP instance
+	• The event buffer
+	• The DirectFB instance
+
+GSTAMP PACKAGE
+===============
+
+Instead of a GstFakeSink, a GstAmpAudioSink or a GstAmpVideoSink is set.
+The pipeline looks like that: GstAmpSrc ! GstAmpAudioSink.
+
+Clock	
+-----
+  
+The GStreamer pipeline should be composed of:
+	• a GstAmpSrc element
+	• a GstTee element with two sinks:
+		o a GstQueue element and a GstAmpAudioSink element
+		o a GstQueue element and a GstAmpVideoSink element
+
+The goal of the GstTee element is to be able to have two sinks at the end of the pipeline: one for the
+GstAmpAudioSink and the other one for the GstAmpVideoSink. However two sinks can trigger deadlocks.
+To solve this issue, after the GstTee element, each branch of the GStreamer pipeline needs to be composed of a
+GstQueue. Though GstQueues need a clock in order to be synchronized and to be able to handle PLAY and PAUSE
+state changes. In our case, GstAmpSrc implements a GstClock based on the system clock.
+
+Exiting	
+-------
+  
+There are two ways of exiting the playback.
+The first one is to stop the playback without exiting the main program. In this case, the GStreamer pipeline and
+every DirectFB/AMP instances remain alive. Only the GStreamer pipeline state is set to READY.
+The second one is to exit the playback and the main program. In this case, the GStreamer pipeline has to be disposed
+and finalized before exiting the main program. The user has nothing to worry about, everything is done in
+GstAmpSrc, GstAmpAudioSink and GstAmpVideoSink elements.
+

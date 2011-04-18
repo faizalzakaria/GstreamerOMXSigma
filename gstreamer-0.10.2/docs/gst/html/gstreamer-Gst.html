@@ -1,0 +1,403 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Gst</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.68.1">
+<link rel="start" href="index.html" title="GStreamer 0.10 Core Reference Manual">
+<link rel="up" href="libgstreamer.html" title="GStreamer Core Library">
+<link rel="prev" href="libgstreamer.html" title="GStreamer Core Library">
+<link rel="next" href="GstBin.html" title="GstBin">
+<meta name="generator" content="GTK-Doc V1.4 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="gstreamer.html" title="GStreamer Overview">
+<link rel="chapter" href="libgstreamer.html" title="GStreamer Core Library">
+<link rel="chapter" href="gstreamer-support.html" title="GStreamer Core Support">
+<link rel="chapter" href="gstreamer-hierarchy.html" title="Object Hierarchy">
+<link rel="index" href="api-index.html" title="Index">
+<link rel="index" href="ix02.html" title="Index of deprecated symbols">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="libgstreamer.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libgstreamer.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GStreamer 0.10 Core Reference Manual</th>
+<td><a accesskey="n" href="GstBin.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" lang="en">
+<a name="gstreamer-Gst"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">Gst</span></h2>
+<p>Gst &#8212; Media library supporting arbitrary formats and filter
+                    graphs.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gst/gst.h&gt;
+
+
+void        <a href="gstreamer-Gst.html#gst-init">gst_init</a>                        (int *argc,
+                                             char **argv[]);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    <a href="gstreamer-Gst.html#gst-init-check">gst_init_check</a>                  (int *argc,
+                                             char **argv[],
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **err);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Commandline-option-parser.html#GOptionGroup"
+>GOptionGroup</a>* <a href="gstreamer-Gst.html#gst-init-get-option-group">gst_init_get_option_group</a>     (void);
+void        <a href="gstreamer-Gst.html#gst-deinit">gst_deinit</a>                      (void);
+void        <a href="gstreamer-Gst.html#gst-version">gst_version</a>                     (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> *major,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> *minor,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> *micro,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> *nano);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*      <a href="gstreamer-Gst.html#gst-version-string">gst_version_string</a>              (void);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2581655"></a><h2>Description</h2>
+<p>
+GStreamer is a framework for constructing graphs of various filters
+(termed elements here) that will handle streaming media.  Any discreet
+(packetizable) media type is supported, with provisions for automatically
+determining source type.  Formatting/framing information is provided with
+a powerful negotiation framework.  Plugins are heavily used to provide for
+all elements, allowing one to construct plugins outside of the GST
+library, even released binary-only if license require (please don't).
+</p>
+<p>
+GStreamer borrows heavily from both the <a href="http://www.cse.ogi.edu/sysl/" target="_top">OGI media pipeline</a> and
+Microsoft's DirectShow, hopefully taking the best of both and leaving the
+cruft behind.  Its interface is still very fluid and thus can be changed
+to increase the sanity/noise ratio.
+</p>
+<p>
+The <span class="application">GStreamer</span> library should be initialized with
+<a href="gstreamer-Gst.html#gst-init"><code class="function">gst_init()</code></a> before it can be used. You should pass pointers to the main argc
+and argv variables so that GStreamer can process its own command line
+options, as shown in the following example.
+</p>
+<p>
+</p>
+<div class="example">
+<a name="id2581711"></a><p class="title"><b>Example&#160;1.&#160;Initializing the gstreamer library</b></p>
+<pre class="programlisting">
+int
+main (int argc, char *argv[])
+{
+  // initialize the GStreamer library
+  gst_init (&amp;argc, &amp;argv);
+  ...
+}
+</pre>
+</div>
+<p>
+</p>
+<p>
+It's allowed to pass two NULL pointers to <a href="gstreamer-Gst.html#gst-init"><code class="function">gst_init()</code></a> in case you don't want
+to pass the command line args to GStreamer.
+</p>
+<p>
+You can also use GOption to initialize your own parameters as shown in
+the next code fragment:
+</p>
+<div class="example">
+<a name="id2581750"></a><p class="title"><b>Example&#160;2.&#160;Initializing own parameters when initializing gstreamer</b></p>
+<pre class="programlisting">
+static gboolean stats = FALSE;
+...
+int
+main (int argc, char *argv[])
+{
+ GOptionEntry options[] = {
+  {"tags", 't', 0, G_OPTION_ARG_NONE, &amp;tags,
+      N_("Output tags (also known as metadata)"), NULL},
+  {NULL}
+ };
+ ctx = g_option_context_new ("gst-launch");
+ g_option_context_add_main_entries (ctx, options, GETTEXT_PACKAGE);
+ g_option_context_add_group (ctx, <a href="gstreamer-Gst.html#gst-init-get-option-group"><code class="function">gst_init_get_option_group()</code></a>);
+ if (!g_option_context_parse (ctx, &amp;argc, &amp;argv, &amp;err)) {
+   g_print ("Error initializing: %s\n", GST_STR_NULL (err-&gt;message));
+   exit (1);
+ }
+ g_option_context_free (ctx);
+...
+}
+</pre>
+</div>
+<p>
+</p>
+<p>
+Use <a href="gstreamer-Gst.html#gst-version"><code class="function">gst_version()</code></a> to query the library version at runtime or use the
+GST_VERSION_* macros to find the version at compile time. Optionally
+<a href="gstreamer-Gst.html#gst-version-string"><code class="function">gst_version_string()</code></a> returns a printable string.
+</p>
+<p>
+The <a href="gstreamer-Gst.html#gst-deinit"><code class="function">gst_deinit()</code></a> call is used to clean up all internal resources used
+by <span class="application">GStreamer</span>. It is mostly used in unit tests 
+to check for leaks.
+</p>
+<p>
+Last reviewed on 2005-11-23 (0.9.5)</p>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2581854"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2581860"></a><h3>
+<a name="gst-init"></a>gst_init ()</h3>
+<a class="indexterm" name="id2581869"></a><pre class="programlisting">void        gst_init                        (int *argc,
+                                             char **argv[]);</pre>
+<p>
+Initializes the GStreamer library, setting up internal path lists,
+registering built-in elements, and loading standard plugins.
+</p>
+<p>
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+This function will terminate your program if it was unable to initialize
+GStreamer for some reason.  If you want your program to fall back,
+use <a href="gstreamer-Gst.html#gst-init-check"><code class="function">gst_init_check()</code></a> instead.
+</p>
+</div>
+<p>
+</p>
+<p>
+WARNING: This function does not work in the same way as corresponding
+functions in other glib-style libraries, such as <a
+href="/usr/share/gtk-doc/html/gtk/gtk-General.html#gtk-init"
+><code class="function">gtk_init()</code></a>.  In
+particular, unknown command line options cause this function to
+abort program execution.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>argc</code></em>&#160;:</span></td>
+<td> pointer to application's argc
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>argv</code></em>&#160;:</span></td>
+<td> pointer to application's argv
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2581985"></a><h3>
+<a name="gst-init-check"></a>gst_init_check ()</h3>
+<a class="indexterm" name="id2581994"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    gst_init_check                  (int *argc,
+                                             char **argv[],
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **err);</pre>
+<p>
+Initializes the GStreamer library, setting up internal path lists,
+registering built-in elements, and loading standard plugins.
+</p>
+<p>
+This function will return <code class="literal">FALSE</code> if GStreamer could not be initialized
+for some reason.  If you want your program to fail fatally,
+use <a href="gstreamer-Gst.html#gst-init"><code class="function">gst_init()</code></a> instead.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>argc</code></em>&#160;:</span></td>
+<td> pointer to application's argc
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>argv</code></em>&#160;:</span></td>
+<td> pointer to application's argv
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>err</code></em>&#160;:</span></td>
+<td> pointer to a <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+><span class="type">GError</span></a> to which a message will be posted on error
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> <code class="literal">TRUE</code> if GStreamer could be initialized.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2582134"></a><h3>
+<a name="gst-init-get-option-group"></a>gst_init_get_option_group ()</h3>
+<a class="indexterm" name="id2582145"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Commandline-option-parser.html#GOptionGroup"
+>GOptionGroup</a>* gst_init_get_option_group     (void);</pre>
+<p>
+Returns a <a
+href="/usr/share/gtk-doc/html/glib/glib-Commandline-option-parser.html#GOptionGroup"
+><span class="type">GOptionGroup</span></a> with GStreamer's argument specifications. The
+group is set up to use standard GOption callbacks, so when using this
+group in combination with GOption parsing methods, all argument parsing
+and initialization is automated.
+</p>
+<p>
+This function is useful if you want to integrate GStreamer with other
+libraries that use GOption (see <a
+href="/usr/share/gtk-doc/html/glib/glib-Commandline-option-parser.html#g-option-context-add-group"
+><code class="function">g_option_context_add_group()</code></a> ).</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> a pointer to GStreamer's option group. Should be dereferenced
+after use.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2582214"></a><h3>
+<a name="gst-deinit"></a>gst_deinit ()</h3>
+<a class="indexterm" name="id2582224"></a><pre class="programlisting">void        gst_deinit                      (void);</pre>
+<p>
+Clean up.
+Call only once, before exiting.
+After this call GStreamer should not be used anymore.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2582250"></a><h3>
+<a name="gst-version"></a>gst_version ()</h3>
+<a class="indexterm" name="id2582260"></a><pre class="programlisting">void        gst_version                     (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> *major,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> *minor,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> *micro,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> *nano);</pre>
+<p>
+Gets the version number of the GStreamer library.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>major</code></em>&#160;:</span></td>
+<td> pointer to a guint to store the major version number
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>minor</code></em>&#160;:</span></td>
+<td> pointer to a guint to store the minor version number
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>micro</code></em>&#160;:</span></td>
+<td> pointer to a guint to store the micro version number
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>nano</code></em>&#160;:</span></td>
+<td>  pointer to a guint to store the nano version number
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2582377"></a><h3>
+<a name="gst-version-string"></a>gst_version_string ()</h3>
+<a class="indexterm" name="id2582388"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*      gst_version_string              (void);</pre>
+<p>
+This function returns a string that is useful for describing this version
+of GStreamer to the outside world: user agent strings, logging, ...</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> a newly allocated string describing this version of GStreamer.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2582431"></a><h2>See Also</h2>
+Check out both <a href="http://www.cse.ogi.edu/sysl/" target="_top">OGI's
+           pipeline</a> and Microsoft's DirectShow for some background.
+</div>
+</div>
+<table class="navigation" width="100%" summary="Navigation footer" cellpadding="2" cellspacing="0"><tr valign="middle">
+<td align="left"><a accesskey="p" href="libgstreamer.html"><b>&lt;&lt;&#160;GStreamer Core Library</b></a></td>
+<td align="right"><a accesskey="n" href="GstBin.html"><b>GstBin&#160;&gt;&gt;</b></a></td>
+</tr></table>
+</body>
+</html>

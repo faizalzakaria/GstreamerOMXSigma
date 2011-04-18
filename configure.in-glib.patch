@@ -1,0 +1,119 @@
+--- configure.in	2007-01-17 01:24:39.000000000 +0200
++++ ../configure.in-glib	2007-02-08 17:42:51.000000000 +0200
+@@ -619,18 +619,20 @@
+ dnl
+ dnl check in which direction the stack grows
+ dnl
+-AC_CACHE_CHECK([for growing stack pointer],glib_cv_stack_grows,[
+-        AC_TRY_RUN([
+-	volatile int *a = 0, *b = 0;
+-	void foo (void);
+-	int main () { volatile int y = 7; a = &y; foo (); return b > a; }
+-	void foo (void) { volatile int x = 5; b = &x; }
+-       	],
+-	glib_cv_stack_grows=no
+-        ,
+-	glib_cv_stack_grows=yes
+-        ,)
+-])
++dnl AC_CACHE_CHECK([for growing stack pointer],glib_cv_stack_grows,[
++dnl         AC_TRY_RUN([
++dnl 	volatile int *a = 0, *b = 0;
++dnl 	void foo (void);
++dnl 	int main () { volatile int y = 7; a = &y; foo (); return b > a; }
++dnl 	void foo (void) { volatile int x = 5; b = &x; }
++dnl        	],
++dnl 	glib_cv_stack_grows=no
++dnl         ,
++dnl 	glib_cv_stack_grows=yes
++dnl         ,)
++dnl ])
++
++glib_cv_stack_grows=no
+ 
+ dnl AC_C_INLINE is useless to us since it bails out too early, we need to
+ dnl truely know which ones of `inline', `__inline' and `__inline__' are
+@@ -1272,23 +1274,24 @@
+   		G_MODULE_BROKEN_RTLD_GLOBAL=0
+ 	fi
+ dnl *** check whether we need preceeding underscores
+-	AC_CACHE_CHECK([for preceeding underscore in symbols],
+-		glib_cv_uscore,[
+-		AC_TRY_RUN([#include <dlfcn.h>
+-                int glib_underscore_test (void) { return 42; }
+-		int main() {
+-		  void *f1 = (void*)0, *f2 = (void*)0, *handle;
+-		  handle = dlopen ((void*)0, 0);
+-		  if (handle) {
+-		    f1 = dlsym (handle, "glib_underscore_test");
+-		    f2 = dlsym (handle, "_glib_underscore_test");
+-		  } return (!f2 || f1);
+-		}],
+-			[glib_cv_uscore=yes],
+-			[glib_cv_uscore=no],
+-			[])
+-		rm -f plugin.c plugin.$ac_objext plugin.lo
+-	])
++dnl 	AC_CACHE_CHECK([for preceeding underscore in symbols],
++dnl 		glib_cv_uscore,[
++dnl 		AC_TRY_RUN([#include <dlfcn.h>
++dnl                 int glib_underscore_test (void) { return 42; }
++dnl 		int main() {
++dnl 		  void *f1 = (void*)0, *f2 = (void*)0, *handle;
++dnl 		  handle = dlopen ((void*)0, 0);
++dnl 		  if (handle) {
++dnl 		    f1 = dlsym (handle, "glib_underscore_test");
++dnl 		    f2 = dlsym (handle, "_glib_underscore_test");
++dnl 		  } return (!f2 || f1);
++dnl 		}],
++dnl 			[glib_cv_uscore=yes],
++dnl 			[glib_cv_uscore=no],
++dnl 			[])
++dnl 		rm -f plugin.c plugin.$ac_objext plugin.lo
++dnl 	])
++	glib_cv_uscore=no
+         GLIB_ASSERT_SET(glib_cv_uscore)
+ 	if test "x$glib_cv_uscore" = "xyes"; then
+   		G_MODULE_NEED_USCORE=1
+@@ -1813,23 +1816,24 @@
+ 	# LIBS="$LIBS $G_THREAD_LIBS"
+ 	AC_CHECK_FUNCS(localtime_r)
+ 	if test "$ac_cv_header_pwd_h" = "yes"; then
+-	 	AC_CACHE_CHECK([for posix getpwuid_r],
+-			ac_cv_func_posix_getpwuid_r,
+-			[AC_TRY_RUN([
+-#include <errno.h>
+-#include <pwd.h>
+-int main () { 
+-    char buffer[10000];
+-    struct passwd pwd, *pwptr = &pwd;
+-    int error;
+-    errno = 0;
+-    error = getpwuid_r (0, &pwd, buffer, 
+-                        sizeof (buffer), &pwptr);
+-   return (error < 0 && errno == ENOSYS) 
+-	   || error == ENOSYS; 
+-}                               ],
+-				[ac_cv_func_posix_getpwuid_r=yes],
+-				[ac_cv_func_posix_getpwuid_r=no])])
++dnl	 	AC_CACHE_CHECK([for posix getpwuid_r],
++dnl				ac_cv_func_posix_getpwuid_r,
++dnl				[AC_TRY_RUN([
++dnl	#include <errno.h>
++dnl	#include <pwd.h>
++dnl	int main () { 
++dnl	    char buffer[10000];
++dnl	    struct passwd pwd, *pwptr = &pwd;
++dnl	    int error;
++dnl	    errno = 0;
++dnl	    error = getpwuid_r (0, &pwd, buffer, 
++dnl	                        sizeof (buffer), &pwptr);
++dnl	   return (error < 0 && errno == ENOSYS) 
++dnl		   || error == ENOSYS; 
++dnl	}                               ],
++dnl					[ac_cv_func_posix_getpwuid_r=yes],
++dnl					[ac_cv_func_posix_getpwuid_r=no])])
++		ac_cv_func_posix_getpwuid_r=yes
+ 		GLIB_ASSERT_SET(ac_cv_func_posix_getpwuid_r)
+ 		if test "$ac_cv_func_posix_getpwuid_r" = yes; then
+ 			AC_DEFINE(HAVE_POSIX_GETPWUID_R,1,

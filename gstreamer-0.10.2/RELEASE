@@ -1,0 +1,96 @@
+
+GStreamer: Release notes for GStreamer 0.10.2 "If man is five"
+        
+
+
+The GStreamer team is proud to announce a new release
+in the 0.10.x stable series of the
+core of the GStreamer streaming media framework.
+
+
+The 0.10.x series is a stable series targeted at end users.
+It is not API or ABI compatible with the stable 0.8.x series.
+It is, however, parallel installable with the 0.8.x series.
+
+
+The 0.10.x series has been reworked for threadsafety.  It also features
+various feature additions and enchancements.
+
+
+This module, gstreamer, only contains core functionality.
+For actual media playback, you will need other modules.
+
+gst-plugins-base
+contains a basic set of well-supported plug-ins
+gst-plugins-good
+contains a set of well-supported plug-ins under our preferred license
+gst-plugins-ugly
+contains a set of well-supported plug-ins, but might pose problems for
+    distributors
+gst-plugins-bad
+contains a set of less supported plug-ins that haven't passed the
+    rigorous quality testing we expect
+
+
+
+  
+Features of this release
+    
+      * Parallel installability with 0.8.x series
+      * Threadsafe design and API
+      * documentation updates
+      * bug fixes
+
+Bugs fixed in this release
+    
+      * 325429 : GST_BOILERPLATE_FULL can't be used when compiling with -W...
+      * 316086 : MinGW compilation: fileindexer depends on mmap
+
+Download
+
+You can find source releases of gstreamer in the download directory:
+http://gstreamer.freedesktop.org/src/gstreamer/
+
+GStreamer Homepage
+
+More details can be found on the project's website:
+http://gstreamer.freedesktop.org/
+
+Support and Bugs
+
+We use GNOME's bugzilla for bug reports and feature requests:
+http://bugzilla.gnome.org/enter_bug.cgi?product=GStreamer
+
+Developers
+
+CVS is hosted on cvs.freedesktop.org.
+All code is in CVS and can be checked out from there.
+Interested developers of the core library, plug-ins, and applications should
+subscribe to the gstreamer-devel list. If there is sufficient interest we
+will create more lists as necessary.
+
+        
+Applications
+
+At this point, ports of existing applications to 0.10 are still experimental.
+Totem HEAD has a configure option to build the 0.10 backend.
+A patch for Rhythmbox is maintained at
+
+http://bugzilla.gnome.org/show_bug.cgi?id=309609.
+Jamboree builds against GStreamer 0.10.
+Flumotion has been ported to 0.10 as well.
+
+  
+Contributors to this release
+    
+      * Brian Cameron
+      * David Schleef
+      * Edward Hervey
+      * James Livingston
+      * Jan Schmidt
+      * Sebastien Moutte
+      * Stefan Kost
+      * Thomas Vander Stichele
+      * Tim-Philipp Müller
+      * Wim Taymans
+ 

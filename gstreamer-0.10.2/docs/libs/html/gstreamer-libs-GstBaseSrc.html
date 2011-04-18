@@ -1,0 +1,372 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>GstBaseSrc</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.68.1">
+<link rel="start" href="index.html" title="GStreamer 0.10 Library Reference Manual">
+<link rel="up" href="gstreamer-base.html" title="GStreamer Base and Utillity Classes">
+<link rel="prev" href="gstreamer-base.html" title="GStreamer Base and Utillity Classes">
+<link rel="next" href="gstreamer-libs-GstBaseSink.html" title="GstBaseSink">
+<meta name="generator" content="GTK-Doc V1.4 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="gstreamer-libs.html" title="Part&#160;I.&#160;GStreamer Libraries">
+<link rel="chapter" href="gstreamer-base.html" title="GStreamer Base and Utillity Classes">
+<link rel="chapter" href="gstreamer-control.html" title="gstcontrol">
+<link rel="chapter" href="gstreamer-net.html" title="GStreamer Network Classes">
+<link rel="chapter" href="gstreamer-check.html" title="GStreamer Check Unit Testing">
+<link rel="part" href="gstreamer-libs-hierarchy.html" title="Part&#160;II.&#160;Object Hierarchy">
+<link rel="index" href="api-index.html" title="Index">
+<link rel="index" href="ix02.html" title="Index of deprecated symbols">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="gstreamer-base.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="gstreamer-base.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GStreamer 0.10 Library Reference Manual</th>
+<td><a accesskey="n" href="gstreamer-libs-GstBaseSink.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" lang="en">
+<a name="gstreamer-libs-GstBaseSrc"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">GstBaseSrc</span></h2>
+<p>GstBaseSrc &#8212; Base class for getrange based source elements</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gst/base/gstbasesrc.h&gt;
+
+
+            <a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc">GstBaseSrc</a>;
+enum        <a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrcFlags">GstBaseSrcFlags</a>;
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    <a href="gstreamer-libs-GstBaseSrc.html#gst-base-src-is-live">gst_base_src_is_live</a>            (<a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc">GstBaseSrc</a> *src);
+void        <a href="gstreamer-libs-GstBaseSrc.html#gst-base-src-set-live">gst_base_src_set_live</a>           (<a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc">GstBaseSrc</a> *src,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> live);
+void        <a href="gstreamer-libs-GstBaseSrc.html#gst-base-src-set-format">gst_base_src_set_format</a>         (<a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc">GstBaseSrc</a> *src,
+                                             <a
+href="../gstreamer/gstreamer-GstFormat.html#GstFormat"
+>GstFormat</a> format);
+#define     <a href="gstreamer-libs-GstBaseSrc.html#GST-BASE-SRC-PAD:CAPS">GST_BASE_SRC_PAD</a>                (obj)
+
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2983815"></a><h2>Description</h2>
+<p>
+This is a generice base class for source elements. The following
+types of sources are supported:
+</p>
+<div class="itemizedlist"><ul type="disc">
+<li><p>random access sources like files</p></li>
+<li><p>seekable sources</p></li>
+<li><p>live sources</p></li>
+</ul></div>
+<p>
+</p>
+<p>
+The source can be configured to operate in a any <a
+href="../gstreamer/gstreamer-GstFormat.html#GstFormat"
+><span class="type">GstFormat</span></a> with the
+<a href="gstreamer-libs-GstBaseSrc.html#gst-base-src-set-format"><code class="function">gst_base_src_set_format()</code></a>. This format determines the format of the
+internal <a
+href="../gstreamer/gstreamer-GstSegment.html#GstSegment"
+><span class="type">GstSegment</span></a> and the <span class="type">GST_EVENT_NEW_SEGMENT</span>. The default format for
+<a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc"><span class="type">GstBaseSrc</span></a> is GST_FORMAT_BYTES.
+</p>
+<p>
+<a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc"><span class="type">GstBaseSrc</span></a> always supports the push mode scheduling. If the following
+conditions are met, it also supports pull mode scheduling:
+</p>
+<div class="itemizedlist"><ul type="disc">
+<li><p>the format is set to GST_FORMAT_BYTES (default).</p></li>
+<li><p><a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc"><span class="type">GstBaseSrc</span></a>::is_seekable returns TRUE.</p></li>
+</ul></div>
+<p>
+</p>
+<p>
+If all the conditions are met for operating in pull mode, <a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc"><span class="type">GstBaseSrc</span></a> is
+automatically seekable in push mode as well. The following conditions must be
+met to make the element seekable in push mode when the format is not
+GST_FORMAT_BYTES:
+</p>
+<div class="itemizedlist"><ul type="disc">
+<li><p>
+    <a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc"><span class="type">GstBaseSrc</span></a>::is_seekable returns TRUE.
+  </p></li>
+<li><p>
+    <a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc"><span class="type">GstBaseSrc</span></a>::query can convert all supported seek formats to the
+    internal format as set with <a href="gstreamer-libs-GstBaseSrc.html#gst-base-src-set-format"><code class="function">gst_base_src_set_format()</code></a>.
+  </p></li>
+<li><p>
+    <a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc"><span class="type">GstBaseSrc</span></a>::do_seek is implemented, performs the seek and returns TRUE.
+  </p></li>
+</ul></div>
+<p>
+</p>
+<p>
+When the default format is not GST_FORMAT_BYTES, the element should ignore the
+offset and length in the <a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc"><span class="type">GstBaseSrc</span></a>::create method. It is recommended to subclass
+<a href="gstreamer-libs-GstPushSrc.html#GstPushSrc"><span class="type">GstPushSrc</span></a> instead in this situation.
+</p>
+<p>
+<a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc"><span class="type">GstBaseSrc</span></a> has support for live sources. Live sources are sources that produce
+data at a fixed rate, such as audio or video capture. A typical live source also
+provides a clock to export the rate at which they produce data.
+Use <a href="gstreamer-libs-GstBaseSrc.html#gst-base-src-set-live"><code class="function">gst_base_src_set_live()</code></a> to activate the live source mode.
+</p>
+<p>
+A live source does not produce data in the PAUSED state, this means that the 
+<a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc"><span class="type">GstBaseSrc</span></a>::create method will not be called in PAUSED but only in PLAYING.
+To signal the pipeline that the element will not produce data, its return
+value from the READY to PAUSED state will be GST_STATE_CHANGE_NO_PREROLL.
+</p>
+<p>
+A typical live source will timestamp the buffers they create with the current
+stream time of the pipeline. This is why they can only produce data in PLAYING,
+when the clock is actually distributed and running.
+</p>
+<p>
+The <a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc"><span class="type">GstBaseSrc</span></a>::get_times method can be used to implement pseudo-live sources.
+The base source will wait for the specified stream time returned in 
+<a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc"><span class="type">GstBaseSrc</span></a>::get_times before pushing out the buffer. It only makes sense to implement
+the ::get_times function if the source is a live source.
+</p>
+<p>
+There is only support in GstBaseSrc for one source pad, which should be named
+"src". A source implementation (subclass of GstBaseSrc) should install a pad
+template in its base_init function, like so:
+</p>
+<p>
+</p>
+<pre class="programlisting">
+static void
+my_element_base_init (gpointer g_class)
+{
+  GstElementClass *gstelement_class = GST_ELEMENT_CLASS (g_class);
+  // srctemplate should be a <a
+href="../gstreamer/GstPadTemplate.html#GstStaticPadTemplate"
+><span class="type">GstStaticPadTemplate</span></a> with direction
+  // <span class="type">GST_PAD_SRC</span> and name "src"
+  gst_element_class_add_pad_template (gstelement_class,
+      gst_static_pad_template_get (&amp;srctemplate));
+  // see <a
+href="../gstreamer/GstElementFactory.html#GstElementDetails"
+><span class="type">GstElementDetails</span></a>
+  gst_element_class_set_details (gstelement_class, &amp;details);
+}
+</pre>
+<p>
+</p>
+<p>
+Last reviewed on 2005-12-18 (0.10.0)</p>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2984151"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2984156"></a><h3>
+<a name="GstBaseSrc"></a>GstBaseSrc</h3>
+<a class="indexterm" name="id2984166"></a><pre class="programlisting">typedef struct {
+  GstElement     element;
+} GstBaseSrc;
+</pre>
+<p>
+The opaque <a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc"><span class="type">GstBaseSrc</span></a> data structure.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><a
+href="../gstreamer/GstElement.html"
+>GstElement</a>&#160;<em class="structfield"><code>element</code></em>;</span></td>
+<td> the parent element.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2984219"></a><h3>
+<a name="GstBaseSrcFlags"></a>enum GstBaseSrcFlags</h3>
+<a class="indexterm" name="id2984230"></a><pre class="programlisting">typedef enum {
+  GST_BASE_SRC_STARTED           = (GST_ELEMENT_FLAG_LAST &lt;&lt; 0),
+  /* padding */
+  GST_BASE_SRC_FLAG_LAST         = (GST_ELEMENT_FLAG_LAST &lt;&lt; 2)
+} GstBaseSrcFlags;
+</pre>
+<p>
+The <a
+href="../gstreamer/GstElement.html"
+><span class="type">GstElement</span></a> flags that a basesrc element may have.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_BASE_SRC_STARTED</code></span></td>
+<td> has source been started
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_BASE_SRC_FLAG_LAST</code></span></td>
+<td> offset to define more flags
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2984299"></a><h3>
+<a name="gst-base-src-is-live"></a>gst_base_src_is_live ()</h3>
+<a class="indexterm" name="id2984309"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    gst_base_src_is_live            (<a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc">GstBaseSrc</a> *src);</pre>
+<p>
+Check if an element is in live mode.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>src</code></em>&#160;:</span></td>
+<td> base source instance
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> <code class="literal">TRUE</code> if element is in live mode.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2984377"></a><h3>
+<a name="gst-base-src-set-live"></a>gst_base_src_set_live ()</h3>
+<a class="indexterm" name="id2984387"></a><pre class="programlisting">void        gst_base_src_set_live           (<a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc">GstBaseSrc</a> *src,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> live);</pre>
+<p>
+If the element listens to a live source, the <em class="parameter"><code>livemode</code></em> should
+be set to <code class="literal">TRUE</code>. This declares that this source can't seek.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>src</code></em>&#160;:</span></td>
+<td> base source instance
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>live</code></em>&#160;:</span></td>
+<td> new live-mode
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2984472"></a><h3>
+<a name="gst-base-src-set-format"></a>gst_base_src_set_format ()</h3>
+<a class="indexterm" name="id2984482"></a><pre class="programlisting">void        gst_base_src_set_format         (<a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc">GstBaseSrc</a> *src,
+                                             <a
+href="../gstreamer/gstreamer-GstFormat.html#GstFormat"
+>GstFormat</a> format);</pre>
+<p>
+Sets the default format of the source. This will be the format used
+for sending NEW_SEGMENT events and for performing seeks.
+</p>
+<p>
+If a format of GST_FORMAT_BYTES is set, the element will be able to
+operate in pull mode if the <a href="gstreamer-libs-GstBaseSrc.html#GstBaseSrc"><span class="type">GstBaseSrc</span></a>::is_seekable returns TRUE.
+</p>
+<p>
+<em class="parameter"><code>Since</code></em>: 0.10.1</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>src</code></em>&#160;:</span></td>
+<td> base source instance
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>format</code></em>&#160;:</span></td>
+<td> the format to use
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2984578"></a><h3>
+<a name="GST-BASE-SRC-PAD:CAPS"></a>GST_BASE_SRC_PAD()</h3>
+<a class="indexterm" name="id2984589"></a><pre class="programlisting">#define GST_BASE_SRC_PAD(obj)                 (GST_BASE_SRC_CAST (obj)-&gt;srcpad)
+</pre>
+<p>
+Gives the pointer to the <a
+href="../gstreamer/GstPad.html"
+><span class="type">GstPad</span></a> object of the element.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>obj</code></em>&#160;:</span></td>
+<td> base source instance
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2984638"></a><h2>See Also</h2>
+<a href="gstreamer-libs-GstPushSrc.html#GstPushSrc"><span class="type">GstPushSrc</span></a>, <a href="gstreamer-libs-GstBaseTransform.html#GstBaseTransform"><span class="type">GstBaseTransform</span></a>, <a href="gstreamer-libs-GstBaseSink.html#GstBaseSink"><span class="type">GstBaseSink</span></a>
+</div>
+</div>
+<table class="navigation" width="100%" summary="Navigation footer" cellpadding="2" cellspacing="0"><tr valign="middle">
+<td align="left"><a accesskey="p" href="gstreamer-base.html"><b>&lt;&lt;&#160;GStreamer Base and Utillity Classes</b></a></td>
+<td align="right"><a accesskey="n" href="gstreamer-libs-GstBaseSink.html"><b>GstBaseSink&#160;&gt;&gt;</b></a></td>
+</tr></table>
+</body>
+</html>

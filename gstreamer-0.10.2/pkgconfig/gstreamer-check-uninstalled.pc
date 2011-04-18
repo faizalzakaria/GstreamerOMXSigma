@@ -1,0 +1,13 @@
+# the standard variables don't make sense for an uninstalled copy
+prefix=
+exec_prefix=
+libdir=${pcfiledir}/../libs/gst/check
+includedir=${pcfiledir}/..
+
+Name: GStreamer check unit testing, uninstalled
+Description: Unit testing helper library for GStreamer modules, Not Installed
+Requires: gstreamer-0.10 = 0.10.2
+Version: 0.10.2
+
+Libs: ${libdir}/libgstcheck-0.10.la -lcheck
+Cflags: -I${includedir}

@@ -1,0 +1,1081 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>GstPlugin</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.68.1">
+<link rel="start" href="index.html" title="GStreamer 0.10 Core Reference Manual">
+<link rel="up" href="libgstreamer.html" title="GStreamer Core Library">
+<link rel="prev" href="GstPipeline.html" title="GstPipeline">
+<link rel="next" href="GstPluginFeature.html" title="GstPluginFeature">
+<meta name="generator" content="GTK-Doc V1.4 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="gstreamer.html" title="GStreamer Overview">
+<link rel="chapter" href="libgstreamer.html" title="GStreamer Core Library">
+<link rel="chapter" href="gstreamer-support.html" title="GStreamer Core Support">
+<link rel="chapter" href="gstreamer-hierarchy.html" title="Object Hierarchy">
+<link rel="index" href="api-index.html" title="Index">
+<link rel="index" href="ix02.html" title="Index of deprecated symbols">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="GstPipeline.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libgstreamer.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GStreamer 0.10 Core Reference Manual</th>
+<td><a accesskey="n" href="GstPluginFeature.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" lang="en">
+<a name="GstPlugin"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">GstPlugin</span></h2>
+<p>GstPlugin &#8212; Container for features loaded from a shared object module</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gst/gst.h&gt;
+
+
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Quarks.html#GQuark"
+>GQuark</a>      <a href="GstPlugin.html#gst-plugin-error-quark">gst_plugin_error_quark</a>          (void);
+#define     <a href="GstPlugin.html#GST-PLUGIN-ERROR:CAPS">GST_PLUGIN_ERROR</a>
+enum        <a href="GstPlugin.html#GstPluginError">GstPluginError</a>;
+            <a href="GstPlugin.html#GstPlugin-struct">GstPlugin</a>;
+            <a href="GstPlugin.html#GstPluginDesc">GstPluginDesc</a>;
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    (<a href="GstPlugin.html#GstPluginInitFunc">*GstPluginInitFunc</a>)            (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);
+#define     <a href="GstPlugin.html#GST-PLUGIN-DEFINE:CAPS">GST_PLUGIN_DEFINE</a>               (major,minor,name,description,init,version,license,package,origin)
+#define     <a href="GstPlugin.html#GST-PLUGIN-DEFINE-STATIC:CAPS">GST_PLUGIN_DEFINE_STATIC</a>        (major,minor,name,description,init,version,license,package,origin)
+#define     <a href="GstPlugin.html#GST-LICENSE-UNKNOWN:CAPS">GST_LICENSE_UNKNOWN</a>
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    (<a href="GstPlugin.html#GstPluginFilter">*GstPluginFilter</a>)              (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>* <a href="GstPlugin.html#gst-plugin-get-name">gst_plugin_get_name</a>            (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);
+const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>* <a href="GstPlugin.html#gst-plugin-get-description">gst_plugin_get_description</a>     (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);
+const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>* <a href="GstPlugin.html#gst-plugin-get-filename">gst_plugin_get_filename</a>        (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);
+const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>* <a href="GstPlugin.html#gst-plugin-get-license">gst_plugin_get_license</a>         (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);
+const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>* <a href="GstPlugin.html#gst-plugin-get-package">gst_plugin_get_package</a>         (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);
+const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>* <a href="GstPlugin.html#gst-plugin-get-origin">gst_plugin_get_origin</a>          (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);
+const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>* <a href="GstPlugin.html#gst-plugin-get-source">gst_plugin_get_source</a>          (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);
+const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>* <a href="GstPlugin.html#gst-plugin-get-version">gst_plugin_get_version</a>         (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Dynamic-Loading-of-Modules.html#GModule"
+>GModule</a>*    <a href="GstPlugin.html#gst-plugin-get-module">gst_plugin_get_module</a>           (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    <a href="GstPlugin.html#gst-plugin-is-loaded">gst_plugin_is_loaded</a>            (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    <a href="GstPlugin.html#gst-plugin-name-filter">gst_plugin_name_filter</a>          (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name);
+<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a>*  <a href="GstPlugin.html#gst-plugin-load-file">gst_plugin_load_file</a>            (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *filename,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a>*  <a href="GstPlugin.html#gst-plugin-load">gst_plugin_load</a>                 (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);
+<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a>*  <a href="GstPlugin.html#gst-plugin-load-by-name">gst_plugin_load_by_name</a>         (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name);
+void        <a href="GstPlugin.html#gst-plugin-list-free">gst_plugin_list_free</a>            (<a
+href="/usr/share/gtk-doc/html/glib/glib-Doubly-Linked-Lists.html#GList"
+>GList</a> *list);
+
+
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2768857"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a href="GstObject.html" title="GstObject">GstObject</a>
+         +----GstPlugin
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2768884"></a><h2>Description</h2>
+<p>
+GStreamer is extensible, so <a href="GstElement.html" title="GstElement"><span class="type">GstElement</span></a> instances can be loaded at runtime.
+A plugin system can provide one or more of the basic
+<span class="application">GStreamer</span> <a href="GstPluginFeature.html" title="GstPluginFeature"><span class="type">GstPluginFeature</span></a> subclasses.
+</p>
+<p>
+A plugin should export a symbol <span class="symbol">plugin_desc</span> that is a
+struct of type <a href="GstPlugin.html#GstPluginDesc"><span class="type">GstPluginDesc</span></a>.
+the plugin loader will check the version of the core library the plugin was
+linked against and will create a new <a href="GstPlugin.html" title="GstPlugin"><span class="type">GstPlugin</span></a>. It will then call the
+<a href="GstPlugin.html#GstPluginInitFunc"><span class="type">GstPluginInitFunc</span></a> function that was provided in the plugin_desc.
+</p>
+<p>
+Once you have a handle to a <a href="GstPlugin.html" title="GstPlugin"><span class="type">GstPlugin</span></a> (e.g. from the <span class="type">GstRegistryPool</span>), you
+can add any object that subclasses <a href="GstPluginFeature.html" title="GstPluginFeature"><span class="type">GstPluginFeature</span></a>.
+</p>
+<p>
+Use <a
+href="/usr/share/gtk-doc/html/gstreamer/gstreamer-GstPlugin.html#gst-plugin-find-feature"
+><code class="function">gst_plugin_find_feature()</code></a> and <a
+href="/usr/share/gtk-doc/html/gstreamer/gstreamer-GstPlugin.html#gst-plugin-get-feature-list"
+><code class="function">gst_plugin_get_feature_list()</code></a> to find
+features in a plugin.
+</p>
+<p>
+Usually plugins are always automaticlly loaded so you don't need to call
+<a href="GstPlugin.html#gst-plugin-load"><code class="function">gst_plugin_load()</code></a> explicitly to bring it into memory. There are options to
+statically link plugins to an app or even use GStreamer without a plugin
+repository in which case <a href="GstPlugin.html#gst-plugin-load"><code class="function">gst_plugin_load()</code></a> can be needed to bring the plugin
+into memory.</p>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2769045"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2769050"></a><h3>
+<a name="gst-plugin-error-quark"></a>gst_plugin_error_quark ()</h3>
+<a class="indexterm" name="id2769061"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Quarks.html#GQuark"
+>GQuark</a>      gst_plugin_error_quark          (void);</pre>
+<p>
+Get the error quark.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> The error quark used in GError messages
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2769101"></a><h3>
+<a name="GST-PLUGIN-ERROR:CAPS"></a>GST_PLUGIN_ERROR</h3>
+<a class="indexterm" name="id2769113"></a><pre class="programlisting">#define GST_PLUGIN_ERROR gst_plugin_error_quark ()
+</pre>
+<p>
+The error message category quark</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2769132"></a><h3>
+<a name="GstPluginError"></a>enum GstPluginError</h3>
+<a class="indexterm" name="id2769142"></a><pre class="programlisting">typedef enum
+{
+  GST_PLUGIN_ERROR_MODULE,
+  GST_PLUGIN_ERROR_DEPENDENCIES,
+  GST_PLUGIN_ERROR_NAME_MISMATCH
+} GstPluginError;
+</pre>
+<p>
+The plugin loading errors</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_PLUGIN_ERROR_MODULE</code></span></td>
+<td> The plugin could not be loaded
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_PLUGIN_ERROR_DEPENDENCIES</code></span></td>
+<td> The plugin has unresolved dependencies
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GST_PLUGIN_ERROR_NAME_MISMATCH</code></span></td>
+<td> The plugin has already be loaded from a different file
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2769214"></a><h3>
+<a name="GstPlugin-struct"></a>GstPlugin</h3>
+<a class="indexterm" name="id2769224"></a><pre class="programlisting">typedef struct _GstPlugin GstPlugin;</pre>
+<p>
+The plugin object</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2769243"></a><h3>
+<a name="GstPluginDesc"></a>GstPluginDesc</h3>
+<a class="indexterm" name="id2769254"></a><pre class="programlisting">typedef struct {
+  gint major_version;
+  gint minor_version;
+  gchar *name;
+  gchar *description;
+  GstPluginInitFunc plugin_init;
+  gchar *version;
+  gchar *license;
+  gchar *source;
+  gchar *package;
+  gchar *origin;
+
+  gpointer _gst_reserved[GST_PADDING];
+} GstPluginDesc;
+</pre>
+<p>
+A plugins should export a variable of this type called plugin_desc. This plugin
+loaded will use this variable to initialize the plugin.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>&#160;<em class="structfield"><code>major_version</code></em>;</span></td>
+<td> the major version number of core that plugin was compiled for
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>&#160;<em class="structfield"><code>minor_version</code></em>;</span></td>
+<td> the minor version number of core that plugin was compiled for
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>&#160;*<em class="structfield"><code>name</code></em>;</span></td>
+<td> a unique name of the plugin
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>&#160;*<em class="structfield"><code>description</code></em>;</span></td>
+<td> description of plugin
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><a href="GstPlugin.html#GstPluginInitFunc">GstPluginInitFunc</a>&#160;<em class="structfield"><code>plugin_init</code></em>;</span></td>
+<td> pointer to the init function of this plugin.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>&#160;*<em class="structfield"><code>version</code></em>;</span></td>
+<td> version of the plugin
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>&#160;*<em class="structfield"><code>license</code></em>;</span></td>
+<td> effective license of plugin
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>&#160;*<em class="structfield"><code>source</code></em>;</span></td>
+<td> source module plugin belongs to
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>&#160;*<em class="structfield"><code>package</code></em>;</span></td>
+<td> shipped package plugin belongs to
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>&#160;*<em class="structfield"><code>origin</code></em>;</span></td>
+<td> URL to provider of plugin
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>&#160;<em class="structfield"><code>_gst_reserved</code></em>[GST_PADDING];</span></td>
+<td> private, for later expansion
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2769512"></a><h3>
+<a name="GstPluginInitFunc"></a>GstPluginInitFunc ()</h3>
+<a class="indexterm" name="id2769524"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    (*GstPluginInitFunc)            (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);</pre>
+<p>
+A plugin should provide a pointer to a function of this type in the
+plugin_desc struct.
+This function will be called by the loader at startup.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>plugin</code></em>&#160;:</span></td>
+<td> The plugin object that can be used to register <span class="type">GstPluginFeatures</span> for this plugin.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> <code class="literal">TRUE</code> if plugin initialised successfully
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2769602"></a><h3>
+<a name="GST-PLUGIN-DEFINE:CAPS"></a>GST_PLUGIN_DEFINE()</h3>
+<a class="indexterm" name="id2769614"></a><pre class="programlisting">#define     GST_PLUGIN_DEFINE(major,minor,name,description,init,version,license,package,origin)</pre>
+<p>
+This macro needs to be used to define the entry point and meta data of a
+plugin. One would use this macro to export a plugin, so that it can be used
+by other applications</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>major</code></em>&#160;:</span></td>
+<td> major version number of the gstreamer-core that plugin was compiled for
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>minor</code></em>&#160;:</span></td>
+<td> minor version number of the gstreamer-core that plugin was compiled for
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></td>
+<td> short, but unique name of the plugin
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>description</code></em>&#160;:</span></td>
+<td> information about the purpose of the plugin
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>init</code></em>&#160;:</span></td>
+<td> function pointer to the plugin_init method with the signature of <code class="code">static gboolean plugin_init (GstPlugin * plugin)</code>.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>version</code></em>&#160;:</span></td>
+<td> full version string (e.g. VERSION from config.h)
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>license</code></em>&#160;:</span></td>
+<td> under which licence the package has been released, e.g. GPL, LGPL.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>package</code></em>&#160;:</span></td>
+<td> the package-name (e.g. PACKAGE_NAME from config.h)
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>origin</code></em>&#160;:</span></td>
+<td> a description from where the package comes from (e.g. the homepage URL)
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2769776"></a><h3>
+<a name="GST-PLUGIN-DEFINE-STATIC:CAPS"></a>GST_PLUGIN_DEFINE_STATIC()</h3>
+<a class="indexterm" name="id2769788"></a><pre class="programlisting">#define     GST_PLUGIN_DEFINE_STATIC(major,minor,name,description,init,version,license,package,origin)</pre>
+<p>
+This macro needs to be used to define the entry point and meta data of a
+local plugin. One would use this macro to define a local plugin that can only
+be used by the own application.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>major</code></em>&#160;:</span></td>
+<td> major version number of the gstreamer-core that plugin was compiled for
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>minor</code></em>&#160;:</span></td>
+<td> minor version number of the gstreamer-core that plugin was compiled for
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></td>
+<td> short, but unique name of the plugin
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>description</code></em>&#160;:</span></td>
+<td> information about the purpose of the plugin
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>init</code></em>&#160;:</span></td>
+<td> function pointer to the plugin_init method with the signature of <code class="code">static gboolean plugin_init (GstPlugin * plugin)</code>.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>version</code></em>&#160;:</span></td>
+<td> full version string (e.g. VERSION from config.h)
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>license</code></em>&#160;:</span></td>
+<td> under which licence the package has been released, e.g. GPL, LGPL.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>package</code></em>&#160;:</span></td>
+<td> the package-name (e.g. PACKAGE_NAME from config.h)
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>origin</code></em>&#160;:</span></td>
+<td> a description from where the package comes from (e.g. the homepage URL)
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2769950"></a><h3>
+<a name="GST-LICENSE-UNKNOWN:CAPS"></a>GST_LICENSE_UNKNOWN</h3>
+<a class="indexterm" name="id2769962"></a><pre class="programlisting">#define GST_LICENSE_UNKNOWN "unknown"
+</pre>
+<p>
+To be used in GST_PLUGIN_DEFINE or GST_PLUGIN_DEFINE_STATIC if usure about
+the licence.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2769982"></a><h3>
+<a name="GstPluginFilter"></a>GstPluginFilter ()</h3>
+<a class="indexterm" name="id2769992"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    (*GstPluginFilter)              (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+A function that can be used with e.g. <a href="GstRegistry.html#gst-registry-plugin-filter"><code class="function">gst_registry_plugin_filter()</code></a>
+to get a list of plugins that match certain criteria.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>plugin</code></em>&#160;:</span></td>
+<td> the plugin to check
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td> the user_data that has been passed on e.g. <a href="GstRegistry.html#gst-registry-plugin-filter"><code class="function">gst_registry_plugin_filter()</code></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> TRUE for a positive match, FALSE otherwise
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2770101"></a><h3>
+<a name="gst-plugin-get-name"></a>gst_plugin_get_name ()</h3>
+<a class="indexterm" name="id2770111"></a><pre class="programlisting">const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>* gst_plugin_get_name            (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);</pre>
+<p>
+Get the short name of the plugin</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>plugin</code></em>&#160;:</span></td>
+<td> plugin to get the name of
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the name of the plugin
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2770173"></a><h3>
+<a name="gst-plugin-get-description"></a>gst_plugin_get_description ()</h3>
+<a class="indexterm" name="id2770185"></a><pre class="programlisting">const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>* gst_plugin_get_description     (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);</pre>
+<p>
+Get the long descriptive name of the plugin</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>plugin</code></em>&#160;:</span></td>
+<td> plugin to get long name of
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the long name of the plugin
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2770247"></a><h3>
+<a name="gst-plugin-get-filename"></a>gst_plugin_get_filename ()</h3>
+<a class="indexterm" name="id2770258"></a><pre class="programlisting">const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>* gst_plugin_get_filename        (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);</pre>
+<p>
+get the filename of the plugin</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>plugin</code></em>&#160;:</span></td>
+<td> plugin to get the filename of
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the filename of the plugin
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2770321"></a><h3>
+<a name="gst-plugin-get-license"></a>gst_plugin_get_license ()</h3>
+<a class="indexterm" name="id2770332"></a><pre class="programlisting">const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>* gst_plugin_get_license         (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);</pre>
+<p>
+get the license of the plugin</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>plugin</code></em>&#160;:</span></td>
+<td> plugin to get the license of
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the license of the plugin
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2770394"></a><h3>
+<a name="gst-plugin-get-package"></a>gst_plugin_get_package ()</h3>
+<a class="indexterm" name="id2770405"></a><pre class="programlisting">const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>* gst_plugin_get_package         (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);</pre>
+<p>
+get the package the plugin belongs to.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>plugin</code></em>&#160;:</span></td>
+<td> plugin to get the package of
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the package of the plugin
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2770468"></a><h3>
+<a name="gst-plugin-get-origin"></a>gst_plugin_get_origin ()</h3>
+<a class="indexterm" name="id2770478"></a><pre class="programlisting">const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>* gst_plugin_get_origin          (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);</pre>
+<p>
+get the URL where the plugin comes from</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>plugin</code></em>&#160;:</span></td>
+<td> plugin to get the origin of
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the origin of the plugin
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2770541"></a><h3>
+<a name="gst-plugin-get-source"></a>gst_plugin_get_source ()</h3>
+<a class="indexterm" name="id2770552"></a><pre class="programlisting">const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>* gst_plugin_get_source          (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);</pre>
+<p>
+get the source module the plugin belongs to.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>plugin</code></em>&#160;:</span></td>
+<td> plugin to get the source of
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the source of the plugin
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2770614"></a><h3>
+<a name="gst-plugin-get-version"></a>gst_plugin_get_version ()</h3>
+<a class="indexterm" name="id2770626"></a><pre class="programlisting">const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>* gst_plugin_get_version         (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);</pre>
+<p>
+get the version of the plugin</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>plugin</code></em>&#160;:</span></td>
+<td> plugin to get the version of
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the version of the plugin
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2770688"></a><h3>
+<a name="gst-plugin-get-module"></a>gst_plugin_get_module ()</h3>
+<a class="indexterm" name="id2770699"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Dynamic-Loading-of-Modules.html#GModule"
+>GModule</a>*    gst_plugin_get_module           (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);</pre>
+<p>
+Gets the <a
+href="/usr/share/gtk-doc/html/glib/glib-Dynamic-Loading-of-Modules.html#GModule"
+><span class="type">GModule</span></a> of the plugin. If the plugin isn't loaded yet, NULL is
+returned.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>plugin</code></em>&#160;:</span></td>
+<td> plugin to query
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> module belonging to the plugin or NULL if the plugin isn't
+         loaded yet.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2770769"></a><h3>
+<a name="gst-plugin-is-loaded"></a>gst_plugin_is_loaded ()</h3>
+<a class="indexterm" name="id2770780"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    gst_plugin_is_loaded            (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);</pre>
+<p>
+queries if the plugin is loaded into memory</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>plugin</code></em>&#160;:</span></td>
+<td> plugin to query
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> TRUE is loaded, FALSE otherwise
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2770842"></a><h3>
+<a name="gst-plugin-name-filter"></a>gst_plugin_name_filter ()</h3>
+<a class="indexterm" name="id2770853"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    gst_plugin_name_filter          (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin,
+                                             const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name);</pre>
+<p>
+A standard filter that returns TRUE when the plugin is of the
+given name.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>plugin</code></em>&#160;:</span></td>
+<td> the plugin to check
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></td>
+<td> the name of the plugin
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> TRUE if the plugin is of the given name.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2770937"></a><h3>
+<a name="gst-plugin-load-file"></a>gst_plugin_load_file ()</h3>
+<a class="indexterm" name="id2770948"></a><pre class="programlisting"><a href="GstPlugin.html" title="GstPlugin">GstPlugin</a>*  gst_plugin_load_file            (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *filename,
+                                             <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+Loads the given plugin and refs it.  Caller needs to unref after use.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>filename</code></em>&#160;:</span></td>
+<td> the plugin filename to load
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>error</code></em>&#160;:</span></td>
+<td> pointer to a NULL-valued GError
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> a reference to the existing loaded GstPlugin, a reference to the
+newly-loaded GstPlugin, or NULL if an error occurred.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2771033"></a><h3>
+<a name="gst-plugin-load"></a>gst_plugin_load ()</h3>
+<a class="indexterm" name="id2771044"></a><pre class="programlisting"><a href="GstPlugin.html" title="GstPlugin">GstPlugin</a>*  gst_plugin_load                 (<a href="GstPlugin.html" title="GstPlugin">GstPlugin</a> *plugin);</pre>
+<p>
+Loads <em class="parameter"><code>plugin</code></em>. Note that the *return value* is the loaded plugin; <em class="parameter"><code>plugin</code></em> is
+untouched. The normal use pattern of this function goes like this:
+</p>
+<p>
+</p>
+<pre class="programlisting">
+GstPlugin *loaded_plugin;
+loaded_plugin = gst_plugin_load (plugin);
+// presumably, we're no longer interested in the potentially-unloaded plugin
+gst_object_unref (plugin);
+plugin = loaded_plugin;
+</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>plugin</code></em>&#160;:</span></td>
+<td> plugin to load
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> A reference to a loaded plugin, or NULL on error.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2771130"></a><h3>
+<a name="gst-plugin-load-by-name"></a>gst_plugin_load_by_name ()</h3>
+<a class="indexterm" name="id2771141"></a><pre class="programlisting"><a href="GstPlugin.html" title="GstPlugin">GstPlugin</a>*  gst_plugin_load_by_name         (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name);</pre>
+<p>
+Load the named plugin. Refs the plugin.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></td>
+<td> name of plugin to load
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> A reference to a loaded plugin, or NULL on error.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2771202"></a><h3>
+<a name="gst-plugin-list-free"></a>gst_plugin_list_free ()</h3>
+<a class="indexterm" name="id2771213"></a><pre class="programlisting">void        gst_plugin_list_free            (<a
+href="/usr/share/gtk-doc/html/glib/glib-Doubly-Linked-Lists.html#GList"
+>GList</a> *list);</pre>
+<p>
+Unrefs each member of <em class="parameter"><code>list</code></em>, then frees the list.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>list</code></em>&#160;:</span></td>
+<td> list of <a href="GstPlugin.html" title="GstPlugin"><span class="type">GstPlugin</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2771278"></a><h2>See Also</h2>
+<a href="GstPluginFeature.html" title="GstPluginFeature"><span class="type">GstPluginFeature</span></a>, <a href="GstElementFactory.html" title="GstElementFactory"><span class="type">GstElementFactory</span></a>
+</div>
+</div>
+<table class="navigation" width="100%" summary="Navigation footer" cellpadding="2" cellspacing="0"><tr valign="middle">
+<td align="left"><a accesskey="p" href="GstPipeline.html"><b>&lt;&lt;&#160;GstPipeline</b></a></td>
+<td align="right"><a accesskey="n" href="GstPluginFeature.html"><b>GstPluginFeature&#160;&gt;&gt;</b></a></td>
+</tr></table>
+</body>
+</html>

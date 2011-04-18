@@ -1,0 +1,3 @@
+<!ENTITY GST_MAJORMINOR "0.10">
+<!ENTITY GST_VERSION "0.10.31">
+<!ENTITY GST_PLUGINS_DIR "/users/phai/share/GSTReamer_compilation/lib/gstreamer-0.10">

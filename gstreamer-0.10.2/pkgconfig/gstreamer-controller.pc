@@ -1,0 +1,11 @@
+prefix=/users/phai/share/GSTReamer_compilation
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/gstreamer-0.10
+
+Name: GStreamer controller
+Description: Dynamic parameter control for GStreamer elements
+Requires: gstreamer-0.10
+Version: 0.10.2
+Libs: -L${libdir} -lgstcontroller-0.10
+Cflags: -I${includedir}
