@@ -10,6 +10,7 @@ set -e
 
 SRC_DIR=gst-openmax
 cd $SRC_DIR
+./autogen.sh --noconfigure
 
 # In order to use pkg-config to build gstreamer
 export PKG_CONFIG_PATH="$P_INSTALL_DIR/lib/pkgconfig:$SMP86XX_ROOTFS_PATH/cross_rootfs/lib/pkgconfig"

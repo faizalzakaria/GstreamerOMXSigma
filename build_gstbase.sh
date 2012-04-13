@@ -37,7 +37,8 @@ LDFLAGS="-L$P_INSTALL_DIR/lib \
             --disable-vorbis  \
             --disable-pango  \
             --disable-theora \
-            --enable-debug=yes
+            --enable-debug=yes \
+            --disable-alsa
 
 make || exit 1
 make install

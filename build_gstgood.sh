@@ -25,7 +25,11 @@ LDFLAGS="-L$P_INSTALL_DIR/lib \
             --disable-valgrind \
             --enable-debug=yes  \
             --disable-x \
-            --disable-shout2 
+            --disable-shout2 \
+            --disable-aalib \
+            --disable-libcaca \
+            --disable-esd \
+            --disable-pulse
 
 make || exit 1
 make install
